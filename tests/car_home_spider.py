@@ -30,7 +30,8 @@ def crawl_detail_page(url: str, title: str, news_type: str):
     author = author.replace("\n", "").strip()
     news_id = re.search('/(\d+).html', url).group(1)
     item = {'news_type': news_type, 'title': title, 'author': author, 'news_id': news_id, 'url': url}
-    MongoSink(db='test', col='car_home_news', uniqu_key='news_id', mongo_connect_url=MONGO_CONNECT_URL, ).save(item) # 也提供了 MysqlSink类
+    # 也提供了 MysqlSink类,都是自动连接池操作数据库
+    MongoSink(db='test', col='car_home_news', uniqu_key='news_id', mongo_connect_url=MONGO_CONNECT_URL, ).save(item)
 
 
 if __name__ == '__main__':

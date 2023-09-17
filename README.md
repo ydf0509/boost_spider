@@ -1,8 +1,7 @@
-
-
 # 1.分布式光速爬虫框架
 
 ## 简介：
+
  ```
  boost_spider 是一款自由奔放写法的爬虫框架，无任何束缚，和用户手写平铺直叙的爬虫函数一样，
  只需要加上boost装饰器就可以自动加速并发，控制手段比传统爬虫框架多太多
@@ -12,11 +11,11 @@
 
 pip install boost_spider
 
-
 # 2.代码例子：
 
 ```python
 from boost_spider import boost, BrokerEnum, RequestClient, MongoSink, json, re
+
 MONGO_CONNECT_URL = 'mongodb://127.0.0.1'
 
 
@@ -48,8 +47,9 @@ def crawl_detail_page(url: str, title: str, news_type: str):
     author = author.replace("\n", "").strip()
     news_id = re.search('/(\d+).html', url).group(1)
     item = {'news_type': news_type, 'title': title, 'author': author, 'news_id': news_id, 'url': url}
-    print(f'保存数据 {json.dumps(item, ensure_ascii=False)} 到数据库')  # 用户自由发挥保存。
-    MongoSink(db='test', col='car_home_news', uniqu_key='news_id', mongo_connect_url=MONGO_CONNECT_URL, ).save(item) # 也提供了 MysqlSink类
+    # 也提供了 MysqlSink类,都是自动连接池操作数据库
+    MongoSink(db='test', col='car_home_news', uniqu_key='news_id',
+              mongo_connect_url=MONGO_CONNECT_URL, ).save(item)
 
 
 if __name__ == '__main__':
@@ -66,10 +66,10 @@ if __name__ == '__main__':
     # 这样速度更猛，叠加多进程
     # crawl_detail_page.multi_process_consume(4)
 
-
 ```
 
 代码说明：
+
 ```
 1.
 RequestClient 类的方法入参和返回与requests包一模一样，方便用户切换

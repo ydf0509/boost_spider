@@ -13,7 +13,7 @@
 pip install boost_spider
 
 
-# 代码例子：
+# 2.代码例子：
 
 ```python
 from boost_spider import boost, BrokerEnum, RequestClient, MongoSink, json, re

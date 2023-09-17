@@ -30,7 +30,6 @@ def crawl_detail_page(url: str, title: str, news_type: str):
     author = author.replace("\n", "").strip()
     news_id = re.search('/(\d+).html', url).group(1)
     item = {'news_type': news_type, 'title': title, 'author': author, 'news_id': news_id, 'url': url}
-    print(f'保存数据 {json.dumps(item, ensure_ascii=False)} 到数据库')  # 用户自由发挥保存。
     MongoSink(db='test', col='car_home_news', uniqu_key='news_id', mongo_connect_url=MONGO_CONNECT_URL, ).save(item) # 也提供了 MysqlSink类
 
 

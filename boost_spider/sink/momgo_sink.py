@@ -1,5 +1,7 @@
 from db_libs.mongo_fork_safe import get_col
 
+from boost_spider.sink.sink_helper import log_save_item
+
 
 class MongoSink:
     def __init__(self, db: str, col: str, uniqu_key: str, mongo_connect_url='mongodb://127.0.0.1', ):
@@ -11,3 +13,4 @@ class MongoSink:
     def save(self, item):
         item['_id'] = item[self.uniqu_key]
         get_col(self.db, self.col, self.mongo_connect_url).replace_one({'_id': item['_id']}, item, upsert=True)
+        log_save_item(item, 'mongo', self.db, self.col)

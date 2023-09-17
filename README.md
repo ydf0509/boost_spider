@@ -17,7 +17,7 @@ pip install boost_spider
 
 ```python
 from boost_spider import boost, BrokerEnum, RequestClient, MongoSink, json, re
-from test_mongo_sink import MONGO_CONNECT_URL # mongo url,保密
+MONGO_CONNECT_URL = 'mongodb://127.0.0.1'
 
 
 @boost('car_home_list', broker_kind=BrokerEnum.REDIS_ACK_ABLE, max_retry_times=5, qps=0.05, do_task_filtering=False)
@@ -49,7 +49,7 @@ def crawl_detail_page(url: str, title: str, news_type: str):
     news_id = re.search('/(\d+).html', url).group(1)
     item = {'news_type': news_type, 'title': title, 'author': author, 'news_id': news_id, 'url': url}
     print(f'保存数据 {json.dumps(item, ensure_ascii=False)} 到数据库')  # 用户自由发挥保存。
-    MongoSink(db='test', col='car_home_news', uniqu_key='news_id', mongo_connect_url=MONGO_CONNECT_URL, ).save(item)
+    MongoSink(db='test', col='car_home_news', uniqu_key='news_id', mongo_connect_url=MONGO_CONNECT_URL, ).save(item) # 也提供了 MysqlSink类
 
 
 if __name__ == '__main__':
@@ -65,5 +65,6 @@ if __name__ == '__main__':
 
     # 这样速度更猛，叠加多进程
     # crawl_detail_page.multi_process_consume(4)
+
 
 ```

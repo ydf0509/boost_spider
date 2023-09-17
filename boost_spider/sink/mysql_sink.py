@@ -42,4 +42,4 @@ class MysqlSink:
 
 
 if __name__ == '__main__':
-    MysqlSink(db='testdb', table='test_table').save({'a': 1, 'b': 2})
+    print(MysqlSink(db='testdb', table='test_table')._build_sql({'a': 1, 'b': 2}))

@@ -2,7 +2,7 @@ from boost_spider import boost, BrokerEnum, RequestClient, MongoSink, json, re
 from test_mongo_sink import MONGO_CONNECT_URL # 保密 mongo url
 
 
-@boost('car_home_list', broker_kind=BrokerEnum.REDIS_ACK_ABLE, max_retry_times=5, qps=0.05, do_task_filtering=False)
+@boost('car_home_list', broker_kind=BrokerEnum.REDIS_ACK_ABLE, max_retry_times=5, qps=2, do_task_filtering=False)
 def crawl_list_page(news_type, page, do_page_turning=False):
     """ 函数这里面的代码是用户想写什么就写什么，函数里面的代码和框架没有任何绑定关系
     例如用户可以用 urllib3请求 用正则表达式解析，没有强迫你用requests请求和parsel包解析。
@@ -21,7 +21,7 @@ def crawl_list_page(news_type, page, do_page_turning=False):
             crawl_list_page.push(news_type, p)  # 列表页翻页。
 
 
-@boost('car_home_detail', broker_kind=BrokerEnum.REDIS_ACK_ABLE, qps=0.1,
+@boost('car_home_detail', broker_kind=BrokerEnum.REDIS_ACK_ABLE, qps=5,
        do_task_filtering=True, is_using_distributed_frequency_control=True)
 def crawl_detail_page(url: str, title: str, news_type: str):
     sel = RequestClient(using_platfrom='汽车之家爬虫新闻详情页').get(url).selector

@@ -1,5 +1,5 @@
 from boost_spider import boost, BrokerEnum, RequestClient, MongoSink, json, re
-from test_mongo_sink import MONGO_CONNECT_URL
+from test_mongo_sink import MONGO_CONNECT_URL # 保密 mongo url
 
 
 @boost('car_home_list', broker_kind=BrokerEnum.REDIS_ACK_ABLE, max_retry_times=5, qps=0.05, do_task_filtering=False)
@@ -8,8 +8,8 @@ def crawl_list_page(news_type, page, do_page_turning=False):
     例如用户可以用 urllib3请求 用正则表达式解析，没有强迫你用requests请求和parsel包解析。
     """
     url = f'https://www.autohome.com.cn/{news_type}/{page}/#liststart'
-    sel = RequestClient(proxy_name_list=['noproxy'], request_retry_times=3, using_platfrom='汽车之家爬虫新闻列表页').get(
-        url).selector
+    sel = RequestClient(proxy_name_list=['noproxy'], request_retry_times=3,
+                        using_platfrom='汽车之家爬虫新闻列表页').get(url).selector
     for li in sel.css('ul.article > li'):
         if len(li.extract()) > 100:  # 有的是这样的去掉。 <li id="ad_tw_04" style="display: none;">
             url_detail = 'https:' + li.xpath('./a/@href').extract_first()

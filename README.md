@@ -15,8 +15,7 @@ pip install boost_spider
 
 ```python
 from boost_spider import boost, BrokerEnum, RequestClient, MongoSink, json, re
-
-MONGO_CONNECT_URL = 'mongodb://127.0.0.1'
+from test_mongo_sink import MONGO_CONNECT_URL # 保密 mongo url
 
 
 @boost('car_home_list', broker_kind=BrokerEnum.REDIS_ACK_ABLE, max_retry_times=5, qps=0.05, do_task_filtering=False)
@@ -25,8 +24,8 @@ def crawl_list_page(news_type, page, do_page_turning=False):
     例如用户可以用 urllib3请求 用正则表达式解析，没有强迫你用requests请求和parsel包解析。
     """
     url = f'https://www.autohome.com.cn/{news_type}/{page}/#liststart'
-    sel = RequestClient(proxy_name_list=['noproxy'], request_retry_times=3, using_platfrom='汽车之家爬虫新闻列表页').get(
-        url).selector
+    sel = RequestClient(proxy_name_list=['noproxy'], request_retry_times=3,
+                        using_platfrom='汽车之家爬虫新闻列表页').get(url).selector
     for li in sel.css('ul.article > li'):
         if len(li.extract()) > 100:  # 有的是这样的去掉。 <li id="ad_tw_04" style="display: none;">
             url_detail = 'https:' + li.xpath('./a/@href').extract_first()
@@ -48,8 +47,7 @@ def crawl_detail_page(url: str, title: str, news_type: str):
     news_id = re.search('/(\d+).html', url).group(1)
     item = {'news_type': news_type, 'title': title, 'author': author, 'news_id': news_id, 'url': url}
     # 也提供了 MysqlSink类,都是自动连接池操作数据库
-    MongoSink(db='test', col='car_home_news', uniqu_key='news_id',
-              mongo_connect_url=MONGO_CONNECT_URL, ).save(item)
+    MongoSink(db='test', col='car_home_news', uniqu_key='news_id', mongo_connect_url=MONGO_CONNECT_URL, ).save(item)
 
 
 if __name__ == '__main__':

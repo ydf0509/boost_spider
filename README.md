@@ -5,7 +5,14 @@
  ```
  boost_spider 是一款自由奔放写法的爬虫框架，无任何束缚，和用户手写平铺直叙的爬虫函数一样，
  是横冲直撞的思维写的,不需要callback回调解析方法,不需要继承BaseSpider类,没有BaseSpider类,大开大合自由奔放.
- 只需要加上boost装饰器就可以自动加速并发，控制手段比传统爬虫框架多太多
+ 
+ 绝对没有class MySpider(BaseSpider) 的写法
+ 
+ 绝对没有 yield Request(url=url, callback=self.my_parse) 的写法.
+ 
+ 所写的爬虫代码可以直接去掉@boost装饰器,可以正常运行,所见即所得.
+ 
+ 只需要加上boost装饰器就可以自动加速并发，给函数和消息加上20控制功能,控制手段比传统爬虫框架多太多
  ```
 
 ## 安装：

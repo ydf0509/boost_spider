@@ -14,7 +14,7 @@ pip install boost_spider
 # 2.代码例子：
 
 ```python
-from boost_spider import boost, BrokerEnum, RequestClient, MongoSink, json, re
+from boost_spider import boost, BrokerEnum, RequestClient, MongoSink,MysqlSink, json, re
 from db_conn_kwargs import MONGO_CONNECT_URL, MYSQL_CONN_KWARGS  # 保密 密码
 
 

@@ -3,7 +3,7 @@ from setuptools import setup, find_packages
 
 setup(
     name='boost_siper',  #
-    version='0.1',
+    version='0.2',
     description=(
         '横冲直闯无回调写法的光速爬虫框架'
     ),
@@ -61,6 +61,6 @@ setup(
 打包上传
 python setup.py sdist upload -r pypi
 
-python setup.py sdist & python -m twine upload dist/boost_siper-0.1.tar.gz
+python setup.py sdist & python -m twine upload dist/boost_siper-0.2.tar.gz
 
 """

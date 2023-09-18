@@ -15,7 +15,7 @@ pip install boost_spider
 
 ```python
 from boost_spider import boost, BrokerEnum, RequestClient, MongoSink, json, re
-from test_mongo_sink import MONGO_CONNECT_URL # 保密 mongo url
+from db_conn_kwargs import MONGO_CONNECT_URL, MYSQL_CONN_KWARGS  # 保密 密码
 
 
 @boost('car_home_list', broker_kind=BrokerEnum.REDIS_ACK_ABLE, max_retry_times=5, qps=2, do_task_filtering=False)
@@ -48,6 +48,7 @@ def crawl_detail_page(url: str, title: str, news_type: str):
     item = {'news_type': news_type, 'title': title, 'author': author, 'news_id': news_id, 'url': url}
     # 也提供了 MysqlSink类,都是自动连接池操作数据库
     MongoSink(db='test', col='car_home_news', uniqu_key='news_id', mongo_connect_url=MONGO_CONNECT_URL, ).save(item)
+    MysqlSink(db='testdb', table='t2', **MYSQL_CONN_KWARGS).save({'uname': 'uname1', 'age': 1})
 
 
 if __name__ == '__main__':

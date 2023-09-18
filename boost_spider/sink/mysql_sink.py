@@ -18,7 +18,7 @@ class MysqlSink:
         return self._key__pool_map[self._pool_key]
 
     def __init__(self, host='127.0.0.1', port=3306, user='root', password='123456', db=None, table=None):
-        self._mysql_conn_kwargs = {'host': host, 'user': user, 'password': password, 'port': port}
+        self._mysql_conn_kwargs = {'host': host, 'user': user, 'password': password, 'port': port,'database':db}
         self._pool_key = f'{host} {port} {user} {password}'
         self.db = db
         self.table = table
@@ -27,7 +27,7 @@ class MysqlSink:
         mysql_pool = self._get_pool()
         sql = self._build_sql(item)
         with mysql_pool.get() as operator:  # type: typing.Union[PyMysqlOperator,pymysql.cursors.DictCursor] #利于补全
-            operator.execute(sql)
+            operator.execute(sql,args=None)
         log_save_item(item, 'mysql', self.db, self.table)
 
     def _build_sql(self, item: dict):
@@ -43,3 +43,4 @@ class MysqlSink:
 
 if __name__ == '__main__':
     print(MysqlSink(db='testdb', table='test_table')._build_sql({'a': 1, 'b': 2}))
+    MysqlSink(db='testdb', table='t2').save({'uname': 'uname1', 'age': 1})

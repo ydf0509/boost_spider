@@ -75,6 +75,8 @@ if __name__ == '__main__':
 RequestClient 类的方法入参和返回与requests包一模一样，方便用户切换
 response在requests.Response基础上增加了适合爬虫解析的属性和方法。
 
+RequestClient支持继承,用户自定义增加爬虫使用代理的方法,在 PROXYNAME__REQUEST_METHED_MAP 声明增加的方法就可以.
+
 2. 
 爬虫函数的入参随意，加上@ boost装饰器就可以自动并发
 

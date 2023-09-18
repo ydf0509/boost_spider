@@ -2,7 +2,8 @@ from boost_spider import boost, BrokerEnum, RequestClient, MongoSink, json, re, 
 from db_conn_kwargs import MONGO_CONNECT_URL, MYSQL_CONN_KWARGS  # 保密 密码
 
 
-@boost('car_home_list', broker_kind=BrokerEnum.REDIS_ACK_ABLE, max_retry_times=5, qps=2, do_task_filtering=False)
+@boost('car_home_list', broker_kind=BrokerEnum.REDIS_ACK_ABLE, max_retry_times=5, qps=2,
+       do_task_filtering=False)
 def crawl_list_page(news_type, page, do_page_turning=False):
     """ 函数这里面的代码是用户想写什么就写什么，函数里面的代码和框架没有任何绑定关系
     例如用户可以用 urllib3请求 用正则表达式解析，没有强迫你用requests请求和parsel包解析。

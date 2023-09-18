@@ -48,7 +48,7 @@ def crawl_detail_page(url: str, title: str, news_type: str):
     item = {'news_type': news_type, 'title': title, 'author': author, 'news_id': news_id, 'url': url}
     # 也提供了 MysqlSink类,都是自动连接池操作数据库
     MongoSink(db='test', col='car_home_news', uniqu_key='news_id', mongo_connect_url=MONGO_CONNECT_URL, ).save(item)
-    MysqlSink(db='test', table='car_home_news', **MYSQL_CONN_KWARGS).save(item)
+    MysqlSink(db='test', table='car_home_news', **MYSQL_CONN_KWARGS).save(item) # 用户需要自己先创建mysql表
 
 
 if __name__ == '__main__':

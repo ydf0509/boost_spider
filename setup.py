@@ -3,7 +3,7 @@ from setuptools import setup, find_packages
 
 setup(
     name='boost_siper',  #
-    version='0.5',
+    version='0.6',
     description=(
         '横冲直闯无回调写法的光速爬虫框架'
     ),
@@ -41,7 +41,6 @@ setup(
     ],
     install_requires=[
         'funboost',
-        'db_libs',
         'universal_object_pool',
         'pymysql',
         'pymongo',
@@ -61,6 +60,6 @@ setup(
 打包上传
 python setup.py sdist upload -r pypi
 
-python setup.py sdist & python -m twine upload dist/boost_siper-0.5.tar.gz
+python setup.py sdist & python -m twine upload dist/boost_siper-0.6.tar.gz
 
 """

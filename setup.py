@@ -3,9 +3,9 @@ from setuptools import setup, find_packages
 
 setup(
     name='boost_siper',  #
-    version='0.6',
+    version='0.8',
     description=(
-        '横冲直闯无回调写法的光速爬虫框架'
+        '横冲直闯无回调写法的高速爬虫框架'
     ),
     # long_description=open('README.md', 'r',encoding='utf8').read(),
     keywords=["scrapy", "funboost", "distributed-framework", "function-scheduling", "rabbitmq", "rocketmq", "kafka",
@@ -60,6 +60,6 @@ setup(
 打包上传
 python setup.py sdist upload -r pypi
 
-python setup.py sdist & python -m twine upload dist/boost_siper-0.6.tar.gz
+python setup.py sdist & python -m twine upload dist/boost_siper-0.8.tar.gz
 
 """

@@ -67,9 +67,11 @@ class SpiderResponse(requests.Response):  # 继承主要是方便代码补全提
 class RequestClient:
     logger = request_logger
 
-    def __init__(self, proxy_name_list=None, ua=None, default_use_pc_ua=True, is_change_ua_every_request=False,
+    def __init__(self, proxy_name_list=None,
+                 ua=None, default_use_pc_ua=True, is_change_ua_every_request=False,
                  timeout: Union[tuple, float] = (30, 40),
-                 verify=False, allow_redirects=True, is_close_session=True, request_retry_times=2,
+                 verify=False, allow_redirects=True, is_close_session=True,
+                 request_retry_times=2,
                  using_platfrom=''):
         """
         :param proxy_name_list: 轮流使用代理服务商名字，可设置为 None,'noproxy', 'kuai', 'abuyun', 'crawlera',为None不使用代理

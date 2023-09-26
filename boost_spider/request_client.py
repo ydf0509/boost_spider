@@ -3,7 +3,7 @@
 改版包装requests的Session类，主要使用的是代理模式
 1、支持一键设多种代理ip
 2、支持3种类型的cookie添加
-3、支持长会话，保持cookie状态
+3、支持长会话，保持cookie状态, ss = RequestClient() , 一直用这个ss对象就可以自动保持cookie了
 4、支持一键设置requests请求重试次数，确保请求成功，默认重试一次。
 5、记录下当天的请求到文件，方便统计，同时开放了日志级别设置参数，用于禁止日志。
 6、从使用requests修改为使用RequstClient门槛很低，三方包的request方法和此类的方法入参和返回完全100%保持了一致。

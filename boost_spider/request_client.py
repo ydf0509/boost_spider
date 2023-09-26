@@ -293,7 +293,7 @@ class RequestClient:
         raise NotImplemented
 
 
-    PROXY_NOPROXY = 'noproxy' # 方便传参补全.
+    PROXY_NOPROXY = 'noproxy' # 方便代理名称补全.
     PROXY_ABUYUN = 'abuyun'
     PROXY_KUAI = 'kuai'
 

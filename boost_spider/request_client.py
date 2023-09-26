@@ -292,6 +292,11 @@ class RequestClient:
 
         raise NotImplemented
 
+
+    PROXY_NOPROXY = 'noproxy' # 方便传参补全.
+    PROXY_ABUYUN = 'abuyun'
+    PROXY_KUAI = 'kuai'
+
     PROXYNAME__REQUEST_METHED_MAP = {'noproxy': _request_with_no_proxy,
                                      'abuyun': _request_with_abuyun_proxy,
                                      'kuai': _request_with_kuai_proxy

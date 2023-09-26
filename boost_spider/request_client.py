@@ -15,6 +15,8 @@ import logging
 import typing
 from enum import Enum
 from functools import lru_cache
+from pathlib import Path
+
 import nb_log
 import copy
 import time
@@ -244,6 +246,14 @@ class RequestClient:
             except Exception:
                 pass
 
+    def save_picture(self,url,pic_path,pic_file=None,):
+        resp = self.get(url)
+        if pic_file is None:
+            pic_file = url.split('/')[-1]
+        Path(pic_path).mkdir(exist_ok=True)
+        full_path = Path(pic_path) / Path(pic_file)
+        full_path.write_bytes(resp.content)
+
     def _request_with_no_proxy(self, method, url, verify=None, timeout=None, headers=None, cookies=None, **kwargs):
         """普通不使用代理"""
 
@@ -294,3 +304,5 @@ if __name__ == '__main__':
     print(resp.status_code)
     print(resp.selector)
     print(resp.selector)
+
+    rc.save_picture('https://scarb-images.oss-cn-hangzhou.aliyuncs.com/img/202207142159934.png','/pics')

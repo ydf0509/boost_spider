@@ -11,6 +11,10 @@ boost_spider特点:
  
  绝对没有 yield Request(url=url, callback=self.my_parse) 的写法.
  
+ 绝对没有 yield item 的写法
+ 
+ boost_spider在函数里面写的东西所见即所得,不需要在好几个文件中来回切换检查代码.
+  
  函数去掉@boost装饰器仍然可以正常使用爬虫,加上和去掉都很容易,这就是自由.
  有的人喜欢纯手写无框架的使用线程池运行函数来爬虫,很容易替换成boost_spider
  

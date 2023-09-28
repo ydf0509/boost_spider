@@ -1,5 +1,11 @@
 # 1.分布式高速爬虫框架 boost_spider
 
+## boost_spider框架的更详细用法要看funboost文档
+
+boost_spider是基于funboost,增加了对爬虫更方便的请求类和快捷入库
+
+[查看分布式函数调度框架完整文档](https://funboost.readthedocs.io/zh/latest/index.html)
+
 ## 简介：
 
 boost_spider特点:

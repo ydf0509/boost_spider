@@ -3,6 +3,8 @@ import json
 import threading
 from pathlib import Path
 
+from boost_spider.sink.sink_helper import log_save_item
+
 
 class JsonFileSink:
     _lock = threading.Lock()
@@ -19,6 +21,7 @@ class JsonFileSink:
             with Path(self.full_path).open('a+', encoding='utf8') as f:
                 item['item_insert_time'] = str(datetime.datetime.now())
                 f.write(json.dumps(item) + ',\n')
+        log_save_item(item,'jsonfile',self.full_path,'')
 
     def read_json(self):
         text = Path(self.full_path).read_text(encoding='utf8')
@@ -29,6 +32,6 @@ class JsonFileSink:
 if __name__ == '__main__':
     for i in range(100):
         # JsonFileSink('/codedir', 'testjsonfile2.json').save({'a': i, 'b': f'{i*2}'})
-        # JsonFileSink('/codedir', 'testjsonfile.json').save({'a': 63, 'b': 4})
+        JsonFileSink('/codedir', 'testjsonfile.json').save({'a': 63, 'b': 4})
         pass
     print(JsonFileSink('/codedir', 'testjsonfile2.json').read_json())

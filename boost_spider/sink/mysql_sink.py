@@ -19,7 +19,7 @@ class MysqlSink:
 
     def __init__(self, host='127.0.0.1', port=3306, user='root', password='123456', db=None, table=None):
         self._mysql_conn_kwargs = {'host': host, 'user': user, 'password': password, 'port': port,'database':db}
-        self._pool_key = f'{host} {port} {user} {password}'
+        self._pool_key = f'{host} {port} {user} {password} {db}'
         self.db = db
         self.table = table
 
@@ -36,8 +36,18 @@ class MysqlSink:
         for k, v in item.items():
             key_list.append(k)
             value_list.append(v)
-        keys_str = str(tuple(key_list)).replace("'", "`")
-        sql = f"replace into {self.db}.{self.table} {keys_str} values {tuple(value_list)}"
+        keys_str = ''
+        for k in key_list:
+            keys_str += f'`{k}`,'
+        keys_str = f'( {keys_str[:-1]} )'
+
+        values_str = ''
+        for v in value_list:
+            if isinstance(v, str):
+                v = f"'{v}'"
+            values_str += f'{v},'
+        values_str = f'( {values_str[:-1]} )'
+        sql = f"replace into {self.table} {keys_str} values {values_str}"
         return sql
 
 

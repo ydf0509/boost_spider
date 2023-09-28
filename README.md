@@ -21,7 +21,7 @@ boost_spider特点:
  只需要加上boost装饰器就可以自动加速并发，给函数和消息加上20控制功能,控制手段比传统爬虫框架多太多
  ```
 
-scrapy和国内写的各种仿scrapy api用法的框架
+scrapy和国内写的各种仿scrapy api用法的框架特点
 ```
 需要在 spiders文件夹写继承BaseSpider, 
 items文件夹定义item, 

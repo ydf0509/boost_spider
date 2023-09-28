@@ -51,11 +51,5 @@ class SqliteSink:
 
 
 if __name__ == '__main__':
-    import sys
-
-    # 遍历已导入的模块并打印自定义模块
-    for module_name, module in sys.modules.items():
-        if not module_name.startswith('built-in'):
-            print(module_name)
     SqliteSink('/codedir/sqlite/','testdb','testtable').save({'a':'1','b':2})
     SqliteSink('/codedir/sqlite/', 'testdb', 'testtable').save({'a': '3', 'b': 4})

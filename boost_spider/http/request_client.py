@@ -25,6 +25,8 @@ import requests
 from requests.cookies import RequestsCookieJar
 import urllib3.exceptions
 
+from boost_spider.http.user_agent import rand_get_useragent
+
 urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
 from parsel import Selector
 import re
@@ -40,6 +42,9 @@ request_logger = nb_log.get_logger('RequestClient', log_level_int=logging.DEBUG)
 
 class SpiderResponse(requests.Response):  # 继承主要是方便代码补全提示，
     # noinspection PyMissingConstructor
+
+    re_pattern_map = {}  # type: typing.Dict[str,re.Pattern]
+
     def __init__(self, resp: requests.Response):
         self.__dict__.update(resp.__dict__)  # 使 SpiderResponse 类具备requests.Response的所有属性
 
@@ -59,10 +64,19 @@ class SpiderResponse(requests.Response):  # 继承主要是方便代码补全提
         return super().text
 
     def re_search(self, pattern, flags=0):
-        return re.search(pattern, self.text, flags)
+        key = f'{pattern} {flags}'
+        if key not in self.re_pattern_map:
+            pa_obj = re.compile(pattern=pattern, flags=flags)
+            self.re_pattern_map[key] = pa_obj
+        return self.re_pattern_map[key].search(self.text)
 
     def re_findall(self, pattern, flags=0):
-        return re.findall(pattern, self.text, flags)
+        # return re.findall(pattern, self.text, flags)
+        key = f'{pattern} {flags}'
+        if key not in self.re_pattern_map:
+            pa_obj = re.compile(pattern=pattern, flags=flags)
+            self.re_pattern_map[key] = pa_obj
+        return self.re_pattern_map[key].findall(self.text)
 
 
 # noinspection PyBroadException
@@ -96,6 +110,7 @@ class RequestClient:
             'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/55.0.2883.87 Safari/537.36' if default_use_pc_ua else
             'Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/55.0.2883.87 Mobile Safari/537.36')
         self._ua = ua if ua else default_ua
+        self._default_use_pc_ua = default_use_pc_ua
         self._is_change_ua_every_request = is_change_ua_every_request
         self._timeout = timeout
         self._verify = verify
@@ -114,7 +129,10 @@ class RequestClient:
             if 'user-agent' not in headers and 'User-Agent' not in headers:
                 headers['user-agent'] = self._ua
         if self._is_change_ua_every_request:
-            pass  # 此处以后加上ua切换列表，fakeuser包有问题。
+            if self._default_use_pc_ua:
+                headers['user-agent'] = rand_get_useragent('chrome')
+            else:
+                headers['user-agent'] = rand_get_useragent('mobile')
         headers.update({'Accept-Language': 'zh-CN,zh;q=0.8'})
         return headers
 
@@ -199,9 +217,9 @@ class RequestClient:
                     'resp_url': resp.url,
                 }
                 msg = ''' {self._using_platfrom}  request响应状态: {json.dumps(resp_log_dict, ensure_ascii=False)}'''
-                self.logger.debug(msg,extra=resp_log_dict)
+                self.logger.debug(msg, extra=resp_log_dict)
                 if resp.status_code != 200 and i < self._max_request_retry_times + 1:
-                    self.logger.warning(msg,extra=resp_log_dict)
+                    self.logger.warning(msg, extra=resp_log_dict)
                     raise HttpStatusError(resp.status_code)
                 if i != 0:
                     pass
@@ -246,7 +264,7 @@ class RequestClient:
             except Exception:
                 pass
 
-    def save_picture(self,url,pic_path,pic_file=None,):
+    def save_picture(self, url, pic_path, pic_file=None, ):
         resp = self.get(url)
         if pic_file is None:
             pic_file = url.split('/')[-1]
@@ -292,8 +310,7 @@ class RequestClient:
 
         raise NotImplemented
 
-
-    PROXY_NOPROXY = 'noproxy' # 方便代理名称补全.
+    PROXY_NOPROXY = 'noproxy'  # 方便代理名称补全.
     PROXY_ABUYUN = 'abuyun'
     PROXY_KUAI = 'kuai'
 
@@ -306,8 +323,9 @@ class RequestClient:
 if __name__ == '__main__':
     rc = RequestClient(using_platfrom='爬百度的')
     resp = rc.get('https://www.baidu.com')
+    print(resp.request.headers)
     print(resp.status_code)
     print(resp.selector)
     print(resp.selector)
 
-    rc.save_picture('https://scarb-images.oss-cn-hangzhou.aliyuncs.com/img/202207142159934.png','/pics')
+    rc.save_picture('https://scarb-images.oss-cn-hangzhou.aliyuncs.com/img/202207142159934.png', '/pics')

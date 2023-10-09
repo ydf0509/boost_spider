@@ -5,7 +5,7 @@ setup(
     name='boost_siper',  #
     version='0.9',
     description=(
-        '横冲直闯无回调写法的高速爬虫框架'
+        '横冲直闯 自由奔放 无回调 无继承写法的高速爬虫框架'
     ),
     # long_description=open('README.md', 'r',encoding='utf8').read(),
     keywords=["scrapy", "funboost", "distributed-framework", "function-scheduling", "rabbitmq", "rocketmq", "kafka",

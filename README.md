@@ -13,8 +13,9 @@ boost_spider是基于funboost,增加了对爬虫更方便的请求类和快捷�
 ## 简介：
 
 boost_spider特点:
+
  ```
- boost_spider 是一款自由奔放写法的爬虫框架，无任何束缚，和用户手写平铺直叙的爬虫函数一样，
+ boost_spider 是一款自由奔放写法的爬虫框架，无任何束缚，和用户手写平铺直叙的爬虫函数一样，boost_spider支持同步爬虫也支持asyncio异步爬虫
  是横冲直撞的思维写的,不需要callback回调解析方法,不需要继承BaseSpider类,没有BaseSpider类,大开大合自由奔放.
  
  绝对没有class MySpider(BaseSpider) 的写法
@@ -32,10 +33,14 @@ boost_spider特点:
  
  所写的爬虫代码可以直接去掉@boost装饰器,可以正常运行,所见即所得.
  
- 只需要加上boost装饰器就可以自动加速并发，给函数和消息加上20控制功能,控制手段比传统爬虫框架多太多
+ 只需要加上boost装饰器就可以自动加速并发，给函数和消息加上20控制功能,控制手段比传统爬虫框架多太多,
+ boost_spider 支持多线程 gvent event asyncio 并且能叠加多进程消费,运行速度远远的暴击国产爬虫框架.
+ 国产框架大部分是只能支持多线程同步语法爬虫,不能支持asyncio编程写法,而boost_spider能够同时兼容用户使用requests和aiohttp任意写法
+ 
  ```
 
 scrapy和国内写的各种仿scrapy api用法的框架特点
+
 ```
 需要在 spiders文件夹写继承BaseSpider, 
 items文件夹定义item, 
@@ -50,6 +55,7 @@ middlewares.py写怎么换代理 请求头,
 ```
 
 boost_spider的qps作用远远的暴击所有爬虫框架的固定线程并发数量
+
 ```
 国内的仿scrapy框架的,都只能做到固定并发数量,一般是固定开多少个线程.
 
@@ -70,9 +76,6 @@ boost_spider的qps参数无视任何网站的耗时是多少,不需要提前评�
 如果对方接口耗时变了,就要重新改代码的线程数量.
 ```
 
-
-
-
 # 2.代码例子：
 
 ```python
@@ -86,8 +89,9 @@ from db_conn_kwargs import MONGO_CONNECT_URL, MYSQL_CONN_KWARGS  # 保密 密码
 列表页负责翻页和提取详情页url,发送详情页任务到详情页消息队列中
 """
 
+
 @boost('car_home_list', broker_kind=BrokerEnum.REDIS_ACK_ABLE, max_retry_times=5, qps=2,
-       do_task_filtering=False) # boost 的控制手段很多.
+       do_task_filtering=False)  # boost 的控制手段很多.
 def crawl_list_page(news_type, page, do_page_turning=False):
     """ 函数这里面的代码是用户想写什么就写什么，函数里面的代码和框架没有任何绑定关系
     例如用户可以用 urllib3请求 用正则表达式解析，没有强迫你用requests请求和parsel包解析。
@@ -156,4 +160,30 @@ RequestClient支持继承,用户自定义增加爬虫使用代理的方法,在 P
 
 4.
 qps是规定爬虫每秒爬几个网页，qps的控制比指定固定的并发数量，控制强太多太多了
+
+```
+
+## boost_spider 支持用户使用asyncio编程生态
+
+这一点暴击只能支持同步编程的爬虫框架.
+
+```python
+import asyncio
+import httpx
+from funboost import boost, BrokerEnum, ConcurrentModeEnum
+
+
+@boost('test_queue', broker_kind=BrokerEnum.REDIS, concurrent_mode=ConcurrentModeEnum.ASYNC, concurrent_num=500)
+async def f(url):
+    async with httpx.AsyncClient() as client:
+        r = await client.get(url)
+        print(r.status_code, len(r.text))
+
+
+if __name__ == '__main__':
+    # asyncio.run(f())
+    for i in range(1000):
+        f.push('https://www.baidu.com/')
+    f.consume()
+
 ```

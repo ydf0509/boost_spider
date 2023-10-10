@@ -165,7 +165,9 @@ qps是规定爬虫每秒爬几个网页，qps的控制比指定固定的并发�
 
 ## boost_spider 支持用户使用asyncio编程生态
 
-这一点暴击只能支持同步编程的爬虫框架.
+国产爬虫框架90%只能支持同步编程语法生态,无法兼容用户原有的asyncio编程方式.
+
+boost_spider是同步编程和asyncio编程双支持.(boost_spider 还能支持gevent eventlet)
 
 ```python
 import asyncio
@@ -173,7 +175,7 @@ import httpx
 from funboost import boost, BrokerEnum, ConcurrentModeEnum
 
 
-@boost('test_queue', broker_kind=BrokerEnum.REDIS, concurrent_mode=ConcurrentModeEnum.ASYNC, concurrent_num=500)
+@boost('test_queue', broker_kind=BrokerEnum.RABBITMQ_AMQPSTORM, concurrent_mode=ConcurrentModeEnum.ASYNC, concurrent_num=500)
 async def f(url):
     async with httpx.AsyncClient() as client:
         r = await client.get(url)

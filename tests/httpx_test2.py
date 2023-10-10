@@ -8,6 +8,7 @@ thread_local = threading.local()
 
 def get_client():
     if not getattr(thread_local, 'httpx_async_client', None):
+        # limits=httpx.Limits(max_connections=300,max_keepalive_connections=300)
         thread_local.httpx_async_client = httpx.AsyncClient()
     return thread_local.httpx_async_client
 
@@ -22,6 +23,8 @@ async def f(url):
 
 if __name__ == '__main__':
     # asyncio.run(f())
-    f.consume()
+    f.clear()
+    f.multi_process_consume(3)
     for i in range(10000):
-        f.push('https://www.baidu.com/')
+        # http://group.yiai.me/_next/static/_5gZYR712KCYbr7mIlb3S/_ssgManifest.js   http://www.baidu.com/
+        f.push('http://127.0.0.1:8000/')

@@ -1,4 +1,4 @@
-# 1.分布式高速爬虫框架 boost_spider
+# 1.分布式高速python爬虫框架 boost_spider
 
 ## 安装：
 
@@ -15,8 +15,9 @@ boost_spider是基于funboost,增加了对爬虫更方便的请求类和快捷�
 boost_spider特点:
 
  ```
- boost_spider 是一款自由奔放写法的爬虫框架，无任何束缚，和用户手写平铺直叙的爬虫函数一样，boost_spider支持同步爬虫也支持asyncio异步爬虫
- 是横冲直撞的思维写的,不需要callback回调解析方法,不需要继承BaseSpider类,没有BaseSpider类,大开大合自由奔放.
+ boost_spider支持同步爬虫也支持asyncio异步爬虫
+ boost_spider 是一款自由奔放写法的爬虫框架，无任何束缚，和用户手写平铺直叙的爬虫函数一样
+ 是横冲直撞的思维写的,不需要callback回调解析方法,不需要继承BaseSpider类,没有BaseSpider类,大开大合自由奔放,代码阅读所见即所得
  
  绝对没有class MySpider(BaseSpider) 的写法
  
@@ -29,12 +30,12 @@ boost_spider特点:
  函数去掉@boost装饰器仍然可以正常使用爬虫,加上和去掉都很容易,这就是自由.
  有的人喜欢纯手写无框架的使用线程池运行函数来爬虫,很容易替换成boost_spider
  
- 仿scrapy api的爬虫框架,无论是去掉和加上框架,代码组织形式需要翻天覆地的大改特改,就是束缚框架.
+ 仿scrapy api的爬虫框架,无论是去掉和加上框架,代码组织形式需要翻天覆地的大改特改,这样就是束缚框架.
  
- 所写的爬虫代码可以直接去掉@boost装饰器,可以正常运行,所见即所得.
+ boost_spider所写的爬虫代码可以直接去掉@boost装饰器,可以正常运行,所见即所得.
  
  只需要加上boost装饰器就可以自动加速并发，给函数和消息加上20控制功能,控制手段比传统爬虫框架多太多,
- boost_spider 支持多线程 gvent event asyncio 并且能叠加多进程消费,运行速度远远的暴击国产爬虫框架.
+ boost_spider 支持多线程 gvent eventlet asyncio 并且能叠加多进程消费,运行速度远远的暴击国产爬虫框架.
  国产框架大部分是只能支持多线程同步语法爬虫,不能支持asyncio编程写法,而boost_spider能够同时兼容用户使用requests和aiohttp任意写法
  
  ```

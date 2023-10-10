@@ -1,12 +1,15 @@
 import abc
 import threading
 import time
+from typing import Type, TypeVar
+
+T = TypeVar('T')
 
 
-class BaseThreadSafeObjGetter(metaclass=abc.ABCMeta):
+class BaseThreadLocalObjGetter(metaclass=abc.ABCMeta):
     thread_local = threading.local()
 
-    def get_obj(self):
+    def get_obj(self, obj_type: T) -> T:
         obj_name = str(type(self))
         if not getattr(self.thread_local, obj_name, None):
             obj = self._get_obj()
@@ -24,14 +27,14 @@ if __name__ == '__main__':
     from concurrent.futures import ThreadPoolExecutor
 
 
-    class AsyncClientGetter(BaseThreadSafeObjGetter):
+    class AsyncClientGetter(BaseThreadLocalObjGetter):
         def _get_obj(self):
             return httpx.AsyncClient()
 
 
     def t():
         for i in range(5):
-            print(AsyncClientGetter().get_obj())
+            print(AsyncClientGetter().get_obj(httpx.AsyncClient))
 
 
     pool = ThreadPoolExecutor(20)

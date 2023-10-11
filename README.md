@@ -188,8 +188,7 @@ def get_client():
 @boost('test_httpx_q2', broker_kind=BrokerEnum.REDIS, concurrent_mode=ConcurrentModeEnum.ASYNC, concurrent_num=500)
 async def f(url):
     # client= httpx.AsyncClient() # 这样慢
-    client = get_client() # 这样快 ,好
-    r = await client.get(url)
+    r = await get_client().get(url) # 这样好,不要每次单独创建 AsyncClient()
     print(r.status_code, len(r.text))
 
 

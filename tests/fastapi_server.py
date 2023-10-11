@@ -3,6 +3,8 @@ from fastapi import FastAPI
 
 app = FastAPI()
 
+import nb_log
+nb_log.get_logger(None)
 @app.get("/")
 async def hello():
     return {"message": "Hello"}

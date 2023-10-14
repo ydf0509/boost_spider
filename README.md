@@ -179,7 +179,7 @@ import threading
 thread_local = threading.local()
 
 
-def get_client():
+def get_client() -> httpx.AsyncClient:
     if not getattr(thread_local, 'httpx_async_client', None):
         thread_local.httpx_async_client = httpx.AsyncClient()
     return thread_local.httpx_async_client
@@ -188,7 +188,7 @@ def get_client():
 @boost('test_httpx_q2', broker_kind=BrokerEnum.REDIS, concurrent_mode=ConcurrentModeEnum.ASYNC, concurrent_num=500)
 async def f(url):
     # client= httpx.AsyncClient() # 这样慢
-    r = await get_client().get(url) # 这样好,不要每次单独创建 AsyncClient()
+    r = await get_client().get(url)  # 这样好,不要每次单独创建 AsyncClient()
     print(r.status_code, len(r.text))
 
 

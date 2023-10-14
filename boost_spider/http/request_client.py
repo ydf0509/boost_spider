@@ -216,7 +216,7 @@ class RequestClient:
                     'resp_len': len(resp.text),
                     'resp_url': resp.url,
                 }
-                msg = ''' {self._using_platfrom}  request响应状态: {json.dumps(resp_log_dict, ensure_ascii=False)}'''
+                msg = f''' {self._using_platfrom}  request响应状态: {json.dumps(resp_log_dict, ensure_ascii=False)}'''
                 self.logger.debug(msg, extra=resp_log_dict)
                 if resp.status_code != 200 and i < self._max_request_retry_times + 1:
                     self.logger.warning(msg, extra=resp_log_dict)

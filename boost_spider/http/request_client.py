@@ -229,7 +229,7 @@ class RequestClient:
                 exception_request = e
                 if i != self._max_request_retry_times:
                     self.logger.warning(
-                        f'{self._using_platfrom} RequestClient内部第{i}次请求出错，此次使用的代理是{current_proxy_name},'
+                        f'{self._using_platfrom} RequestClient内部第{i}次请求出错，此次使用的代理是{current_proxy_name}, url: {url}'
                         f'浪费时间[{round(time.time() - t_start, 2)}],再重试一次，原因是：{type(e)}    {e}')
         self.close_session()
         if resp is not None:  # 如<Response [404]>也是false,但不是none
@@ -309,6 +309,7 @@ class RequestClient:
         """使用redis中的快代理池子,怎么从redis拿代理ip和requests怎么使用代理，用户自己写"""
 
         raise NotImplemented
+
 
     PROXY_NOPROXY = 'noproxy'  # 方便代理名称补全.
     PROXY_ABUYUN = 'abuyun'

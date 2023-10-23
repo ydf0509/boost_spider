@@ -8,9 +8,19 @@ pip install boost_spider
 
 boost_spider是基于funboost,增加了对爬虫更方便的请求类和快捷入库
 
-[查看分布式函数调度框架完整文档](https://funboost.readthedocs.io/zh/latest/index.html)
+[查看分布式函数调度框架完整文档 https://funboost.readthedocs.io/zh/latest/index.html](https://funboost.readthedocs.io/zh/latest/index.html)
+
 
 ## 简介：
+
+boost_spider 是powerd by funboost,加了一个方便爬虫的请求类(用户可以不使用这个请求类,可以用任意包自己发送http请求)
+
+本质上,funboost是函数调度框架,scrapy和国产仿scrapy api用法的爬虫框架是一个url请求调度框架,
+
+函数里面用户可以写任何逻辑,所以boost_spider适应范围和用户自由度暴击写死了替发送一个http请求的仿scrapy框架.
+
+函数调度框架暴击url请求调度框架,这是降维打击.
+
 
 boost_spider特点:
 
@@ -41,6 +51,14 @@ boost_spider特点:
  ```
 
 scrapy和国内写的各种仿scrapy api用法的框架特点
+```
+funboost函数调度框架,用户完全自由,
+
+仿scrapy框架,只是个url调度框架,仿scrapy api 框架里面写死了怎么帮用户请求一个url,
+有时候为了支持用户复杂的请求逻辑,例如换代理ip逻辑,框架还不得不暴露出用户自定义请求的所谓middware,用户要掌握在这些爬虫框架中自定义发送请求,框架又变难了.
+因为爬虫框架难的是替自动并发 替用户自动重试 自动断点续爬,发送一个请求并不难,用户导入requests发一个http请求,只需要一行代码,
+用户对requests封装一个请求http函数也很简单,反而替用户自作主张怎么发送请求,用户奇葩方式发请求反而满足不了,所以爬虫框架不需要内置替用户自动发送请求.
+```
 
 ```
 需要在 spiders文件夹写继承BaseSpider, 

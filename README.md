@@ -150,8 +150,8 @@ if __name__ == '__main__':
     crawl_detail_page.clear()
 
     crawl_list_page.push('news', 1, do_page_turning=True)  # 发布新闻频道首页种子到列表页队列
-    crawl_list_page.push('advice', page=1)  # 导购
-    crawl_list_page.push(news_type='drive', page=1)  # 驾驶评测
+    crawl_list_page.push('advice', page=1,do_page_turning=True)  # 导购
+    crawl_list_page.push(news_type='drive', page=1,do_page_turning=True)  # 驾驶评测
 
     crawl_list_page.consume()  # 启动列表页消费
     crawl_detail_page.consume()  # 启动详情页新闻内容消费

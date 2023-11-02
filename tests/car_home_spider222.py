@@ -6,6 +6,8 @@ from db_conn_kwargs import MONGO_CONNECT_URL, MYSQL_CONN_KWARGS  # 保密 密码
 
 列表页负责翻页和提取详情页url,发送详情页任务到详情页消息队列中
 """
+from pymongo import MongoClient
+col = MongoClient().get_database('db').get_collection('col')
 
 @boost('car_home_list', broker_kind=BrokerEnum.REDIS_ACK_ABLE, max_retry_times=5, qps=2,
        do_task_filtering=False) # boost 的控制手段很多.
@@ -36,9 +38,8 @@ def crawl_detail_page(url: str, title: str, news_type: str):
     author = author.replace("\n", "").strip()
     news_id = re.search('/(\d+).html', url).group(1)
     item = {'news_type': news_type, 'title': title, 'author': author, 'news_id': news_id, 'url': url}
-    # 也提供了 MysqlSink类,都是自动连接池操作数据库
-    # MongoSink(db='test', col='car_home_news', uniqu_key='news_id', mongo_connect_url=MONGO_CONNECT_URL, ).save(item)
-    MysqlSink(db='test', table='car_home_news', **MYSQL_CONN_KWARGS).save(item)  # 用户需要自己先创建mysql表
+
+
 
 if __name__ == '__main__':
     # crawl_list_page('news',1) # 直接函数测试
@@ -47,8 +48,8 @@ if __name__ == '__main__':
     crawl_detail_page.clear()
 
     crawl_list_page.push('news', 1, do_page_turning=True)  # 发布新闻频道首页种子到列表页队列
-    crawl_list_page.push('advice', page=1, do_page_turning=True)  # 导购
-    crawl_list_page.push(news_type='drive', page=1, do_page_turning=True)  # 驾驶评测
+    crawl_list_page.push('advice', page=1)  # 导购
+    crawl_list_page.push(news_type='drive', page=1)  # 驾驶评测
 
     crawl_list_page.consume()  # 启动列表页消费
     crawl_detail_page.consume()  # 启动详情页新闻内容消费

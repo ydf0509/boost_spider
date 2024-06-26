@@ -43,6 +43,9 @@ do_cmd('git push origin')
 
 # print(subprocess.getstatusoutput('git push github'))
 print(f'{time.strftime("%H:%M:%S")}  spend_time {time.time() - t0}')
-time.sleep(100000)
+
 
 '''dsds'''
+
+if __name__ == '__main__':
+    time.sleep(100000)

@@ -5,7 +5,7 @@ import shutil
 
 # Ensure dependencies
 # os.system(f"{sys.executable} -m pip install --user --upgrade setuptools wheel twine")
-
+import git_boost_spider
 # Delete previous build
 shutil.rmtree("dist", ignore_errors=True)
 

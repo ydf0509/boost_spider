@@ -8,7 +8,7 @@ pip install boost_spider
 
 boost_spider是基于funboost,增加了对爬虫更方便的请求类和快捷入库
 
-[查看分布式函数调度框架完整文档 https://funboost.readthedocs.io/zh/latest/index.html](https://funboost.readthedocs.io/zh/latest/index.html)
+[查看分布式函数调度框架完整文档 https://funboost.readthedocs.io/zh-cn/latest/index.html](https://funboost.readthedocs.io/zh-cn/latest/index.html)
 
 
 ## 简介：

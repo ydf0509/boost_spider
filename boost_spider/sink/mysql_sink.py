@@ -31,6 +31,11 @@ class MysqlSink:
         log_save_item(item, 'mysql', self.db, self.table)
 
     def _build_sql(self, item: dict):
+        """
+        这段字典转sql代码是复制网上的，可以使用dataset_sink来直接保存字典。
+        :param item:
+        :return:
+        """
         key_list = []
         value_list = []
         for k, v in item.items():

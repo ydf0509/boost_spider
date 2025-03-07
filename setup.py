@@ -3,7 +3,7 @@ from setuptools import setup, find_packages
 
 setup(
     name='boost_spider',  #
-    version='1.2',
+    version='1.4',
     description=(
         '横冲直闯 自由奔放 无回调 无继承写法的高速爬虫框架'
     ),

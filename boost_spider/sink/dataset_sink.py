@@ -28,10 +28,10 @@ class DatasetSink:
         table = self.db[table_name]
         table.insert(data)
 
-    # @classmethod
-    # def get_instance(cls, db_url="mysql://root:pass@localhost/test"):
-    #     # 提供一个显式的获取实例方法（可选）
-    #     return cls(db_url)
+    @classmethod
+    def get_instance(cls, db_url):
+        # 提供一个显式的获取实例方法（可选）
+        return cls(db_url)
 
 
 if __name__ == '__main__':

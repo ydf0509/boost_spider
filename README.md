@@ -6,7 +6,8 @@ pip install boost_spider
 
 ## boost_spider框架的更详细用法要看funboost文档
 
-boost_spider是基于funboost,增加了对爬虫更方便的请求类和快捷入库
+boost_spider是基于funboost,增加了对爬虫更方便的常规反爬请求类和 方便爬虫解析的响应类 和 一行代码快捷保存字典入库 3个类.    
+RequestClient  和  SpiderResponse  和 DatasetSink
 
 [查看分布式函数调度框架完整文档 https://funboost.readthedocs.io/zh-cn/latest/index.html](https://funboost.readthedocs.io/zh-cn/latest/index.html)
 
@@ -108,6 +109,7 @@ from db_conn_kwargs import MONGO_CONNECT_URL, MYSQL_CONN_KWARGS  # 保密 密码
 列表页负责翻页和提取详情页url,发送详情页任务到详情页消息队列中
 """
 
+dataset_sink1 = DatasetSink("mysql+pymysql://root:123456@localhost/testdb2")
 
 @boost('car_home_list', broker_kind=BrokerEnum.REDIS_ACK_ABLE, max_retry_times=5, qps=2,
        do_task_filtering=False)  # boost 的控制手段很多.
@@ -140,7 +142,8 @@ def crawl_detail_page(url: str, title: str, news_type: str):
     item = {'news_type': news_type, 'title': title, 'author': author, 'news_id': news_id, 'url': url}
     # 也提供了 MysqlSink类,都是自动连接池操作数据库
     # MongoSink(db='test', col='car_home_news', uniqu_key='news_id', mongo_connect_url=MONGO_CONNECT_URL, ).save(item)
-    MysqlSink(db='test', table='car_home_news', **MYSQL_CONN_KWARGS).save(item)  # 用户需要自己先创建mysql表
+    # MysqlSink(db='test', table='car_home_news', **MYSQL_CONN_KWARGS).save(item)  # 用户需要自己先创建mysql表
+    dataset_sink1.save('car_home_news', item)  # 使用知名dataset三方包,自动建表和保存字典到5种数据库类型.
 
 
 if __name__ == '__main__':
@@ -172,10 +175,10 @@ response在requests.Response基础上增加了适合爬虫解析的属性和方�
 RequestClient支持继承,用户自定义增加爬虫使用代理的方法,在 PROXYNAME__REQUEST_METHED_MAP 声明增加的方法就可以.
 
 2. 
-爬虫函数的入参随意，加上@ boost装饰器就可以自动并发
+爬虫函数的入参随意，加上@boost装饰器就可以自动并发
 
 3.
-爬虫种子保存，支持30种消息队列
+爬虫种子保存，支持40种消息队列
 
 4.
 qps是规定爬虫每秒爬几个网页，qps的控制比指定固定的并发数量，控制强太多太多了
@@ -186,34 +189,29 @@ qps是规定爬虫每秒爬几个网页，qps的控制比指定固定的并发�
 
 国产爬虫框架大部分只能支持同步编程语法生态,无法兼容用户原有的asyncio编程方式.
 
-boost_spider是同步编程和asyncio编程双支持.(boost_spider 还能支持gevent eventlet)
+boost_spider是同步编程和asyncio编程双支持.(boost_spider 还能支持gevent eventlet),还能和多进程叠加性能炸裂.
 
 ```python
-import asyncio
 import httpx
-from funboost import boost, BrokerEnum, ConcurrentModeEnum
-import threading
+from funboost import boost, BrokerEnum, ConcurrentModeEnum, ctrl_c_recv
 
-thread_local = threading.local()
-
-
-def get_client() -> httpx.AsyncClient:
-    if not getattr(thread_local, 'httpx_async_client', None):
-        thread_local.httpx_async_client = httpx.AsyncClient()
-    return thread_local.httpx_async_client
+client = httpx.AsyncClient()
 
 
-@boost('test_httpx_q2', broker_kind=BrokerEnum.REDIS, concurrent_mode=ConcurrentModeEnum.ASYNC, concurrent_num=500)
+@boost('test_httpx_q3', broker_kind=BrokerEnum.REDIS, concurrent_mode=ConcurrentModeEnum.ASYNC, concurrent_num=500)
 async def f(url):
-    # client= httpx.AsyncClient() # 这样慢
-    r = await get_client().get(url)  # 这样好,不要每次单独创建 AsyncClient()
+    # client= httpx.AsyncClient()
+    r = await client.get(url)
     print(r.status_code, len(r.text))
 
 
 if __name__ == '__main__':
     # asyncio.run(f())
+    f.clear()
     f.consume()
-    for i in range(10000):
+    for i in range(10):
         f.push('https://www.baidu.com/')
+    ctrl_c_recv()
+
 
 ```

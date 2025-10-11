@@ -78,12 +78,6 @@ class SpiderResponse(requests.Response):  # 继承主要是方便代码补全提
             self.re_pattern_map[key] = pa_obj
         return self.re_pattern_map[key].findall(self.text)
 
-    def xpath(self, query):
-        return self.selector.xpath(query)
-
-    def css(self, query):
-        return self.selector.css(query)
-
 
 # noinspection PyBroadException
 class RequestClient:

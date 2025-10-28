@@ -8,7 +8,7 @@ from pymongo import MongoClient
 from boost_spider.sink.sink_helper import log_save_item
 
 """
-保存到sqlite
+保存到sqlite,不推荐,直接 使用dataset_sink 就好了.
 """
 
 

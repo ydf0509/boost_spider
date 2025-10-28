@@ -7,7 +7,7 @@
 4、支持一键设置requests请求重试次数，确保请求成功，默认重试一次。
 5、记录下当天的请求到文件，方便统计，同时开放了日志级别设置参数，用于禁止日志。
 6、从使用requests修改为使用RequstClient门槛很低，三方包的request方法和此类的方法入参和返回完全100%保持了一致。
-7、支持代理自动切换。需要将proxy_name设置为一个列表，指定多个代理的名字。
+7、支持多个代理厂商自动切换。需要将proxy_name设置为一个列表，指定多个代理厂商的名字。
 8、支持继承 RequestClient 来增加使用各种代理的请求方法，新增加代理商后，将请求方法名字加到 PROXYNAME__REQUEST_METHED_MAP 中。
 """
 import json
@@ -325,6 +325,30 @@ class RequestClient:
                                      'abuyun': _request_with_abuyun_proxy,
                                      'kuai': _request_with_kuai_proxy
                                      }  # 用户新增了方法后，在这里添加代理名字和请求方法的映射映射
+
+    """
+    用户可以继承 RequestClient ,增加代理商的ip使用方法,然后在 PROXYNAME__REQUEST_METHED_MAP 新增代理商名字 对应的 方法名 映射 ,
+    根据入参 proxy_name_list 的 代理商名字, 自动轮流使用用户自己的各个ip代理商 发请求.
+    """
+
+    """
+# 扩展方式例如:
+    
+class MyRequestClient(RequestClient):
+
+    def _request_with_my_redis_ip_proxy(self, method, url, **kwargs):
+        # 实现你自己的代理逻辑
+      
+        proxies = {
+            "http": $从你的redis ip代理池随机取一个ip,
+            "https": $从你的redis ip代理池随机取一个ip,
+        }
+        return self.ss.request(method, url, proxies=proxies, **kwargs)
+    
+    # 扩展代理映射
+    RequestClient.PROXYNAME__REQUEST_METHED_MAP['my_proxy'] = _request_with_my_redis_ip_proxy
+  
+    """
 
 
 if __name__ == '__main__':

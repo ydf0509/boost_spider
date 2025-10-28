@@ -1,4 +1,18 @@
+
+**欢迎来到爬虫的未来，这里没有回调地域，只有自由世界。**
+
+**`boost_spider` = `funboost` 的超跑引擎 + 一套为爬虫量身打造的瑞士军刀。所有仿scrapy api爬虫框架都还是处在变花样造一辆马车**
+
+对于爬虫场景:       
+用户怕麻烦,要求天生就爬虫全套方便，就使用 `funboost` + `boost_spider`(内置了便利的 请求 解析 入库3个类)     
+用户要绝对自由，就使用 `funboost` + 用户自己项目的 `utils/` 或 `commons/` 文件夹下自定义封装的 各种工具类和函数     
+
+
 # 1.分布式高速python爬虫框架 boost_spider
+
+boost_spider是从框架理念和本质上降维打击,任何仿 scrapy api 用法框架的爬虫框架,如同星际战舰对抗中世纪的蒸汽机车.    
+碾压任何需要用户 yield Request(url=url, callback=self.my_parse,meta={'field1':'xxx','field2':'yyy'}) 的爬虫框架20年以上.  
+
 
 ## 安装：
 
@@ -6,7 +20,7 @@ pip install boost_spider
 
 ## boost_spider框架的更详细用法要看funboost文档
 
-boost_spider是基于funboost,增加了对爬虫更方便的常规反爬请求类和 方便爬虫解析的响应类 和 一行代码快捷保存字典入库 3个类.    
+boost_spider是基于funboost驱动,增加了对爬虫更方便的常规反爬请求类和 方便爬虫解析的响应类 和 一行代码快捷保存字典入库 3个类.    
 RequestClient  和  SpiderResponse  和 DatasetSink
 
 [查看分布式函数调度框架完整文档 https://funboost.readthedocs.io/zh-cn/latest/index.html](https://funboost.readthedocs.io/zh-cn/latest/index.html)
@@ -22,8 +36,37 @@ boost_spider 是powerd by funboost,加了一个方便爬虫的请求类(用户�
 
 函数调度框架暴击url请求调度框架,这是降维打击.
 
+### boost_spider 理念:
+`boost_spider` 理念 是框架永远不要自作主动,在框架内部自动替用户执行http请求 
+要自动调度一个函数而不是自动调度一个url/Request对象    
+函数里面用户自己自由选择任何 httpx  requests aiohttp urllib3 selenium  playwright, 或者使用自己封装的一个my_request请求函数 来发送http请求.
 
-boost_spider特点:
+**boost_spider 不替用户自动发请求**, 意味上限很高,对于怎么换headers redis代理池的ip 代理商的隧道ip ,  
+怎么在浏览器多步骤交互 输入 点击 等待,再解析网页, 用户非常容易按自己的内心想法搞定,    
+对于执行http请求,`boost_spider` 只提供好用的 `RequestClient`, 但不强迫用户必须使用 `RequestClient`   
+
+**仿scrapy api 的框架内部自己去替用户执行http请求**,意味用户控制能力很弱,只能在`yield Request` 传递请求的 method url request_body 等等,   
+对于复杂的需要写一段python代码逻辑来换ip和请求头的,用户需要写 download_middleware 钩子,怎么实现middleware需要和框架规则高度耦合, 导致用户实现难度太高     
+以及多步骤浏览器交互会阻塞parse函数,短时效token 多个url必须短时间内连续请求, 由于不自由,导致用户无法实现.  
+
+**对于简单爬虫,boost_spider代码更简单更少,思维更直观平铺直叙,无需任何仪式感模板代码**  
+**对于复杂爬虫,boost_spider除了代码更直观,用户还更容易实现自己奇葩想法,多机器+多进程+多线程/协程 性能强得多**   
+
+### boost_spider 对 funboost 的 爬虫场景增强,3个重要类, RequestClient 和 SpiderResponse 和 DatasetSink
+```
+RequestClient：
+一个为爬虫而生的请求客户端。封装了自动重试、随机User-Agent、代理商轮换、保持Cookie会话等所有反爬基础操作。
+比 Scrapy 复杂的 Downloader Middleware 易用百倍。
+
+SpiderResponse：
+请求返回的响应对象，直接自带 .xpath(), .css(), .re_search() 等方法，让你无需额外导入 parsel 就能方便地解析页面。
+
+DatasetSink：
+一行代码将爬取到的字典数据存入MySQL、PostgreSQL、SQLite等多种数据库，并且自动处理建表。
+完爆 Scrapy 繁琐的 定义Item -> yield item -> 定义 Pipeline -> Settings+ITEM_PIPELINES配置,来实现数据存储流程。
+```
+
+### boost_spider特点:
 
  ```
  boost_spider支持同步爬虫也支持asyncio异步爬虫
@@ -32,7 +75,7 @@ boost_spider特点:
  
  绝对没有class MySpider(BaseSpider) 的写法
  
- 绝对没有 yield Request(url=url, callback=self.my_parse) 的写法.
+ 绝对没有 yield Request(url=url, callback=self.my_parse,meta={'field1':'xxx','field2':'yyy'}) 的写法.
  
  绝对没有 yield item 的写法
  
@@ -51,7 +94,7 @@ boost_spider特点:
  
  ```
 
-scrapy和国内写的各种仿scrapy api用法的框架特点
+### scrapy和国内写的各种仿scrapy api用法的框架特点
 ```
 funboost函数调度框架,用户完全自由,
 
@@ -74,7 +117,7 @@ middlewares.py写怎么换代理 请求头,
 和scrapy写法一样烦人的爬虫框架,这样的框架就没必要重复开发了.
 ```
 
-boost_spider的qps作用远远的暴击所有爬虫框架的固定线程并发数量
+### boost_spider的qps作用远远的暴击所有爬虫框架的固定线程并发数量
 
 ```
 国内的仿scrapy框架的,都只能做到固定并发数量,一般是固定开多少个线程.
@@ -101,6 +144,7 @@ boost_spider的qps参数无视任何网站的耗时是多少,不需要提前评�
 ```python
 
 from boost_spider import boost, BrokerEnum, RequestClient, MongoSink, json, re, MysqlSink
+from boost_spider.sink.dataset_sink import DatasetSink
 from db_conn_kwargs import MONGO_CONNECT_URL, MYSQL_CONN_KWARGS  # 保密 密码
 
 """
@@ -143,7 +187,7 @@ def crawl_detail_page(url: str, title: str, news_type: str):
     # 也提供了 MysqlSink类,都是自动连接池操作数据库
     # MongoSink(db='test', col='car_home_news', uniqu_key='news_id', mongo_connect_url=MONGO_CONNECT_URL, ).save(item)
     # MysqlSink(db='test', table='car_home_news', **MYSQL_CONN_KWARGS).save(item)  # 用户需要自己先创建mysql表
-    dataset_sink1.save('car_home_news', item)  # 使用知名dataset三方包,自动建表和保存字典到5种数据库类型.
+    dataset_sink1.save('car_home_news', item)  # 使用知名dataset三方包,一行代码能自动建表和保存字典到5种数据库类型.
 
 
 if __name__ == '__main__':
@@ -193,25 +237,68 @@ boost_spider是同步编程和asyncio编程双支持.(boost_spider 还能支持g
 
 ```python
 import httpx
-from funboost import boost, BrokerEnum, ConcurrentModeEnum, ctrl_c_recv
+from funboost import boost, BrokerEnum, ConcurrentModeEnum, ctrl_c_recv, BoosterParams
 
 client = httpx.AsyncClient()
 
 
-@boost('test_httpx_q3', broker_kind=BrokerEnum.REDIS, concurrent_mode=ConcurrentModeEnum.ASYNC, concurrent_num=500)
+@boost(
+    BoosterParams(queue_name='test_httpx_q3a', broker_kind=BrokerEnum.REDIS, concurrent_mode=ConcurrentModeEnum.ASYNC,
+                  concurrent_num=500))
 async def f(url):
     # client= httpx.AsyncClient()
     r = await client.get(url)
     print(r.status_code, len(r.text))
 
+    # 发布url到第二层级
+    f2.push('新浪', 'https://www.sina.com')
+    f2.push('搜狐', 'https://www.sohu.com')
+    f2.push('qq', 'https://www.qq.com')
+
+
+@boost(
+    BoosterParams(queue_name='test_httpx_q3b', broker_kind=BrokerEnum.REDIS, concurrent_mode=ConcurrentModeEnum.ASYNC,
+                  concurrent_num=500))
+async def f2(site_name, url):
+    # client= httpx.AsyncClient()
+    r = await client.get(url)
+    print(site_name, r.status_code, len(r.text))
+
 
 if __name__ == '__main__':
     # asyncio.run(f())
-    f.clear()
-    f.consume()
-    for i in range(10):
+    f.clear()  # 清空队列
+    f2.clear()
+
+    f.consume()  # 启动消费
+    f2.consume()
+
+    for i in range(5):
         f.push('https://www.baidu.com/')
     ctrl_c_recv()
 
 
 ```
+
+## 为什么任何 yield Request(url=url, callback=self.my_parse,meta={'field1':'xxx','field2':'yyy'} 是垃圾爬虫框架?
+
+```
+1. 逻辑割裂与“回调地狱”：代码可读性的噩梦,  思维跳跃,上下文丢失
+
+2. meta 字典：一个“无法无天”的“黑魔法”容器, 它是一个无类型、无结构、无约束的“垃圾桶”
+
+3. 可测试性的毁灭:
+   请求解析,无法独立测试,必须随着框架整体运行起来才能验证
+
+4. 自由度的剥夺：
+   你只是流水线上的工人. 你只能通过 yield Request 指定url get还是post 请求体 ,
+   如果你是奇葩发请求,例如爬取的时候要从你自己的reids ip代理池获取ip,必须搞个 download middware 来适配框架.
+   
+5.时序之罪:
+   yield Request,不能精准控制请求时机,如果要爬取url2,先必须从url1获取token加密,假设token有效期只有10秒,你分两次yield Request,
+   因为请求是被框架自动调度的,你无法自己掌控两个请求的真正被调度时机,url2它可能在url1 1 毫秒后被执行，也可能在 10 分钟后被执行，你完全无法预测。
+   只要是种子堆积了,就算是你设置优先级也没用,如果同一个优先级有几万个request种子,无法按优先级精准控制请求时序.
+   而函数调度框架,一个函数里面天然可以写if /else/ for /try ,也能连续写发送多次请求
+```
+
+**用过 `funboost` 的pythoner都说相见恨晚,连连称奇,醍醐灌顶,豁然开朗,和传统作茧自缚的爬虫框架简直不在一个级别**

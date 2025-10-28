@@ -1,3 +1,4 @@
+
 import typing
 
 import pymysql.cursors
@@ -7,7 +8,12 @@ from universal_object_pool.contrib.pymysql_pool import PyMysqlOperator
 from boost_spider.sink.sink_helper import log_save_item
 
 
+"""
+保存到 mysql,不推荐,直接 使用dataset_sink 就好了.
+"""
+
 class MysqlSink:
+    """不推荐,使用dataset_sink 就好了."""
     _key__pool_map = {}
 
     def _get_pool(self):

@@ -5,7 +5,7 @@
 ================================================================================
 
 🎯 本文件目的：
-   使用 Scrapy 框架实现同样的新闻爬虫功能，与 funboost_imp/boost_spider_crawler.py 形成对比。
+   使用 Scrapy 框架实现同样的新闻爬虫功能，与 boost_spider_imp/boost_spider_crawler.py 形成对比。
    通过大量注释说明两个框架在各方面的差异，帮助理解 Funboost + boost_spider 的优势。
 
 📊 功能对比表（同样的爬取需求，不同的实现方式）：

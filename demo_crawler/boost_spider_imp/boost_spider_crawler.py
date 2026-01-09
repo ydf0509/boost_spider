@@ -59,7 +59,7 @@ BASE_URL = "http://127.0.0.1:7000"
 
 # ⭐ DatasetSink 初始化：一行代码，连接 SQLite 数据库
 # 💔 Scrapy 对比：需要在 settings.py 配置 ITEM_PIPELINES，再定义 Pipeline 类
-DB_URL = "sqlite:///demo_crawler/funboost_imp/funboost_crawled_data.db"  # SQLite 数据库文件
+DB_URL = "sqlite:///demo_crawler/boost_spider_imp/boost_spider_crawled_data.db"  # SQLite 数据库文件
 data_sink = DatasetSink(DB_URL)
 
 

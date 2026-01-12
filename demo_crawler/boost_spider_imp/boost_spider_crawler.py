@@ -43,16 +43,14 @@ Scrapy：❌ 无法实现，只能从 start_urls 开始爬取
 """
 
 import requests
-from funboost import boost, BoosterParams, BrokerEnum, ctrl_c_recv, BoostersManager
-from boost_spider import RequestClient
+from boost_spider import boost, BoosterParams, BrokerEnum, ctrl_c_recv, BoostersManager,RequestClient
 # RequestClient.get()/request() 返回 SpiderResponse 对象，支持 xpath/css 解析
 
 # ⭐【boost_spider 优势 13】DatasetSink：一行代码保存到 SQLite/MySQL/PostgreSQL
 # 💔  Scrapy 对比：需要定义 Item、配置 Pipeline、在 settings 中启用 Pipeline
 from boost_spider.sink.dataset_sink import DatasetSink
 
-import boost_spider
-print(boost_spider.__file__)
+
 
 # ================= 配置 =================
 BASE_URL = "http://127.0.0.1:7000"
@@ -341,6 +339,7 @@ if __name__ == "__main__":
     # 只要装饰器中指定了 booster_group 参数，就可以通过该分组名称一次性启动所有相关消费者
     print("[启动] 分组启动所有爬虫消费者...")
     BoostersManager.consume_group("news_crawler_group")
+    # BoostersManager.mp_consume_group("news_crawler_group",process_num=6) # 可以多进程叠加多线程/协程，性能炸裂
     print("  -> 列表页/详情页/评论页爬虫消费者已启动 ✓")
     
     # 2. 发布初始任务：爬取前3页新闻列表

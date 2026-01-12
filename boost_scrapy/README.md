@@ -1,5 +1,5 @@
 
-# funboost_scrapy 说明：
+# boost_scrapy 说明：
 
 这是1个反面教材，有些家伙极其的蛋疼，居然想把 funboost 二次封装成  类似scrapy的爬虫api 框架 。
 
@@ -13,7 +13,7 @@
 # 看到有人这么蛋疼，非要绞尽脑汁把funboost封装成 scrapy 那样的 yield Request 模式
 
 那还不如我直接封装好，你现在直接用，省的你费劲。  
-用法例子在 demo_crawler/funboost_scrapy_imp/funboost_scrapy_demo.py
+用法例子在 demo_crawler/boost_scrapy_imp/boost_scrapy_demo.py
 
 # 看看gemini 是怎么回答这种封装想法的：
 

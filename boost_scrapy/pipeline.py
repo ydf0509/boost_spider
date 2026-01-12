@@ -1,6 +1,6 @@
 # coding=utf-8
 """
-funboost_scrapy.pipeline - Pipeline 数据入库管道
+boost_scrapy.pipeline - Pipeline 数据入库管道
 
 类似 Scrapy 的 Pipeline，用于处理 Item 数据入库。
 """
@@ -8,8 +8,8 @@ funboost_scrapy.pipeline - Pipeline 数据入库管道
 from typing import TYPE_CHECKING
 
 if TYPE_CHECKING:
-    from funboost_scrapy.item import Item
-    from funboost_scrapy.spider import Spider
+    from boost_scrapy.item import Item
+    from boost_scrapy.spider import Spider
 
 
 class Pipeline:

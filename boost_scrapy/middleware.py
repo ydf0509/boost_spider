@@ -1,6 +1,6 @@
 # coding=utf-8
 """
-funboost_scrapy.middleware - 中间件
+boost_scrapy.middleware - 中间件
 
 类似 Scrapy 的 Downloader Middleware，可以在请求发送前/响应返回后进行处理。
 """
@@ -9,9 +9,9 @@ import random
 from typing import Optional, TYPE_CHECKING
 
 if TYPE_CHECKING:
-    from funboost_scrapy.request import Request
-    from funboost_scrapy.response import Response
-    from funboost_scrapy.spider import Spider
+    from boost_scrapy.request import Request
+    from boost_scrapy.response import Response
+    from boost_scrapy.spider import Spider
 
 
 # 预定义的 User-Agent 列表

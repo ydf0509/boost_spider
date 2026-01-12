@@ -1,11 +1,11 @@
 # coding=utf-8
 """
 ================================================================================
-         新闻爬虫 Demo - 使用 funboost_scrapy 框架 (Scrapy 风格)
+         新闻爬虫 Demo - 使用 boost_scrapy 框架 (Scrapy 风格)
 ================================================================================
 
 🎯 本文件目的：
-   演示如何使用 funboost_scrapy 框架实现 Scrapy 风格的爬虫。
+   演示如何使用 boost_scrapy 框架实现 Scrapy 风格的爬虫。
    爬取流程: 列表页 -> 详情页 -> 评论页
 
 📊 使用方式：
@@ -14,8 +14,8 @@
       python news_server.py
    
    2. 运行本爬虫:
-      cd demo_crawler/funboost_scrapy_imp
-      python funboost_scrapy_demo.py
+      cd demo_crawler/boost_scrapy_imp
+      python boost_scrapy_demo.py
 
 ================================================================================
 """
@@ -31,7 +31,7 @@ import os
 import sqlite3
 import random
 
-from funboost_scrapy import Spider, Request, Item, Engine, Pipeline, Middleware
+from boost_scrapy import Spider, Request, Item, Engine, Pipeline, Middleware
 
 
 # ================= 自定义 Middleware（演示代理切换） =================
@@ -129,10 +129,10 @@ class SQLitePipeline(Pipeline):
     def __init__(self, db_path: str = None):
         """
         Args:
-            db_path: 数据库文件路径，默认使用当前目录的 funboost_scrapy_data.db
+            db_path: 数据库文件路径，默认使用当前目录的 boost_scrapy_data.db
         """
         if db_path is None:
-            db_path = os.path.join(os.path.dirname(__file__), 'funboost_scrapy_data.db')
+            db_path = os.path.join(os.path.dirname(__file__), 'boost_scrapy_data.db')
         self.db_path = db_path
         self.conn = None
         self.cursor = None
@@ -242,7 +242,7 @@ class ConsolePipeline(Pipeline):
 
 class NewsSpider(Spider):
     """
-    新闻爬虫 - 使用 funboost_scrapy 实现 (Scrapy 风格)
+    新闻爬虫 - 使用 boost_scrapy 实现 (Scrapy 风格)
     
     爬取流程: 列表页(JSON) -> 详情页(JSON) -> 评论页(HTML/xpath)
     
@@ -273,7 +273,7 @@ class NewsSpider(Spider):
         """
         print()
         print("=" * 60)
-        print("  funboost_scrapy 新闻爬虫 Demo")
+        print("  boost_scrapy 新闻爬虫 Demo")
         print("  Scrapy 风格: yield Request + callback")
         print("=" * 60)
         print()

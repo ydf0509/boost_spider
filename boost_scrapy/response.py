@@ -1,6 +1,6 @@
 # coding=utf-8
 """
-funboost_scrapy.response - Response 响应封装
+boost_scrapy.response - Response 响应封装
 
 独立实现，不依赖 boost_spider，提供 xpath/css/json 解析功能。
 """
@@ -12,7 +12,7 @@ import requests
 from parsel import Selector
 
 if TYPE_CHECKING:
-    from funboost_scrapy.request import Request
+    from boost_scrapy.request import Request
 
 
 class Response:
@@ -56,7 +56,7 @@ class Response:
         self.encoding = resp.encoding
         self.content = resp.content
         
-        # funboost_scrapy 扩展属性
+        # boost_scrapy 扩展属性
         self._meta = meta or {}
         self._request = request
         

@@ -1,5 +1,5 @@
 # coding=utf-8
-"""测试 funboost_scrapy 模块导入"""
+"""测试 boost_scrapy 模块导入"""
 
 import sys
 import os
@@ -11,8 +11,8 @@ sys.path.insert(0, project_root)
 print("Testing import...")
 
 try:
-    from funboost_scrapy import Spider, Request, Item, Engine, Pipeline, Response
-    print("✓ funboost_scrapy import success!")
+    from boost_scrapy import Spider, Request, Item, Engine, Pipeline, Response
+    print("✓ boost_scrapy import success!")
     
     # 测试 Request
     req = Request("http://example.com", method="GET", meta={'page': 1})

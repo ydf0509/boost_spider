@@ -1,6 +1,6 @@
 # coding=utf-8
 """
-funboost_scrapy - 基于 funboost 的 Scrapy 风格爬虫框架
+boost_scrapy - 基于 funboost 的 Scrapy 风格爬虫框架
 
 将 funboost 封装成类似 Scrapy 的 yield Request 框架，
 让习惯 Scrapy 写法的用户能够快速上手。
@@ -14,7 +14,7 @@ funboost_scrapy - 基于 funboost 的 Scrapy 风格爬虫框架
 - Engine: 核心引擎，解析 yield 生成器并调度任务
 
 使用示例:
-    from funboost_scrapy import Spider, Request, Item, Engine
+    from boost_scrapy import Spider, Request, Item, Engine
     
     class NewsItem(Item):
         pass
@@ -44,13 +44,13 @@ funboost_scrapy - 基于 funboost 的 Scrapy 风格爬虫框架
         engine.run(NewsSpider)
 """
 
-from funboost_scrapy.request import Request
-from funboost_scrapy.response import Response
-from funboost_scrapy.item import Item
-from funboost_scrapy.spider import Spider
-from funboost_scrapy.pipeline import Pipeline, PrintPipeline
-from funboost_scrapy.middleware import Middleware, UserAgentMiddleware, HeadersMiddleware, RetryMiddleware, ProxyMiddleware
-from funboost_scrapy.engine import Engine
+from boost_scrapy.request import Request
+from boost_scrapy.response import Response
+from boost_scrapy.item import Item
+from boost_scrapy.spider import Spider
+from boost_scrapy.pipeline import Pipeline, PrintPipeline
+from boost_scrapy.middleware import Middleware, UserAgentMiddleware, HeadersMiddleware, RetryMiddleware, ProxyMiddleware
+from boost_scrapy.engine import Engine
 
 __all__ = [
     'Request',

@@ -1,6 +1,6 @@
 # coding=utf-8
 """
-funboost_scrapy.item - Item 数据项
+boost_scrapy.item - Item 数据项
 
 类似 Scrapy 的 Item，用于定义爬取的数据结构。
 """

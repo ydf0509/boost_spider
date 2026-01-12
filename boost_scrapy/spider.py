@@ -1,6 +1,6 @@
 # coding=utf-8
 """
-funboost_scrapy.spider - Spider 爬虫基类
+boost_scrapy.spider - Spider 爬虫基类
 
 类似 Scrapy 的 Spider，用户继承此类定义爬虫逻辑。
 """
@@ -8,9 +8,9 @@ funboost_scrapy.spider - Spider 爬虫基类
 from typing import Dict, Any, Generator, List, TYPE_CHECKING, Type
 
 if TYPE_CHECKING:
-    from funboost_scrapy.request import Request
-    from funboost_scrapy.response import Response
-    from funboost_scrapy.pipeline import Pipeline
+    from boost_scrapy.request import Request
+    from boost_scrapy.response import Response
+    from boost_scrapy.pipeline import Pipeline
 
 
 class Spider:

@@ -1,9 +1,9 @@
 # coding=utf-8
 """
-funboost_scrapy.engine - 核心引擎
+boost_scrapy.engine - 核心引擎
 
 解析 Spider 的 yield 生成器，调度 funboost 任务。
-这是 funboost_scrapy 框架的核心，负责协调请求、响应、回调和入库。
+这是 boost_scrapy 框架的核心，负责协调请求、响应、回调和入库。
 """
 
 import types
@@ -12,12 +12,12 @@ from typing import Type, List, Generator, Optional
 
 from funboost import boost, BoosterParams, BrokerEnum, ctrl_c_recv
 
-from funboost_scrapy.request import Request
-from funboost_scrapy.response import Response
-from funboost_scrapy.item import Item
-from funboost_scrapy.spider import Spider
-from funboost_scrapy.pipeline import Pipeline, PrintPipeline
-from funboost_scrapy.middleware import Middleware
+from boost_scrapy.request import Request
+from boost_scrapy.response import Response
+from boost_scrapy.item import Item
+from boost_scrapy.spider import Spider
+from boost_scrapy.pipeline import Pipeline, PrintPipeline
+from boost_scrapy.middleware import Middleware
 
 
 class Engine:
@@ -152,7 +152,7 @@ class Engine:
         
         # 创建 funboost 消费函数
         @boost(BoosterParams(
-            queue_name=f"funboost_scrapy_{self._spider.name}",
+            queue_name=f"boost_scrapy_{self._spider.name}",
             broker_kind=self.broker_kind,
             concurrent_num=self.concurrent_num,
             qps=self.qps,

@@ -1,6 +1,6 @@
 # coding=utf-8
 """
-funboost_scrapy.request - Request 请求封装
+boost_scrapy.request - Request 请求封装
 
 类似 Scrapy 的 Request 对象，封装 URL、callback、method、headers、meta 等属性。
 """

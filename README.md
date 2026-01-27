@@ -505,11 +505,14 @@ from utils.download_and_upload import download_and_upload_to_s3   # 你日积月
 
 # [boost_scrapy](boost_scrapy/) 介绍
 
+[boost_scrapy地址](boost_scrapy/) 
+
 有的人非常喜欢仿scrapy风格的爬虫框架， yield Request(url=url, callback=self.my_parse,meta={'field1':'xxx','field2':'yyy'}) 的写法, 
 
 boost_scrapy 就是这样的框架，使用 funboost的引擎来封装的，封装给这个是为了，免得有人还要浪费花时间用funboost去封装仿scrapy的爬虫框架。
 
 此项目的 domo_crwaler 文件夹中有各种爬虫方式，其中就包括使用 boost_scrapy 和 boost_spider 来分别爬虫的，boost_spider写法的优越性肉眼可见的比 boost_scrapy简单清晰。
+
 
 
 # 七种爬虫方式

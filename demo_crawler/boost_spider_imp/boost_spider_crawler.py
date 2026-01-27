@@ -42,8 +42,8 @@ Scrapy：❌ 无法实现，只能从 start_urls 开始爬取
 ================================================================================
 """
 
-import requests
-from boost_spider import boost, BoosterParams, BrokerEnum, ctrl_c_recv, BoostersManager,RequestClient
+import httpx  # ⭐ httpx 异步请求库
+from boost_spider import boost, BoosterParams, BrokerEnum, ctrl_c_recv, BoostersManager, RequestClient, ConcurrentModeEnum
 # RequestClient.get()/request() 返回 SpiderResponse 对象，支持 xpath/css 解析
 
 # ⭐【boost_spider 优势 13】DatasetSink：一行代码保存到 SQLite/MySQL/PostgreSQL
@@ -59,6 +59,16 @@ BASE_URL = "http://127.0.0.1:7000"
 # 💔 Scrapy 对比：需要在 settings.py 配置 ITEM_PIPELINES，再定义 Pipeline 类
 DB_URL = "sqlite:///demo_crawler/boost_spider_imp/boost_spider_crawled_data.db"  # SQLite 数据库文件
 data_sink = DatasetSink(DB_URL)
+
+# ⭐【httpx 全局异步客户端】 演示 funboost 能使用 asyncio 生态爬虫，独一档，feapder和scrapy无法比拟。
+httpx_async_client = httpx.AsyncClient(
+    timeout=httpx.Timeout(10.0),
+    headers={
+        'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36',
+        'Referer': 'https://news.example.com/',
+        'Accept-Language': 'zh-CN,zh;q=0.9',
+    }
+)
 
 
 
@@ -155,16 +165,17 @@ def crawl_list_page(page: int = 1, size: int = 10):
 @boost(BaseCrawlerParams(
     queue_name="news_crawler_detail_page",
     qps=5,  # 每秒最多请求5次详情页
-    concurrent_num=10,  # 并发数10,
+    concurrent_num=50,  # ⭐ 协程并发数可以开很大
+    concurrent_mode=ConcurrentModeEnum.ASYNC,  # 使用 asyncio 协程并发模式
     # ⭐【Funboost 优势 11】一键任务去重
     # 💔  Scrapy 对比：需要配置 DUPEFILTER_CLASS，可能还需要 BloomFilter 插件
     do_task_filtering=True, # 通过函数入参自动去重，无需任何配置
     task_filtering_expire_seconds = 600, # 仅在600秒之内去重，支持过期时间控制
     
 ))
-def crawl_detail_page(news_id: int, title: str):
+async def crawl_detail_page(news_id: int, title: str):
     """
-    爬取新闻详情页
+    爬取新闻详情页（使用 httpx 异步客户端）
     
     ⭐【Funboost 优势 12】函数参数类型安全
     - news_id: int, title: str 有类型标注
@@ -176,10 +187,10 @@ def crawl_detail_page(news_id: int, title: str):
     - 推送评论页爬取任务
     """
     url = f"{BASE_URL}/news/{news_id}"
-    print(f"[详情页] 正在爬取: {url}")
+    print(f"[详情页-httpx异步] 正在爬取: {url}")
     
-    
-    response = requests.get(url, timeout=10)
+    # ⭐ 使用 httpx 全局异步客户端
+    response = await httpx_async_client.get(url)
     response.raise_for_status()
     news_detail = response.json()
     
@@ -353,5 +364,5 @@ if __name__ == "__main__":
     print("爬虫已启动，按 Ctrl+C 停止...")
     print()
     
-    # 3. 保持程序运行
+    # 3. 保持程序主线程在运行
     ctrl_c_recv()

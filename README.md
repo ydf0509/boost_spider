@@ -500,3 +500,61 @@ from utils.download_and_upload import download_and_upload_to_s3   # 你日积月
 ### 总结
 **Scrapy** 适合处理结构简单、无需复杂交互、离线式的全网爬取任务。
 **Funboost/BoostSpider** 则适合现代互联网环境下，高并发、强反爬、逻辑复杂、需要实时交互和微服务化的采集业务。
+
+
+
+# [boost_scrapy](boost_scrapy/) 介绍
+
+有的人非常喜欢仿scrapy风格的爬虫框架， yield Request(url=url, callback=self.my_parse,meta={'field1':'xxx','field2':'yyy'}) 的写法, 
+
+boost_scrapy 就是这样的框架，使用 funboost的引擎来封装的，封装给这个是为了，免得有人还要浪费花时间用funboost去封装仿scrapy的爬虫框架。
+
+此项目的 domo_crwaler 文件夹中有各种爬虫方式，其中就包括使用 boost_scrapy 和 boost_spider 来分别爬虫的，boost_spider写法的优越性肉眼可见的比 boost_scrapy简单清晰。
+
+
+# 七种爬虫方式
+
+demo_crawler 文件夹下有7种方式来爬虫：
+
+| 序号 | 方案名称 | 核心技术 | 定位 |
+|:---:|:---:|:---:|:---:|
+| ① | **ThreadPool** | `concurrent.futures.ThreadPoolExecutor` | 🔰 入门级单机 |
+| ② | **Redis+Pool** | `Redis blpop` + `ThreadPoolExecutor` | 🔧 手动分布式 |
+| ③ | **Celery** | `Celery Worker` | 📦 通用任务队列 |
+| ④ | **Feapder** | `feapder.Spider` | 🕷️ 国产爬虫框架 |
+| ⑤ | **Scrapy** | `scrapy.Spider` | 🌐 老牌爬虫框架 |
+| ⑥ | **Funboost** | `@boost` + `boost_spider` | 🚀 FaaS分布式框架 |
+| ⑦ | **boost_scrapy** | `funboost` 内核 + `Scrapy` 风格封装 | ⚠️ 反面教材 |
+
+## 🏆 总分排行榜 (满分500分)
+
+| 排名 | 方案 | 总分 | 进度条 |
+|:---:|:---|:---:|:---|
+| 🥇 | **Funboost + boost_spider** | **500** | ████████████████████ 100% |
+| 🥈 | boost_scrapy | 301 | ████████████░░░░░░░░ 60% |
+| 🥉 | Celery | 210 | ████████░░░░░░░░░░░░ 42% |
+| 4️⃣ | Feapder | 195 | ███████░░░░░░░░░░░░░ 39% |
+| 5️⃣ | Redis+Pool | 119 | █████░░░░░░░░░░░░░░░ 24% |
+| 6️⃣ | Scrapy | 118 | █████░░░░░░░░░░░░░░░ 24% |
+| 7️⃣ | ThreadPool | 80 | ████░░░░░░░░░░░░░░░░ 16% |
+
+## 📈 分类得分对比
+
+| 类别 | ThreadPool | Redis+Pool | Celery | Feapder | Scrapy | **Funboost** | boost_scrapy |
+|:---|:---:|:---:|:---:|:---:|:---:|:---:|:---:|
+| 🏗️ 架构设计 | 47 | 55 | 51 | 44 | 23 | **100** | 45 |
+| ⚡ 分布式能力 | 3 | 22 | 49 | 45 | 15 | **80** | 73 |
+| 🎛️ 流控并发 | 13 | 12 | 21 | 20 | 19 | **70** | 60 |
+| 🔧 任务治理 | 0 | 0 | 31 | 18 | 11 | **80** | 50 |
+| 🌐 外部注入 ⭐ | 0 | 13 | 26 | 6 | 0 | **50** | 4 |
+| 🛡️ 反爬对抗 | 7 | 7 | 9 | 39 | 32 | **60** | 36 |
+| 💾 数据处理 | 10 | 10 | 10 | 17 | 10 | **30** | 13 |
+| 📊 监控运维 | 0 | 0 | 13 | 6 | 8 | **30** | 20 |
+| **总分** | **80** | **119** | **210** | **195** | **118** | **500** | **301** |
+
+> **⚡ 核心结论**：Funboost 在"外部任务注入"维度实现了对 Scrapy 的**降维打击**（50分 vs 0分），这是架构层面的根本性优势。
+
+📄 详细50项评分请查看：
+
+- [七种爬虫方式公正评分(50项详细维度)-claude.md](tests/ai_docs/七种爬虫方式公正评分(50项详细维度)-claude.md)
+- [七种爬虫方式公正评分(50项详细维度)-gemini.md](tests/ai_docs/七种爬虫方式公正评分(50项详细维度)-gemini.md)

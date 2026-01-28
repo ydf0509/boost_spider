@@ -505,6 +505,8 @@ from utils.download_and_upload import download_and_upload_to_s3   # 你日积月
 
 # boost_scrapy 介绍
 
+[boost_scrapy地址](boost_scrapy)
+
 有的人非常喜欢仿scrapy风格的爬虫框架， yield Request(url=url, callback=self.my_parse,meta={'field1':'xxx','field2':'yyy'}) 的写法, 
 
 boost_scrapy 就是这样的框架，使用 funboost的引擎来封装的，封装给这个是为了，免得有人还要浪费花时间用funboost去封装仿scrapy的爬虫框架。

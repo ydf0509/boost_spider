@@ -43,7 +43,7 @@ Scrapy：❌ 无法实现，只能从 start_urls 开始爬取
 """
 
 import httpx  # ⭐ httpx 异步请求库
-from boost_spider import boost, BoosterParams, BrokerEnum, ctrl_c_recv, BoostersManager, RequestClient, ConcurrentModeEnum
+from boost_spider import boost, BoosterParams, BrokerEnum, ctrl_c_recv, BoostersManager, RequestClient, ConcurrentModeEnum,TaskOptions
 # RequestClient.get()/request() 返回 SpiderResponse 对象，支持 xpath/css 解析
 
 # ⭐【boost_spider 优势 13】DatasetSink：一行代码保存到 SQLite/MySQL/PostgreSQL
@@ -210,7 +210,15 @@ async def crawl_detail_page(news_id: int, title: str):
     
     # 推送评论页爬取任务（爬取前2页评论）
     for page in range(1, 3):
-        crawl_comments_page.push(news_id=news_id, title=title, page=page)
+        crawl_comments_page.publish(
+            dict(news_id=news_id, title=title, page=page),
+                task_options=TaskOptions(do_task_filtering=True,
+                # filter_str是funboost核心去重过滤大招，可以只根据部分入参去重，吊打scrapy那种整个url加post请求的data或者json来生成hash md5去重指纹。
+                # 如果body很大，还有一些很长的不重要的文字，会干扰去重，导致无法命中去重。
+                # 例如假设body里面必须包含当前时间或者一个uuid随机数，那么就没法命中去重了，
+                # funboost中 你可以在 Body 里塞入任何垃圾数据、随机数，只要 filter_str 没变，系统就认定它是重复的。完全无需写复杂的指纹计算代码。
+                filter_str=f"news_id={news_id}&page={page}")
+        )
         print(f"  -> 已发布: 爬取新闻{news_id}的第{page}页评论")
     
     # ⭐【boost_spider 优势】DatasetSink 一行代码保存到 SQLite！

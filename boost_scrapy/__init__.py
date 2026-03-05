@@ -48,9 +48,10 @@ from boost_scrapy.request import Request
 from boost_scrapy.response import Response
 from boost_scrapy.item import Item
 from boost_scrapy.spider import Spider
-from boost_scrapy.pipeline import Pipeline, PrintPipeline
+from boost_scrapy.pipeline import Pipeline, ConsolePipeline, SQLModelPipeline
 from boost_scrapy.middleware import Middleware, UserAgentMiddleware, HeadersMiddleware, RetryMiddleware, ProxyMiddleware
 from boost_scrapy.engine import Engine
+from boost_scrapy.log import logger
 
 __all__ = [
     'Request',
@@ -58,13 +59,15 @@ __all__ = [
     'Item',
     'Spider',
     'Pipeline',
-    'PrintPipeline',
+    'SQLModelPipeline',
+    'ConsolePipeline',
     'Middleware',
     'UserAgentMiddleware',
     'HeadersMiddleware',
     'RetryMiddleware',
     'ProxyMiddleware',
     'Engine',
+    'logger',
 ]
 
 __version__ = '0.1.0'

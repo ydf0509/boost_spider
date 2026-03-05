@@ -28,215 +28,12 @@ import os
 # if project_root not in sys.path:
 #     sys.path.insert(0, project_root)
 
-import sqlite3
-import random
-
-from boost_scrapy import Spider, Request, Item, Engine, Pipeline, Middleware
 
 
-# ================= 自定义 Middleware（演示代理切换） =================
-
-class MyProxyMiddleware(Middleware):
-    """
-    自定义代理中间件 - 演示用户如何从 Redis/内存 获取代理 IP
-    
-    用户可以根据实际情况修改 get_proxy() 方法：
-    - 从 Redis 代理池获取
-    - 从内存代理列表获取
-    - 从第三方代理 API 获取
-    """
-    
-    def __init__(self):
-        # 模拟内存代理池（实际项目中可以从 Redis 获取）
-        self.proxy_pool = [
-            'http://proxy1.example.com:8080',
-            'http://proxy2.example.com:8080',
-            'http://proxy3.example.com:8080',
-        ]
-        # 如果使用 Redis:
-        # import redis
-        # self.redis_client = redis.Redis(host='localhost', port=6379, db=0)
-    
-    def get_proxy(self) -> str:
-        """
-        获取代理 IP（用户可自定义实现）
-        
-        示例：
-        - 从内存列表随机获取
-        - 从 Redis 的 set/list 获取
-        - 从代理服务商 API 获取
-        """
-        # 方式1：从内存列表随机选一个
-        proxy = random.choice(self.proxy_pool)
-        
-        # 方式2：从 Redis 获取（示例）
-        # proxy = self.redis_client.srandmember('proxy_pool').decode()
-        
-        # 方式3：从代理服务商 API 获取（示例）
-        # resp = requests.get('http://proxy-api.com/get')
-        # proxy = resp.json()['proxy']
-        
-        return proxy
-    
-    def process_request(self, request, spider):
-        """每次请求时自动设置代理"""
-        proxy = self.get_proxy()
-        request.kwargs['proxies'] = {'http': proxy, 'https': proxy}
-        print(f"  🌐 [MyProxyMiddleware] 使用代理: {proxy}")
-        return None
-
-
-class MyUserAgentMiddleware(Middleware):
-    """
-    自定义 UA 中间件 - 演示用户如何切换 UserAgent
-    """
-    
-    USER_AGENTS = [
-        'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 Chrome/120.0.0.0',
-        'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 Chrome/120.0.0.0',
-        'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:121.0) Gecko/20100101 Firefox/121.0',
-    ]
-    
-    def process_request(self, request, spider):
-        """每次请求时随机切换 UA"""
-        ua = random.choice(self.USER_AGENTS)
-        request.headers['User-Agent'] = ua
-        print(f"  🔄 [MyUserAgentMiddleware] UA: {ua[:50]}...")
-        return None
-
-
-# ================= 定义 Item =================
-
-class NewsItem(Item):
-    """新闻详情数据项"""
-    pass
-
-
-class CommentItem(Item):
-    """评论数据项"""
-    pass
-
-
-# ================= 定义 Pipeline =================
-
-class SQLitePipeline(Pipeline):
-    """
-    SQLite Pipeline - 保存数据到 SQLite 数据库
-    
-    和其他爬虫实现一样，自动创建表并保存数据。
-    """
-    
-    def __init__(self, db_path: str = None):
-        """
-        Args:
-            db_path: 数据库文件路径，默认使用当前目录的 boost_scrapy_data.db
-        """
-        if db_path is None:
-            db_path = os.path.join(os.path.dirname(__file__), 'boost_scrapy_data.db')
-        self.db_path = db_path
-        self.conn = None
-        self.cursor = None
-        self.news_count = 0
-        self.comment_count = 0
-    
-    def open_spider(self, spider):
-        """爬虫启动时创建数据库连接和表"""
-        print(f"[SQLitePipeline] 连接数据库: {self.db_path}")
-        self.conn = sqlite3.connect(self.db_path)
-        self.cursor = self.conn.cursor()
-        
-        # 创建新闻表
-        self.cursor.execute('''
-            CREATE TABLE IF NOT EXISTS news_detail (
-                id INTEGER PRIMARY KEY AUTOINCREMENT,
-                news_id INTEGER,
-                title TEXT,
-                author TEXT,
-                publish_time TEXT,
-                content TEXT
-            )
-        ''')
-        
-        # 创建评论表
-        self.cursor.execute('''
-            CREATE TABLE IF NOT EXISTS comments (
-                id INTEGER PRIMARY KEY AUTOINCREMENT,
-                news_id INTEGER,
-                comment_id TEXT,
-                author TEXT,
-                content TEXT,
-                likes TEXT
-            )
-        ''')
-        
-        self.conn.commit()
-        print(f"[SQLitePipeline] 数据库表已就绪: news_detail, comments")
-    
-    def process_item(self, item, spider):
-        """处理 Item，保存到数据库"""
-        if isinstance(item, NewsItem):
-            self.cursor.execute('''
-                INSERT INTO news_detail (news_id, title, author, publish_time, content)
-                VALUES (?, ?, ?, ?, ?)
-            ''', (
-                item.get('news_id'),
-                item.get('title'),
-                item.get('author'),
-                item.get('publish_time'),
-                item.get('content'),
-            ))
-            self.conn.commit()
-            self.news_count += 1
-            print(f"  💾 [SQLite] 保存新闻: {item.get('title')[:30]}...")
-            
-        elif isinstance(item, CommentItem):
-            self.cursor.execute('''
-                INSERT INTO comments (news_id, comment_id, author, content, likes)
-                VALUES (?, ?, ?, ?, ?)
-            ''', (
-                item.get('news_id'),
-                item.get('comment_id'),
-                item.get('author'),
-                item.get('content'),
-                item.get('likes'),
-            ))
-            self.conn.commit()
-            self.comment_count += 1
-            print(f"  💾 [SQLite] 保存评论: #{item.get('comment_id')}")
-        
-        return item
-    
-    def close_spider(self, spider):
-        """爬虫关闭时关闭数据库连接"""
-        if self.conn:
-            self.conn.close()
-        print()
-        print("=" * 60)
-        print(f"[SQLitePipeline] 数据库保存统计")
-        print(f"  新闻: {self.news_count} 篇")
-        print(f"  评论: {self.comment_count} 条")
-        print(f"  数据库: {self.db_path}")
-        print("=" * 60)
-
-
-class ConsolePipeline(Pipeline):
-    """控制台输出 Pipeline - 打印 Item 详情（用于调试）"""
-    
-    def process_item(self, item, spider):
-        if isinstance(item, NewsItem):
-            print("=" * 60)
-            print(f"[新闻] ID: {item.get('news_id')}")
-            print(f"  标题: {item.get('title')}")
-            print(f"  作者: {item.get('author')}")
-            print(f"  时间: {item.get('publish_time')}")
-            preview = item.get('content', '')[:80]
-            print(f"  内容: {preview}...")
-            print("=" * 60)
-        elif isinstance(item, CommentItem):
-            print(f"  📝 评论#{item.get('comment_id')} | {item.get('author')} | 👍{item.get('likes')}")
-            print(f"     {item.get('content')}")
-        return item
-
+from boost_scrapy import Spider, Request, Engine
+from items import NewsItem, CommentItem
+from middlewares import MyProxyMiddleware, MyUserAgentMiddleware
+from boost_scrapy import SQLModelPipeline, ConsolePipeline
 
 # ================= 定义 Spider =================
 
@@ -282,7 +79,9 @@ class NewsSpider(Spider):
         for page in range(1, 4):
             url = f"{self.BASE_URL}/news/list?page={page}&size=5"
             print(f"[发布任务] 列表页 第{page}页")
-            yield Request(url, callback=self.parse_list, meta={'page': page})
+            yield Request(url, callback=self.parse_list, meta={'page': page},
+                        #    dont_filter=True
+                          )
     
     def parse_list(self, response):
         """
@@ -381,14 +180,17 @@ if __name__ == "__main__":
     # 创建引擎并运行爬虫
     # - pipelines: 数据入库管道
     # - middlewares: 中间件（用户自定义，演示 UA/代理 切换）
+    db_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'boost_scrapy_data.db')
+    
     engine = Engine(
         # Engine 里面的入参可以放在全局字典，多个spider共享，也可以放在你的Spider的custom_settings的字典中。
-        pipelines=[SQLitePipeline()],
+        pipelines=[ConsolePipeline(),SQLModelPipeline(db_url=f'sqlite:///{db_path}'), ],  
         middlewares=[
             MyUserAgentMiddleware(),   # 🔄 自定义 UA 中间件：每次请求随机切换 UA
             # MyProxyMiddleware(),     # 🌐 自定义代理中间件：从内存/Redis 获取代理（取消注释启用）
         ],
         use_funboost=True, # use_funboost为False就使用单线程顺序爬虫，可以用于调试。
+        enable_filter=False, # 默认是否启动过滤，也可以在 yield Request 的 dont_filter=True 来禁用
     )
     engine.run(NewsSpider)
 

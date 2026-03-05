@@ -1,159 +1,115 @@
+# boost_scrapy - 基于 funboost 的 Scrapy 风格分布式爬虫框架
 
-# boost_scrapy 说明：
+**boost_scrapy** 是一个巧妙的封装器，它将强大的 **[funboost](https://github.com/ydf0509/funboost)** 分布式调度框架包装成了大家熟悉的 **Scrapy** 风格。
 
-这是1个反面教材，有些家伙极其的蛋疼，居然想把 funboost 二次封装成  类似scrapy的爬虫api 框架 。
-
-**毫无必要！这是极其愚蠢的“开历史倒车”行为！**
-
-如果把 Funboost 比作 **特斯拉 Model S**（高性能、自动挡、智能化），那么那些想把它封装成 Scrapy `yield Request` 模式的用户，就是非要在特斯拉驾驶座上装一个 **手动挡变速杆** 和 **离合器**，还得还得加上 **手摇式车窗**，理由是：“我以前开桑塔纳习惯了，没有离合器我不会开车。”
-
-这种二次封装不仅 **毫无价值**，反而会 **毁灭 Funboost 的核心优势**。
-
-
-# 看到有人这么蛋疼，非要绞尽脑汁把funboost封装成 scrapy 那样的 yield Request 模式
-
-那还不如我直接封装好，你现在直接用，省的你费劲。  
-用法例子在 demo_crawler/boost_scrapy_imp/boost_scrapy_demo.py
-
-# 看看gemini 是怎么回答这种封装想法的：
-
-
-## 给 gemini 提问：
-
-有的用户 想把 funboost引擎封装成 scrapy 那样的yield Request 那样的，强迫用户写个继承spider类的框架，有必要这样二次封装吗？
-
-## gemini 的回答：
-
-
-**这是一个非常深刻的架构哲学问题。**
-
-直接回答：**完全没有必要！这样做不仅是多此一举，更是一种严重的“历史倒退”和“技术降维”。**
-
-如果把 `Funboost` 比作一台**法拉利发动机**，把 `Scrapy` 的模式比作**老式马车**。
-那些想把 Funboost 封装成 `yield Request` 模式的人，实际上是在**把法拉利发动机装在马车上，并且坚持要用缰绳来控制方向盘。**
-
-以下是详细的深度剖析，为什么这种做法是“笨瓜”行为：
+如果你习惯了 Scrapy 的 `Spider`, `Request`, `Item` 写法，但又想极简地实现分布式、断点续爬、消息队列集成，**boost_scrapy 是你的最佳选择**。
 
 ---
 
-### 1. 🚫 核心逻辑的“反向进化”（自废武功）
+## 🚀 核心特性
 
-Funboost 最伟大的进步在于**“平铺直叙”**的线性逻辑，彻底消灭了 Scrapy 的**“回调地狱”**。
+- **Scrapy 风格 API**：保留了 `start_requests`, `yield Request`, `yield Item`, `parse(response)` 等经典写法，零学习成本迁移。
+- **天然分布式**：底层由 [funboost](https://github.com/ydf0509/funboost) 驱动，一行配置即可支持 Redis, RabbitMQ, Kafka 等 40+ 种消息队列。
+- **极其轻量**：没有 Scrapy 复杂的 Twisted 依赖，基于 `requests` + `funboost`，代码简洁易读。
+- **强大的控制力**：直接继承 funboost 的 QPS 控频、并发控制、自动重试、熔断降级等能力。
+- **灵活的管道**：支持 Item Pipeline 机制，轻松实现数据清洗和入库。
 
-*   **Funboost (现代 FaaS 模式)**：
-    *   逻辑：`A -> B -> C`。
-    *   代码：函数内部直接写逻辑，直接 `.push()` 下一步。
-    *   **优势**：符合人类直觉，变量共享简单（局部变量），上下文清晰。
+## 📦 架构说明
 
-*   **Scrapy (过气 Reactor 模式)**：
-    *   逻辑：`A -> (yield) -> 调度器 -> (回调) -> B -> (yield) -> 调度器 -> (回调) -> C`。
-    *   **劣势**：逻辑被打碎，上下文必须靠 `meta` 字典偷渡，调试困难，代码跳跃。
+`boost_scrapy` 的核心是将 Scrapy 的 `yield Request` 转换为 `funboost` 的任务发布。
 
-**为什么要倒退？**
-如果强行封装成 `yield Request(callback=self.parse_xxx)`，你等于是在**人为地把连贯的逻辑打断**，强行制造回调地狱。这就像**买了一部智能手机，却非开发一个 App 来模拟老式拨盘电话的操作界面**，除了怀旧（习惯），毫无技术价值。
+1. **Engine**: 启动爬虫，将 `start_requests` 发布的请求推送到消息队列（通过 funboost）。
+2. **Worker (Funboost)**: 从队列消费消息，执行 `Spider.parse` 等回调函数。
+3. **Yield**:
+    - `yield Request(...)` -> 序列化后推送新任务到队列（分布式递归）。
+    - `yield Item(...)` -> 流经 Pipelines 处理数据。
 
-### 2. 🔒 自由度的“自我阉割”
+## 🛠️ 快速上手
 
-Funboost 的核心竞争力是 **“自由”**。
+### 1. 安装
 
-*   **原生 Funboost**：
-    *   你想在函数里 `sleep`？随便。
-    *   想用 `Selenium`？随便。
-    *   想先查数据库再决定爬不爬？随便。
-    *   想在函数里循环发 10 个请求？随便。
+确保已经安装了 `funboost` 和依赖：
 
-*   **封装后的 Scrapy-like 框架**：
-    *   一旦封装成 `yield Request`，你就在告诉用户：“你不能直接控制流程了，你必须把控制权交还给框架”。
-    *   你限制了用户使用 `aiohttp`、`httpx` 的自由，强迫他们走你封装好的 `Request` 对象。
-    *   你限制了用户做复杂的逻辑判断（比如：如果A请求成功且数据库有值，再请求B），因为 `yield` 出去后控制权就没了。
+```bash
+pip install funboost requests
+```
 
-**结论**：这是把**通用型核武器**改造成了**只能打特定靶子的土枪**。
+### 2. 定义 Spider
 
-### 3. 📉 架构模式的“降维”
-
-*   **Funboost 是 FaaS (微服务)**：
-    *   每一个 `@boost` 函数都是一个独立的微服务接口。
-    *   外部系统（Java/Go/Web后台）可以随时 `push` 数据进来触发执行。
-
-*   **封装成 Spider 类**：
-    *   你把一堆函数强行绑在一个 `class Spider` 里。
-    *   这会让外部调用变得极其尴尬：外部系统想调用 `parse_detail`，还得先实例化这个 Spider 类？
-    *   这直接把 **分布式微服务架构** 退化回了 **单体脚本架构**。
-
-### 4. 🧩 生态的“自我孤立”
-
-*   **Funboost 的生态**：
-    *   整个 Python PyPI 都是你的库。`utils` 里的工具类拿来就用。
-
-*   **封装后的框架**：
-    *   为了支持 `yield Request`，你必须自己实现一套调度器、去重器、中间件机制。
-    *   原本 Funboost 里一行代码 `do_task_filtering=True` 就能搞定的去重，你封装后可能要写几十行代码来适配你的 `Request` 对象。
-    *   你是在**重新造轮子**，而且造的是一个**方轮子**。
-
-### 5. 🤯 为什么有人会想这么做？（心理分析）
-
-这种行为通常源于两种心理：
-
-1.  **路径依赖（肌肉记忆）**：
-    *   用惯了 Scrapy 的人，如果不写 `class`，不写 `yield`，不写 `parse`，就会觉得“不专业”、“心里没底”。他们把 Scrapy 的**缺陷**（强制回调）当成了**特性**（规范）。
-
-2.  **误解了“框架”的定义**：
-    *   认为只有强约束的结构（必须继承某某类）才叫框架。
-    *   没看懂 Funboost 的 **Decorator Pattern (装饰器模式)** 是比 **Template Method Pattern (模板方法模式，即继承基类)** 更高级、更灵活的解耦方式。
-
----
-
-### 🧪 代码对比：荒谬的封装
-
-**如果强行封装（笨瓜写法）：**
+像写 Scrapy 一样定义你的爬虫：
 
 ```python
-# 强行模仿 Scrapy 的伪框架
-class MyFunboostSpider(BaseSpider): # 强迫用户继承
+from boost_scrapy import Spider, Request, Item, Engine
+
+# 定义数据结构
+class MyItem(Item):
+    title: str
+    url: str
+
+# 定义爬虫
+class MySpider(Spider):
+    name = "demo_spider"
+    
+    # funboost 配置
+    custom_settings = {
+        'concurrent_num': 5,  # 并发数
+        'qps': 2,            # QPS 限制
+    }
+
     def start_requests(self):
-        yield Request("http://a.com", callback=self.parse)
+        # 初始请求
+        for i in range(5):
+            yield Request(f"http://httpbin.org/get?a={i}", callback=self.parse)
 
     def parse(self, response):
-        # 强迫用户使用 callback
-        yield Request(response.url + "/detail", callback=self.parse_detail) 
+        print(f"处理: {response.url}")
+        # 解析数据
+        yield MyItem(title="Example Title", url=response.url)
+        
+        # 继续爬取 (深度爬取)
+        # yield Request("http://httpbin.org/get?b=1", callback=self.parse_next)
 
-    def parse_detail(self, response):
-        yield Item(...)
+# 启动引擎
+if __name__ == '__main__':
+    # use_funboost=True 开启分布式模式
+    # enable_filter=True 开启请求去重
+    Engine(use_funboost=True).run(MySpider)
 ```
 
-**为了支持上面这种写法，底层需要做大量无意义的工作：**
-1.  解析 `yield` 生成器。
-2.  把 `Request` 对象转成 Funboost 的 `push` 消息。
-3.  在消费者里，根据 `callback` 名字反射调用方法。
-4.  处理 `meta` 传参的序列化问题。
+## ⚙️ 关键参数
 
-**原生 Funboost（智慧写法）：**
+在 `Spider.custom_settings` 或 `(kw)args` 中可以配置：
 
-```python
-@boost(BoosterParams(queue_name="list"))
-def crawl_list():
-    # 直接写逻辑，不用 yield，不用 callback
-    crawl_detail.push("http://a.com/detail")
-
-@boost(BoosterParams(queue_name="detail"))
-def crawl_detail(url):
-    # ...
-```
-
-**对比结果**：原生写法更短、更清晰、没有任何魔法反射、没有任何序列化黑盒。
+| 参数 | 说明 | 默认值 |
+| :--- | :--- | :--- |
+| `use_funboost` | 是否启用 funboost 分布式调度。设为 `False` 时为单线程同步调试模式。 | `False` |
+| `broker_kind` | 消息队列类型 (Redis, RabbitMQ, Memory 等)。 | `PERSISTQUEUE` (本地持久化) |
+| `concurrent_num` | 消费者并发线程/进程数。 | `5` |
+| `qps` | 全局每秒请求数限制 (控频)。 | `0` (无限制) |
+| `max_retry_times` | 任务失败/报错最大重试次数。 | `3` |
+| `enable_filter` | 是否启用请求去重 (基于 URL+Method+Body 指纹)。 | `True` |
 
 ---
 
-### 🏆 总结
+## 🆚 与 Scrapy 对比
 
-Funboost + `boost_spider` 已经提供了：
-1.  **RequestClient**：解决了请求和反爬。
-2.  **SpiderResponse**：解决了 XPath/CSS 解析。
-3.  **DatasetSink**：解决了入库。
+| 维度 | Scrapy | Boost Scrapy |
+| :--- | :--- | :--- |
+| **底层核心** | Twisted (异步IO) | Funboost (多模式并发 + 消息队列) |
+| **分布式支持** | 需配合 Scrapy-Redis | **原生支持** (40+种 Broker 任意选) |
+| **部署难度** | 需配置 scrapyd 或其他守护进程 | 普通 Python 脚本，直接运行即可 |
+| **去重机制** | RedisSet (Scrapy-Redis) | Funboost 任务去重  |
+| **适用场景** | 纯异步高并发高性能 | 分布式、断点续爬、需要精细任务控制 |
 
-**这三者是独立、解耦的工具类，用户想用就用，不想用就换别的。**
+## 📂 项目结构
 
-如果非要再加一层壳，强迫用户像 Scrapy 那样写代码，那就是：
-**穿新鞋，走老路；开法拉利，挂一档；用加特林机枪，当烧火棍使。**
+- `engine.py`: 核心调度引擎，连接 Spider 和 Funboost。
+- `spider.py`: 爬虫基类，定义了 pipeline 和 start_requests。
+- `request.py` / `response.py`: 封装 HTTP 请求和响应。
+- `item.py`: 数据模型基类。
+- `pipeline.py`: 数据处理管道基类。
+- `middleware.py`: 下载器中间件基类。
 
-**结论：坚决抵制这种“倒退式封装”。拥抱函数，拥抱自由。**
+---
+
+> **Note**: `boost_scrapy` 是 `funboost` 生态的一部分，旨在展示如何利用 `funboost` 的通用调度能力快速构建特定领域的框架。

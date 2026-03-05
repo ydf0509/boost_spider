@@ -7,6 +7,9 @@ boost_scrapy.middleware - 中间件
 
 import random
 from typing import Optional, TYPE_CHECKING
+import random
+from typing import Optional, TYPE_CHECKING
+from boost_scrapy.log import logger
 
 if TYPE_CHECKING:
     from boost_scrapy.request import Request
@@ -111,7 +114,7 @@ class UserAgentMiddleware(Middleware):
         """为每个请求设置随机 User-Agent"""
         ua = random.choice(self.user_agents)
         request.headers['User-Agent'] = ua
-        print(f"  🔄 [UserAgentMiddleware] UA: {ua[:50]}...")
+        logger.debug(f"  🔄 [UserAgentMiddleware] UA: {ua[:50]}...")
         return None
 
 
@@ -157,7 +160,7 @@ class RetryMiddleware(Middleware):
         """请求异常时重试"""
         retry_count = request.meta.get('_retry_count', 0)
         if retry_count < self.max_retries:
-            print(f"  🔁 [RetryMiddleware] 重试 {retry_count + 1}/{self.max_retries}: {request.url}")
+            logger.warning(f"  🔁 [RetryMiddleware] 重试 {retry_count + 1}/{self.max_retries}: {request.url}")
             new_request = request.copy()
             new_request.meta['_retry_count'] = retry_count + 1
             return new_request
@@ -222,6 +225,6 @@ class ProxyMiddleware(Middleware):
         if proxy:
             request.kwargs['proxies'] = proxy
             proxy_str = list(proxy.values())[0] if proxy else 'None'
-            print(f"  🌐 [ProxyMiddleware] Proxy: {proxy_str}")
+            logger.debug(f"  🌐 [ProxyMiddleware] Proxy: {proxy_str}")
         return None
 

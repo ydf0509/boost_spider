@@ -5,6 +5,13 @@
 
 **`boost_spider` = `funboost` 的超跑引擎 + 一套为爬虫量身打造的瑞士军刀。所有仿scrapy api爬虫框架都还是处在变花样造一辆马车**
 
+### ！！！号外：
+`boost_spider`项目中现在也包含一个 `boost_scrapy` 的框架，是使用 funboost内核封装的一个高仿scrapy api风格的爬虫框架。 
+`funboost` 自己也造一个变态马车，`boost_scrapy` 主要是为了那些 如果不写 `yield Request` 就浑身难受的爬虫用户。   
+(这间接说明了 `funboost` 具有超高的可塑性，可以封装成任何框架，包括爬虫框架) 
+
+
+
 对于爬虫场景:       
 用户怕麻烦,要求天生就爬虫全套方便，就使用 `funboost` + `boost_spider`(内置了便利的 请求 解析 入库3个类)     
 用户要绝对自由，就使用 `funboost` + 用户自己项目的 `utils/` 或 `commons/` 文件夹下已经封装好的 各种工具类和函数     
@@ -442,6 +449,8 @@ from utils.download_and_upload import download_and_upload_to_s3   # 你日积月
 这个简单的需求，对 scrapy 小白来说完全不可能，对scrapy大神来神实现非常麻烦。因为在程序外部你脱离了spider对象自身，就很难给深层级爬虫实时动态新增爬虫种子了。
 如果是动态新增第一层级的爬虫种子，你可以简单的 `redis.lpush('start_urls','my_list_page_url1')`，这勉强能做到，但对深层级的爬虫`xx_parse`方法去动态实时加一个爬虫种子就太难了。
 
+funboost不仅可以使用funboost包push任何层级的爬虫函数入参，更强的是可以使用`funboost.faas` 通过更广泛通用的http请求的方式来发布一个爬虫任务。
+
 
 ## funboost/booost_spider 比 scrapy框架的 战略优势和战术优势
 ### 一、 战略优势 (Strategic Advantages)
@@ -505,7 +514,8 @@ from utils.download_and_upload import download_and_upload_to_s3   # 你日积月
 
 # boost_scrapy 介绍
 
-[boost_scrapy地址](boost_scrapy)
+[boost_scrapy 框架源码地址](boost_scrapy)
+[boost_scrapy 使用例子](demo_crawler/boost_scrapy_imp)
 
 有的人非常喜欢仿scrapy风格的爬虫框架， yield Request(url=url, callback=self.my_parse,meta={'field1':'xxx','field2':'yyy'}) 的写法, 
 

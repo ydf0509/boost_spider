@@ -30,7 +30,7 @@ class Response:
     - request: 关联的 Request 对象
     """
     
-    # 正则模式缓存
+    # 类级别的正则缓存，所有 Response 实例共享
     _re_pattern_cache = {}
     
     def __init__(
@@ -60,7 +60,6 @@ class Response:
         self._meta = meta or {}
         self._request = request
         
-        # 延迟初始化
         self._selector = None
         self._text = None
         self._resp_dict = None
@@ -134,6 +133,7 @@ class Response:
         Returns:
             Match 对象或 None
         """
+
         cache_key = (pattern, flags)
         if cache_key not in self._re_pattern_cache:
             self._re_pattern_cache[cache_key] = re.compile(pattern, flags)
@@ -150,6 +150,7 @@ class Response:
         Returns:
             匹配列表
         """
+
         cache_key = (pattern, flags)
         if cache_key not in self._re_pattern_cache:
             self._re_pattern_cache[cache_key] = re.compile(pattern, flags)

@@ -5,7 +5,7 @@ boost_spider
 只需要加上boost装饰器就可以自动加速并发，控制手段比传统爬虫框架多太多
 """
 
-from boost_spider.http_req.request_client import RequestClient,SpiderResponse
+from boost_spider.http.request_client import RequestClient,SpiderResponse
 from boost_spider.sink.momgo_sink import MongoSink
 from boost_spider.sink.mysql_sink import MysqlSink
 from funboost import *

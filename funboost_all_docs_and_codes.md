@@ -828,50 +828,52 @@ class BoosterParams(BaseJsonAbleModel):
 ============================================================
 文件: c1.md
 ============================================================
-  行2: # 1. Python 万能分布式函数调度框架 Funboost 简介
-  行15: ## 1.0 funboost 框架说明介绍
-  行36: #### 快速了解和上手funboost，直接看[1.3例子](#13-框架使用例子)
-  行39: ### 1.0.0 funboost 框架安装方式
-  行48: ### 1.0.1 funboost 功能作用
-  行64: #### 1.0.1.1 Funboost 的适用场景
-  行92: #### 1.0.1.2 🤔 灵魂发问：Funboost 到底是什么？
-  行106: #### 1.0.1.3 💖 核心关切：值得我投入时间学习吗？
-  行113: #### 1.0.1.4 Funboost 与 Celery 的理念区别
-  行135: #### 1.0.1.5 Funboost 支持的并发模式
-  行142: #### 1.0.1.6 Funboost 支持的消息队列中间件 (Broker)
-  行159: #### 1.0.1.7 **funboost 学习难吗?**
-  行160: #### 🎓 1.0.1.7 Funboost 学习难吗？
-  行179: #### 1.0.1.8 📊 可视化监控与管理
-  行184: #### 1.0.1.9 🚀 性能表现：断层式领先
-  行190: #### 1.0.1.10 ⭐ 用户口碑与评价
-  行201: ## 1.1 📚 核心资源与文档导航
-  行203: ### 1.1.1 📝 项目文档入口
-  行214: #### 📖 文档章节速览
-  行228: ### 1.1.2 📦 源码与依赖
-  行235: ## 1.2 框架功能介绍
-  行249: ### 1.2.1 🆚 对比：Funboost 取代传统线程池
-  行253: #### ❌ 方式 A：手动开启线程池 (传统)
-  行269: #### ✅ 方式 B：Funboost 模式 (推荐)
-  行288: ### 1.2.2 🚀 任务控制功能矩阵
-  行292: #### 🌌 维度一：连接与架构 (Connectivity & Architecture)
-  行303: #### ⚡ 维度二：并发与吞吐 (Concurrency & Throughput)
-  行310: #### 🛡️ 维度三：可靠性保障 (Reliability)
-  行317: #### 🕹️ 维度四：流量治理 (Traffic Governance)
-  行326: #### 🎼 维度五：调度与编排 (Scheduling & Orchestration)
-  行333: #### 🔭 维度六：可观测性 (Observability)
-  行340: #### 🧬 维度七：开发体验 (Developer Experience)
-  行352: ## 1.3 🚀 快速上手：你的第一个 Funboost 程序
-  行360: ### 1.3.1 ✨ Hello World：最简单的任务调度
-  行405: ### 1.3.2 🔥 进阶实战：RPC、定时任务与丝滑连招
-  行485: ### 1.3.3 ✂️ 极简写法：省略 `@boost`
-  行496: ### 1.3.4 ❌ 过时写法： 直接在 @boost传各种配置入参，不推荐
-  行506: ## 🖥️ Funboost Web Manager 界面预览
-  行530: ## 1.4 💡 为什么 Python 极其需要分布式函数调度？
-  行534: ### 1️⃣ 痛点一：GIL 锁的限制 (多核利用率低)
-  行542: ### 2️⃣ 痛点二：原生性能瓶颈 (动态语言特性)
-  行554: ## 1.5 🎓 最佳学习路径
-  行573: ## 1.6 🥋 funboost 练就吸星大法神功，一招吸走 Celery 毕生内力
-  行583: ### ⚔️ 降维打击：化繁为简的绝世武功
+  行2: # 1. Python  分布式函数调度平台 Funboost 简介
+  行16: ## 1.0 funboost 框架说明介绍
+  行37: ### 1.0.1 funboost 示意图
+  行40: #### 1.0.1.1 funboost 运行流程图
+  行48: #### 1.0.1.2 funboost 功能思维导图
+  行60: ### 1.0.2 快速了解和上手funboost，直接看[1.3例子](#13-框架使用例子)
+  行63: ### 1.0.3 funboost 框架安装方式
+  行72: ### 1.0.4 funboost 功能作用
+  行88: #### 1.0.4.1 Funboost 的适用场景
+  行116: #### 1.0.4.2 🤔 灵魂发问：Funboost 到底是什么？
+  行130: #### 1.0.4.3 💖 核心关切：值得我投入时间学习吗？
+  行137: #### 1.0.4.4 Funboost 与 Celery 的理念区别
+  行160: #### 1.0.4.5 Funboost 支持的并发模式
+  行167: #### 1.0.4.6 Funboost 支持的消息队列中间件 (Broker)
+  行184: #### 1.0.4.7 **funboost 学习难吗?**
+  行207: #### 1.0.4.8 📊 可视化监控与管理
+  行212: #### 1.0.4.9 🚀 性能表现：断层式领先
+  行218: #### 1.0.4.10 ⭐ 用户口碑与评价
+  行229: ## 1.1 📚 核心资源与文档导航
+  行231: ### 1.1.1 📝 项目文档入口
+  行244: #### 📖 文档章节速览
+  行258: ### 1.1.2 📦 源码与依赖
+  行265: ## 1.2 框架功能介绍
+  行279: ### 1.2.1 🆚 对比：Funboost 取代传统线程池
+  行283: #### ❌ 方式 A：手动开启线程池 (传统)
+  行299: #### ✅ 方式 B：Funboost 模式 (推荐)
+  行318: ### 1.2.2 🚀 任务控制功能矩阵
+  行322: #### 🌌 维度一：连接与架构 (Connectivity & Architecture)
+  行333: #### ⚡ 维度二：并发与吞吐 (Concurrency & Throughput)
+  行340: #### 🛡️ 维度三：可靠性保障 (Reliability)
+  行347: #### 🕹️ 维度四：流量治理 (Traffic Governance)
+  行357: #### 🎼 维度五：调度与编排 (Scheduling & Orchestration)
+  行364: #### 🔭 维度六：可观测性 (Observability)
+  行371: #### 🧬 维度七：开发体验 (Developer Experience)
+  行383: ## 1.3 🚀 快速上手：你的第一个 Funboost 程序
+  行391: ### 1.3.1 ✨ Hello World：最简单的任务调度
+  行436: ### 1.3.2 🔥 进阶实战：RPC、定时任务与丝滑连招
+  行516: ### 1.3.3 ✂️ 极简写法：省略 `@boost`
+  行527: ### 1.3.4 ❌ 过时写法： 直接在 @boost传各种配置入参，不推荐
+  行537: ## 🖥️ Funboost Web Manager 界面预览
+  行561: ## 1.4 💡 为什么 Python 极其需要分布式函数计算？
+  行565: ### 1️⃣ 痛点一：GIL 锁的限制 (多核利用率低)
+  行573: ### 2️⃣ 痛点二：原生性能瓶颈 (动态语言特性)
+  行585: ## 1.5 🎓 最佳学习路径
+  行604: ## 1.6 🥋 funboost 练就吸星大法神功，一招吸走 Celery 毕生内力
+  行614: ### ⚔️ 降维打击：化繁为简的绝世武功
 
 ============================================================
 文件: c10.md
@@ -913,6 +915,13 @@ class BoosterParams(BaseJsonAbleModel):
   行747: ## 11.7 使用 grpc 作为funboost的broker
   行810: ## 11.8 使用 mysql_cdc 作为 funboost 的broker
   行940: ## 11.9 演示 funboost 使用 tcp/udp/http 作为broker
+  行969: ## 11.10 Watchdog Broker：监听文件系统变更（ETL 利器）
+  行987: ### 11.10.1 核心配置说明
+  行1000: ### 11.10.2 代码示例
+  行1144: ### 11.10.3 特性深度解析
+  行1146: #### 11.10.3.1 关于 `existing` 事件
+  行1153: #### 11.10.3.2 关于 `read_file_content`
+  行1157: #### 11.10.3.3 关于 `debounce_seconds`
 
 ============================================================
 文件: c12.md
@@ -1217,66 +1226,69 @@ class BoosterParams(BaseJsonAbleModel):
   行2077: ### 4.19.b 自定义保存函数消费状态结果到mysql/sqlite/pgsql请看4.11.2.b的章节
   行2079: ## 4.20 通过 broker_exclusive_config 参数 设置不同中间件能使用到的差异化独特配置
   行2102: ### 4.20.2 怎么知道每种消息队列 broker_exclusive_config 能支持哪些独有特殊的参数配置
-  行2112: ## 4.21 【完全自由定制扩展（方式1）】 使用 register_custom_broker 完全彻底自由灵活自定义扩展和定制修改中间件(消费者和发布者)
+  行2112: ## 4.21 【funboost完全自由定制扩展（方式1）】 使用 register_custom_broker 完全彻底自由灵活自定义扩展和定制修改中间件(消费者和发布者)
   行2162: ## 4.21b 【完全自由定制扩展(方式2)】,使用 consumer_override_cls 和 publisher_override_cls 来自定义消费者 发布者。
   行2166: ### 4.21b.1 重写某些方法的例子
   行2221: ### 4.21b.2 完全实现新增中间件类型.
   行2311: ### 4.21b.3 funboost的用户自定义扩展比celery更容易,更彻底
-  行2328: ## 4.23 演示funboost框架是如何代替用户手写调用线程池的
-  行2381: ## 4.24 设置消费函数重试次数
-  行2407: ### 4.24.1 抛出ExceptionForRequeue类型错误，消息立即重回消息队列
-  行2427: ### 4.24.2 抛出 ExceptionForPushToDlxqueue 类型错误，消息发送到单独另外的死信队列中
-  行2446: ### 4.24.3  设置is_push_to_dlx_queue_when_retry_max_times,重试到max_retry_times最大次数没成功发送到死信队列
-  行2453: ### 4.24.4 (内置辅助)将一个消息队列中的消息转移到另一个队列
-  行2475: ### 4.24.5 funboost 高级重试：指数退避重试
-  行2489: #### 4.24.5.1 `advanced_retry_config` 参数详解
-  行2499: #### 4.24.5.2 示例：配置一个典型的指数退避
-  行2527: ## 4.25 push 和 publish 发布消息的区别
-  行2532: ### 核心区别对比
-  行2541: ### 代码演示与说明
-  行2579: ## 4.26 性能调优演示
-  行2602: ### 4.26.1 在一个进程中启动多个函数的消费，适合轻型任务
-  行2614: ### 4.26.2 在多个进程中启动函数的消费，适合一次启动大量函数的消费或重型任务
-  行2630: ## 4.28 funboost 支持celery框架整体作为funboost的broker (2023.4新增)
-  行2697: ## 4.29 funboost支持任务优先级队列
-  行2701: ### 4.29.1 队列支持优先级的说明：
-  行2711: ### 4.29.2 优先级通俗理解，用食堂打饭比喻：
-  行2726: ### 4.29.3 队列支持任务优先级的代码主要有三点：
-  行2740: ### 4.29.4 队列支持任务优先级的代码如下：
-  行2769: ### 4.29.5 消息队列优先级是针对一个queue内消息的，那么怎样才能实现不同函数之间的按优先级运行？
-  行2833: ## 4.30 funboost 远程杀死(取消)任务
-  行2851: ### 4.30.1 funboost远程杀死函数的代码例子
-  行2896: ### 4.30.2 远程强制杀死函数、超时自动杀死(function_timeout设置不为0)， 这两个功能要注意死锁：
-  行2924: ### 4.30.2.b 如果想启用funboost函数超时自动杀死功能或者 远程杀死函数功能，推荐消费函数中使用可过期锁 expire_lock
-  行2935: ## 4.31 神级别 fct (funboost_current_task) 上下文获取当前消息和任务状态
-  行3006: ## 4.32 重磅更新！！！ funboost 独家新增支持实例方法和类方法作为消费函数
-  行3014: ### 4.32.0 !!! 实例方法和类方法作为funboost任务时候，push方法需要特别注意第一个入参。
-  行3051: ### 4.32.1 funboost 支持实例方法和类方法作为消费函数的原理
-  行3101: ### 4.32.2 funboost 支持实例方法、类方法、静态方法、普通函数 4种类型，作为消费函数的例子
-  行3174: ## 4.33  @boost设置is_auto_start_consuming_message，自动启动消费。
-  行3201: ## 4.34 pyinstaller 打包 funboost项目为exe 的说明
-  行3207: ## 4.35 演示 funboost 的函数入参过滤功能
-  行3250: ### 4.35.2 警告！！！: funboost的 rpc功能和 函数入参过滤过滤 不要同时使用
-  行3259: ## 4.35c 使用 nb_cache 作为缓存装饰器
-  行3261: ### 4.35c.1 为什么 要用 nb_cache 而不是 funboost 自带的 do_task_filtering
-  行3270: ### 4.35c.2 nb_cache 功能比 funboost自带的 do_task_filtering 全面太多了
-  行3277: #### 4.35c.2.2 举个例子 nb_cache 的防止缓存击穿为什么吊打 funboost的 do_task_filtering
-  行3285: ### 4.35c.2 如何在 funboost 中使用 nb_cache
-  行3292: #### 4.35c.2.1 方式一，@boost 和 @cache 叠加使用
-  行3319: #### 4.35c.2.2 方式二 cache 装饰器传给 funboost 的 `consuming_function_decorator`
-  行3350: ## 4.36 演示`funboost`入参可以是自定义类型(不可json序列化的类型的入参,自动使用pickle)(2025-07新增支持)
-  行3450: ## 4.37 funboost 启动消费函数的方式大全(再次集中总结)
-  行3454: ### 4.37.1. 基础启动 (最常用)
-  行3470: ### 4.37.2. 多进程叠加并发启动 (高性能推荐)
-  行3484: ### 4.37.3. 自动启动 (懒人模式)
-  行3499: ### 4.37.4. 批量启动所有消费者(最粗暴无脑)
-  行3518: ### 4.37.5. 分组启动 (Group Start)
-  行3534: ### 4.37.6. 命令行启动 (CLI)
-  行3543: ### 4.37.7. 远程自动部署启动 (Fabric)
-  行3553: ### 4.37.8. Celery 模式启动 (特殊)
-  行3566: ## 4.100 使用funboost时候对框架的疑问和猜测，使用控制变量法
-  行3628: ### 4.100.b 举个例子，验证测试框架的超时杀死 function_timeout参数的作用
-  行3675: ## 4.200 [分布式函数调度框架qq群]
+  行2325: ## 4.21c 不想吃苦？让ai来帮你扩展funboost中间件或者定制运行逻辑
+  行2333: ### 4.21c.2 假设你要使用python内置的list作为 funboost的消息队列：
+  行2348: #### 4.21c.2.2 说个ai使用技巧秘密，网页版ai大模型生成funboost代码 吊打编程 ide中的 ai大模型和claude code
+  行2371: ## 4.23 演示funboost框架是如何代替用户手写调用线程池的
+  行2424: ## 4.24 设置消费函数重试次数
+  行2450: ### 4.24.1 抛出ExceptionForRequeue类型错误，消息立即重回消息队列
+  行2470: ### 4.24.2 抛出 ExceptionForPushToDlxqueue 类型错误，消息发送到单独另外的死信队列中
+  行2489: ### 4.24.3  设置is_push_to_dlx_queue_when_retry_max_times,重试到max_retry_times最大次数没成功发送到死信队列
+  行2496: ### 4.24.4 (内置辅助)将一个消息队列中的消息转移到另一个队列
+  行2518: ### 4.24.5 funboost 高级重试：指数退避重试
+  行2532: #### 4.24.5.1 `advanced_retry_config` 参数详解
+  行2542: #### 4.24.5.2 示例：配置一个典型的指数退避
+  行2570: ## 4.25 push 和 publish 发布消息的区别
+  行2575: ### 核心区别对比
+  行2584: ### 代码演示与说明
+  行2622: ## 4.26 性能调优演示
+  行2645: ### 4.26.1 在一个进程中启动多个函数的消费，适合轻型任务
+  行2657: ### 4.26.2 在多个进程中启动函数的消费，适合一次启动大量函数的消费或重型任务
+  行2673: ## 4.28 funboost 支持celery框架整体作为funboost的broker (2023.4新增)
+  行2740: ## 4.29 funboost支持任务优先级队列
+  行2744: ### 4.29.1 队列支持优先级的说明：
+  行2754: ### 4.29.2 优先级通俗理解，用食堂打饭比喻：
+  行2769: ### 4.29.3 队列支持任务优先级的代码主要有三点：
+  行2783: ### 4.29.4 队列支持任务优先级的代码如下：
+  行2812: ### 4.29.5 消息队列优先级是针对一个queue内消息的，那么怎样才能实现不同函数之间的按优先级运行？
+  行2876: ## 4.30 funboost 远程杀死(取消)任务
+  行2894: ### 4.30.1 funboost远程杀死函数的代码例子
+  行2939: ### 4.30.2 远程强制杀死函数、超时自动杀死(function_timeout设置不为0)， 这两个功能要注意死锁：
+  行2967: ### 4.30.2.b 如果想启用funboost函数超时自动杀死功能或者 远程杀死函数功能，推荐消费函数中使用可过期锁 expire_lock
+  行2978: ## 4.31 神级别 fct (funboost_current_task) 上下文获取当前消息和任务状态
+  行3049: ## 4.32 重磅更新！！！ funboost 独家新增支持实例方法和类方法作为消费函数
+  行3057: ### 4.32.0 !!! 实例方法和类方法作为funboost任务时候，push方法需要特别注意第一个入参。
+  行3094: ### 4.32.1 funboost 支持实例方法和类方法作为消费函数的原理
+  行3144: ### 4.32.2 funboost 支持实例方法、类方法、静态方法、普通函数 4种类型，作为消费函数的例子
+  行3217: ## 4.33  @boost设置is_auto_start_consuming_message，自动启动消费。
+  行3244: ## 4.34 pyinstaller 打包 funboost项目为exe 的说明
+  行3250: ## 4.35 演示 funboost 的函数入参过滤功能
+  行3293: ### 4.35.2 警告！！！: funboost的 rpc功能和 函数入参过滤过滤 不要同时使用
+  行3302: ## 4.35c 使用 nb_cache 作为缓存装饰器
+  行3304: ### 4.35c.1 为什么 要用 nb_cache 而不是 funboost 自带的 do_task_filtering
+  行3313: ### 4.35c.2 nb_cache 功能比 funboost自带的 do_task_filtering 全面太多了
+  行3320: #### 4.35c.2.2 举个例子 nb_cache 的防止缓存击穿为什么吊打 funboost的 do_task_filtering
+  行3328: ### 4.35c.2 如何在 funboost 中使用 nb_cache
+  行3335: #### 4.35c.2.1 方式一，@boost 和 @cache 叠加使用
+  行3362: #### 4.35c.2.2 方式二 cache 装饰器传给 funboost 的 `consuming_function_decorator`
+  行3393: ## 4.36 演示`funboost`入参可以是自定义类型(不可json序列化的类型的入参,自动使用pickle)(2025-07新增支持)
+  行3493: ## 4.37 funboost 启动消费函数的方式大全(再次集中总结)
+  行3497: ### 4.37.1. 基础启动 (最常用)
+  行3513: ### 4.37.2. 多进程叠加并发启动 (高性能推荐)
+  行3527: ### 4.37.3. 自动启动 (懒人模式)
+  行3542: ### 4.37.4. 批量启动所有消费者(最粗暴无脑)
+  行3561: ### 4.37.5. 分组启动 (Group Start)
+  行3577: ### 4.37.6. 命令行启动 (CLI)
+  行3586: ### 4.37.7. 远程自动部署启动 (Fabric)
+  行3596: ### 4.37.8. Celery 模式启动 (特殊)
+  行3609: ## 4.100 使用funboost时候对框架的疑问和猜测，使用控制变量法
+  行3671: ### 4.100.b 举个例子，验证测试框架的超时杀死 function_timeout参数的作用
+  行3718: ## 4.200 [分布式函数调度框架qq群]
 
 ============================================================
 文件: c4b.md
@@ -1307,7 +1319,7 @@ class BoosterParams(BaseJsonAbleModel):
   行916: ## 4b.6  @boost装饰器 user_options  入参的妙用
   行942: ### 4b.6.1场景一： user_options “反向实现” consume_group**
   行964: ### 场景二： user_options 多租户与覆盖全局配置（以Kafka集群做例子）
-  行1004: ## 4b.7 opentelemetry 全链路任务追踪，funboost生产级别的重要战略级功能
+  行1004: ## 4b.7 opentelemetry 全链路任务追踪，funboost生产级别的重要战略级功能 (高级功能)
   行1043: ### 4b.7.1 安装 jaeger ,可视化展示 opentelemetry 的全链路追踪
   行1070: ### 4b.7.2 opentelemetry 全链路任务追踪 和计入 logger日志 + task_id 的排查区别
   行1078: #### 4b.7.2.1. 传统的 Logger + task_id：一维线性的“流水账”
@@ -1331,7 +1343,7 @@ class BoosterParams(BaseJsonAbleModel):
   行1382: #### 4b.8.6.2 对比总结
   行1397: ### 4b.8.7 📁 文件结构
   行1410: ### 4b.8.8 📖 完整示例
-  行1418: ## 4b.9 funboost 支持 prometheus 指标监控
+  行1418: ## 4b.9 funboost 支持 prometheus 指标监控 （高级功能）
   行1424: ### 4b.9.0 Funboost Prometheus 监控指标 Mixin
   行1432: ### 4b.9.1 用法1：HTTP Server 模式（单进程）
   行1450: ### 4b.9.2 用法2：Push Gateway 模式（多进程推荐）
@@ -1339,16 +1351,21 @@ class BoosterParams(BaseJsonAbleModel):
   行1480: ## 4b.10 funboost支持微批消费
   行1491: ### 4b.10.1 funboost 微批消费用法
   行1549: ### 4b.10.2 如果每次临时手写微批操作，会怎么样？
-  行1563: ## 4b.11 Watchdog Broker：监听文件系统变更（ETL 利器）
-  行1581: ### 4b.11.1 核心配置说明
-  行1594: ### 4b.11.2 代码示例
-  行1738: ### 4b.11.3 特性深度解析
-  行1740: #### 4b.11.3.1 关于 `existing` 事件
-  行1747: #### 4b.11.3.2 关于 `read_file_content`
-  行1751: #### 4b.11.3.3 关于 `debounce_seconds`
-  行1757: ## 4b.12 funboost的周期额度功能
-  行1793: ### 4b.12.2 周期额度用法例子
-  行1815: ## 4b.13 使用内存队列 broker_kind=BrokerEnum.MEMORY_QUEUE 时候，用 get_future 获取消费函数的运行结果
+  行1564: ## 4b.12 funboost的周期额度功能
+  行1600: ### 4b.12.2 周期额度用法例子
+  行1622: ## 4b.13 使用内存队列 broker_kind=BrokerEnum.MEMORY_QUEUE 时候，用 get_future 获取消费函数的运行结果
+  行1705: ## 4b.14 funboost 支持自动熔断，智能自动熔断、半开、恢复 （高级功能）
+  行1715: ### 4b.14.0 funboost 支持自动熔断管理和手动熔断管理
+  行1719: #### 4b.14.0.1 手动熔断管理
+  行1733: #### 4b.14.0.2 自动熔断管理
+  行1740: ### 4b.14.1 funboost 自动熔断，CircuitBreakerConsumerMixin
+  行1754: #### 4b.14.1.1 三态状态机
+  行1792: #### 4b.14.1.2 两种触发策略
+  行1801: #### 4b.14.1.3 两种计数后端
+  行1810: #### 4b.14.1.4 两种熔断行为
+  行1819: #### 4b.14.1.5 user_options的 circuit_breaker_options 参数说明
+  行1859: #### 4b.14.1.6 钩子方法（子类重写）
+  行1868: #### 4b.14.1.7 用法示例
 
 ============================================================
 文件: c6.md
@@ -1448,6 +1465,13 @@ class BoosterParams(BaseJsonAbleModel):
   行1760: ### 6.26.2 演示 aiomysql 连接池在funboost使用,解决 `attached to a different loop`
   行1936: ### 6.26.3 演示子线程怎么正确的使用aiomysql连接池的本质(和funboost无关但原理相通)
   行2016: ## 6.28 日志提示 是掉线或关闭消费者的 和 重新放入掉线消费者未消费确认的任务 ,是正常的提示.
+  行2049: ## 6.29 funboost 推荐用户使用什么并发模式？
+  行2053: ### 6.29.1 默认推荐：当前进程内 + 多线程模式 (最省心、最稳定、最好用)
+  行2069: ### 6.29.2 高性能推荐：多进程叠加并发模式 (性能炸裂)
+  行2087: #### 6.29.2.2 ⚠️ 极度重要：多进程在 Linux 上建议显式设置 spawn 模式，抛弃默认的 fork 模式
+  行2128: ### 6.29.3 极客推荐：纯 Asyncio 协程模式 (高手的玩具)
+  行2152: ### 6.29.4 特殊场景：单线程串行模式 (Single Thread)
+  行2178: ### 6.29.5 至于 gevent 和 eventlet 并发模式，直接忽略就好
 
 ============================================================
 文件: c7.md
@@ -4912,22 +4936,23 @@ def sub(a, b):
 
 `````markdown
 
-# 1. Python 万能分布式函数调度框架 Funboost 简介
+# 1. Python  分布式函数调度平台 Funboost 简介
 
 [![pZf68L6.png](https://s41.ax1x.com/2026/01/30/pZf68L6.png)](https://imgchr.com/i/pZf68L6)
 
-**Funboost** 是一个 Python 万能分布式函数调度框架。以下是您的核心学习资源导航：
+**Funboost** 是一个 Python 分布式函数调度平台。以下是您的核心学习资源导航：
 
 | 资源类型 | 链接地址 | 说明 |
 | :--- | :--- | :--- |
 | ⚡ **快速预览** | [👉 点击查看演示](https://ydf0509.github.io/funboost_git_pages/funboost_promo.html) | 直观感受框架运行效果 |
 | 📖 **完全教程** | [👉 ReadTheDocs](https://funboost.readthedocs.io/zh-cn/latest/index.html) | 包含原理、API 与进阶用法 |
 | 🤖 **AI 助教** | [👉 AI 学习指南](https://funboost.readthedocs.io/zh-cn/latest/articles/c14.html) | **[必读]** 利用 AI 掌握框架的最佳捷径 |
+| 📄 **超级 AI 上下文文档** | [👉 funboost_all_docs_and_codes.md](https://github.com/ydf0509/funboost/blob/master/funboost_all_docs_and_codes.md) | 约 900K 上下文，包含 Rules、Skills、完整教程、源码和使用 Demo，直接投喂给 AI 即可让它帮你写代码 |
 
 
 ## 1.0 funboost 框架说明介绍
 
-`funboost`是一个 万能 强大 简单  自由 的 `python` 全功能分布式调度框架,它的作用是给用户任意项目的任意函数赋能
+`funboost`是一个 万能 强大 简单  自由 的 `python` 全功能分布式调度框架,是一个 Python 分布式函数调度平台,它的作用是给用户任意项目的任意函数赋能
 
 **Funboost 的核心价值主张：把复杂留给框架，把简单留给用户。**
 
@@ -4946,10 +4971,33 @@ def sub(a, b):
    您的浏览器不支持音频播放。
 </audio>
 
-#### 快速了解和上手funboost，直接看[1.3例子](#13-框架使用例子)
+### 1.0.1 funboost 示意图
 
 
-### 1.0.0 funboost 框架安装方式  
+#### 1.0.1.1 funboost 运行流程图
+
+funboost 采用经典的 **生产者 → Broker → 消费者** 架构模型，并支持可选的 RPC 模式（消费者 → 生产者）。
+
+虽然 funboost 的功能丰富度远超 scrapy 等专业框架，但其架构设计却保持了极致的简洁性，核心流程一目了然。
+
+![funboost 运行流程图](img_95.png)
+
+#### 1.0.1.2 funboost 功能思维导图
+
+funboost使用极其简单，只有一行@boost，但是用户能想得到的功能全都有。良好的软件设计架构，以致funboost框架可以扩展无限可能。
+
+从funboost 思维导图来看，funboost支持 40+ 种消息队列支持、30+ 种任务控制功能、所有python并发模式、roc、微批消费、cdc事件驱动、 funboost管理可视化、分布式定时任务、faas 热加载、workflow任务编排、boost_spider爬虫、promethus指标监控、opentelemetry全链路任务追踪等， 适用范围顶python编程半边天。
+
+思维导图图片分辨率大，建议下载保存，用本地图片软件查看。
+<!-- ![funboost 功能思维导图](img_94.png) -->
+![funboost 功能思维导图](mermaid-diagram0311e.png)
+
+
+
+### 1.0.2 快速了解和上手funboost，直接看[1.3例子](#13-框架使用例子)
+
+
+### 1.0.3 funboost 框架安装方式  
 
 ```shell
 pip install funboost --upgrade  
@@ -4958,7 +5006,7 @@ pip install funboost --upgrade
 ```  
 
 
-### 1.0.1 funboost 功能作用
+### 1.0.4 funboost 功能作用
 
 - **万能分布式调度**：`funboost` 通过一行 @boost 装饰器，将普通函数瞬间升级为具备 分布式执行、FaaS 微服务化、CDC 事件驱动 能力的超级计算单元，连接一切，调度万物。
 - **全能支持**：自动支持 **40+种** 消息队列 + **30+种** 任务控制功能 + `python`中**所有**的并发执行方式。
@@ -4974,7 +5022,7 @@ pip install funboost --upgrade
 
 
 
-#### 1.0.1.1 Funboost 的适用场景
+#### 1.0.4.1 Funboost 的适用场景
 
 `funboost` 是 **Python 函数的万能加速器**。它包罗万象，一统编程思维，将经典的 **生产者 + 消息中间件 + 消费者** 模式封装到了极致。
 
@@ -5002,11 +5050,11 @@ pip install funboost --upgrade
     零侵入！它不绑架您的代码，不强管您的项目结构。**随时能用，随时能走**，还您最纯粹的 Python 编程体验。
 
 
-#### 1.0.1.2 🤔 灵魂发问：Funboost 到底是什么？
+#### 1.0.4.2 🤔 灵魂发问：Funboost 到底是什么？
 
 **Funboost 的功能已经极其丰富，甚至可以用“功能过剩”或“全能怪兽”来形容。**
 
-> **Funboost 早已超越了“任务队列框架”的传统定义，它已进化为新一代的「泛函计算平台 (Universal Function Computing Platform)」。**
+> **Funboost 早已超越了“任务队列框架”的传统定义，它已进化为新一代的「分布式函数调度平台 (Universal Function Computing Platform)」。**
 >
 > 如果说 Celery 是异步任务的“工具”，那么 Funboost 则是函数计算的“基础设施”。它不仅完美覆盖了 Celery 的核心能力，更打破了技术栈的边界，以**“函数”**为原子核心，贪婪地吞噬并融合了 **FaaS、RPC、微服务架构、网络爬虫、实时数据同步 (CDC/ETL) 、IOT（MQTT）、分布式定时任务、部署、运维；并完整支持 事件驱动 (EDA) 与 全链路可观测性（OpenTelemetry）**。
 >
@@ -5016,14 +5064,14 @@ pip install funboost --upgrade
 
 👉 **[点击查看发散性答案 (文档 6.0b 章节)](https://funboost.readthedocs.io/zh-cn/latest/articles/c6.html#b-funboost)**
 
-#### 1.0.1.3 💖 核心关切：值得我投入时间学习吗？
+#### 1.0.4.3 💖 核心关切：值得我投入时间学习吗？
 
 > **答**：**绝对值得**。选择一个用途狭窄、性能平庸、写法受限的框架，确实是在浪费生命。Funboost 则完全不同。
 
 👉 **[查看详细评估报告 (文档 6.0 章节)](https://funboost.readthedocs.io/zh-cn/latest/articles/c6.html#funboost)**
 
 
-#### 1.0.1.4 Funboost 与 Celery 的理念区别
+#### 1.0.4.4 Funboost 与 Celery 的理念区别
 
 > **核心比喻**：
 > `funboost` 与 `celery` 的关系，如同 **iPhone** 与 **诺基亚塞班**。
@@ -5043,16 +5091,17 @@ pip install funboost --upgrade
 | **易用性** | 需规划特定的项目结构，上手门槛较高。 | 极简，任意位置的新旧函数加上装饰器即可用。 |
 | **性能表现** | 传统性能基准。 | **断层式领先**：发布性能是 Celery 的 **22倍**，消费性能是 **46倍**。 |
 | **功能广度** | 支持主流中间件。 | 支持 **40+** 种中间件，拥有更多精细的任务控制功能。 |
+| **AI 辅助编程** | 官方文档需人工亲自阅读，学习成本高。 | **超级 AI 上下文文档**：`funboost_all_docs_and_codes.md`<br>（约 900K 上下文），可直接投喂给 AI，让 AI 帮你写代码、解答问题，无需吃苦看文档。 |
 
 
-#### 1.0.1.5 Funboost 支持的并发模式
+#### 1.0.4.5 Funboost 支持的并发模式
 
 `funboost` 全面覆盖 Python 生态下的并发执行方式，并支持灵活的组合叠加：
 
 *   **基础并发模式**：支持 `threading` (多线程)、`asyncio` (异步IO)、`gevent` (协程)、`eventlet` (协程) 以及 `单线程` 模式。
 *   **叠加增强模式**：支持 **多进程 (Multi-Processing)** 与上述任一细粒度并发模式（如多线程或协程）进行叠加，最大限度利用多核 CPU 资源。
 
-#### 1.0.1.6 Funboost 支持的消息队列中间件 (Broker)
+#### 1.0.4.6 Funboost 支持的消息队列中间件 (Broker)
 
 得益于强大的架构设计，在 `funboost` 中 **“万物皆可为 Broker”**。不仅涵盖了传统 MQ，更拓展了数据库、网络协议及第三方框架。
 
@@ -5069,8 +5118,8 @@ pip install funboost --upgrade
 
 
 
-#### 1.0.1.7 **funboost 学习难吗?**   
-#### 🎓 1.0.1.7 Funboost 学习难吗？
+#### 1.0.4.7 **funboost 学习难吗?**   
+
 
 **答案是：极易上手。Funboost 是“反框架”的框架。**
 
@@ -5083,24 +5132,27 @@ pip install funboost --upgrade
 
 *   🔄 **进退自如（双模运行）**
     即使引入了 Funboost，也不需要担心代码被绑定。加上 `@boost` 装饰器后，你的函数依然保持纯洁：
-    *   调用 `fun(x, y)`：**直接运行函数**（同步执行，不经过队列，和没加装饰器一样）。
+    *   调用 `fun(x, y)`：**直接运行函数**（同步执行，不经过队列，即使加了装饰器也和没加装饰器一样）。
     *   调用 `fun.push(x, y)`：**发送到消息队列**（分布式异步执行）。
 
-👉 *关于“Funboost 学习和使用难吗？”的详细深度回答，请参阅文档 **`6.0.c`** 章节。*
+*   🤖 **面向 AI 编程的超级ai上下文文档**
+    Funboost 提供了 **`funboost_all_docs_and_codes.md`**（约 900K 上下文），包含完整教程、源码和示例。你可以直接将其投喂给 AI（如 DeepSeek、Gemini 等百万上下文模型），让 AI 帮你快速生成 Funboost 代码、解答问题或定制扩展，实现极致的 AI 辅助编程体验。
+
+👉 *关于"Funboost 学习和使用难吗？"的详细深度回答，请参阅文档 **`6.0.c`** 章节。*
 
 
-#### 1.0.1.8 📊 可视化监控与管理
+#### 1.0.4.8 📊 可视化监控与管理
 Funboost 内置了强大的 **Funboost Web Manager** 管理系统。
 *   **全方位掌控**：支持对任务消费情况进行全面的查看、监控和管理。
 *   **开箱即用**：无需额外部署复杂的监控组件，即可掌握队列积压、消费者状态等核心指标。
 
-#### 1.0.1.9 🚀 性能表现：断层式领先
+#### 1.0.4.9 🚀 性能表现：断层式领先
 Funboost 的性能与 Celery 相比，有着**数量级**的优势（基于控制变量法测试）：
 *   **发布性能**：是 Celery 的 **22倍**。
 *   **消费性能**：是 Celery 的 **46倍**。
 > *注：详细的控制变量法对比测试报告，请参阅文档 **2.6 章节**。*
 
-#### 1.0.1.10 ⭐ 用户口碑与评价
+#### 1.0.4.10 ⭐ 用户口碑与评价
 **95% 的用户**在初步使用后都表示“相见恨晚”。核心评价如下：
 *   **极致自由**：Funboost 对用户代码的编程思维**零侵入**。
 *   **拒绝改造**：不像其他框架要求用户围绕框架逻辑重构代码，Funboost 尊重用户的原生代码结构。
@@ -5123,6 +5175,8 @@ Funboost 的性能与 Celery 相比，有着**数量级**的优势（基于控�
 > *   **🤖 AI 辅助**：强烈推荐阅读 **[第 14 章]**，学习如何利用 AI 大模型快速掌握 `funboost` 的用法。
 
 **🔗 在线文档地址**：[ReadTheDocs - Funboost Latest](https://funboost.readthedocs.io/zh-cn/latest/index.html)
+**超级ai上下文文档**：[funboost_all_docs_and_codes.md](https://github.com/ydf0509/funboost/blob/master/funboost_all_docs_and_codes.md)
+
 
 #### 📖 文档章节速览
 
@@ -5233,7 +5287,8 @@ Funboost 将分布式系统的复杂性封装于内核，向下屏蔽基础设�
 *   **周期额度 (Quota)**：支持在指定周期（如1分钟）内限制任务执行的**总次数**，任务可**随到随执行**（非匀速）。例如：设置"每分钟最多执行100次"，100次额度用完后将等待下一周期。此功能用法详见 **4b.12 章节**。
 *   **分布式限流**：基于funboost的Redis 心跳信息协调，实现跨服务器、跨容器的 **全局流量控制**。
 *   **分组消费**：支持 `consume_group`，按业务组别启动消费者，实现大单体应用的资源隔离。
-*   **熔断管理**：支持运行时动态下发指令，实时 **暂停/恢复** 指定队列的消费。
+*   **手动熔断管理**：支持运行时动态下发指令，实时 **暂停/恢复** 指定队列的消费。
+*   **自动熔断管理**：使用CircuitBreakerConsumerMixin扩展，支持自动熔断、半开、恢复，支持阻塞模式和降级模式。
 *   **批处理流控**：提供 `wait_for_possible_has_finish_all_tasks`，支持脚本级的**任务清空等待**。
 
 #### 🎼 维度五：调度与编排 (Scheduling & Orchestration)
@@ -5440,7 +5495,7 @@ RPC调用：在网页上对30种消息队列发布消息并获取函数执行结
 
 
 
-## 1.4 💡 为什么 Python 极其需要分布式函数调度？
+## 1.4 💡 为什么 Python 极其需要分布式函数计算？
 
 Python 语言的特性决定了它比 Java/Go 等语言更依赖分布式调度框架。主要原因有两点：
 
@@ -5512,7 +5567,7 @@ Celery 称霸 Python 异步江湖十数载，内力虽深厚，但其招式繁�
  > 你可以看文档2.6章节**funboost vs celery控制变量法性能对比**，以及2.9章节，**funboost到底为什么性能比celery高几十倍？太离谱了,太假了是吗？**
 
 
-[查看分布式函数调度框架完整文档](https://funboost.readthedocs.io/)  
+[查看 funboost 分布式函数调度平台 完整教程](https://funboost.readthedocs.io/)  
 
 ![](https://visitor-badge.glitch.me/badge?page_id=distributed_framework)  
 
@@ -6643,6 +6698,203 @@ if __name__ == '__main__':
     for i in range(2000):  
         f.push(i) # 给ip 端口发消息  
 ```  
+
+
+
+## 11.10 Watchdog Broker：监听文件系统变更（ETL 利器）
+
+Funboost 不仅支持传统的 MQ（如 RabbitMQ/Kafka），还通过 `Watchdog` 实现了基于**文件系统事件**的消息驱动模式。
+
+这是一个典型的 **Event-Driven（事件驱动）** 模型：
+
+* **生产者**：操作系统（当文件被创建、修改时）。
+* **消息体**：文件的内容或路径信息。
+* **消费者**：Funboost 装饰的函数。
+
+**为什么选择 Funboost + Watchdog？**
+
+1. **处理积压（独家功能）**：原生 Watchdog 无法处理启动前已存在的文件，Funboost 增加了 `existing` 事件，启动时自动消费积压文件，确保数据不丢失。
+2. **零胶水代码**：无需编写复杂的 `Observer`、线程池或轮询逻辑，只需一个装饰器。
+3. **企业级能力**：文件处理函数自动获得 Funboost 的**并发控制、QPS 限制、自动重试、死信队列**等高级功能。
+4. **自动 ACK**：处理完成后自动删除或归档文件。
+5. **防抖**：支持防抖，短时间内多次操作同一文件只触发一次消费。原生watchdog是不支持防抖的。
+
+### 11.10.1 核心配置说明
+
+使用 `broker_kind=BrokerEnum.WATCHDOG` 时，需通过 `broker_exclusive_config` 传递专有参数：
+
+| 参数名 | 类型 | 说明 |
+| --- | --- | --- |
+| `watch_path` | str | 必填。监控的文件夹路径。 |
+| `patterns` | list | 可选。文件过滤器，如 `['*.json', '*.csv']`。 |
+| `event_types` | list | 监听事件类型。支持 `created`, `modified`, `moved`, `deleted`。**特有支持：`existing` (处理历史存量文件)。** |
+| `read_file_content` | bool | 若为 `True`，框架会自动读取文件内容并传入消费函数的 `file_content` 参数。 |
+| `ack_action` | str | 消费成功后的动作。`delete` (删除源文件) 或 `archive` (归档，需配合 `archive_path`)。 |
+| `debounce_seconds` | float | 防抖时间（秒），在该时间内对同一文件的多次事件只触发一次消费。 |
+
+### 11.10.2 代码示例
+
+源码参考：`funboost/contrib/register_custom_broker_contrib/watchdog_broker.py`
+使用示例：`test_frame/test_watchdog_broker/test_watchdog_broker.py`
+
+```python
+# -*- coding: utf-8 -*-
+"""
+测试 Watchdog 文件系统监控 Broker
+
+Watchdog Broker 是事件驱动型中间件：
+1. 无需手动发布消息
+2. 文件创建/修改自动触发消费
+3. 适合文件处理管道场景
+4. 证明 funboost 中万物可为broker，funboost具有超高无限的扩展性
+"""
+
+import time
+from pathlib import Path
+
+
+from funboost import boost, BoosterParams, ctrl_c_recv, BrokerEnum
+
+
+# 测试目录
+TEST_DIR = Path(__file__).parent / "watchdog_test_data"
+# 归档目录（必须在监控目录外部）
+ARCHIVE_DIR = Path(__file__).parent / "watchdog_archive"
+
+
+@boost(
+    BoosterParams(
+        queue_name="test_file_processor",
+        broker_kind=BrokerEnum.WATCHDOG,
+        qps=10,
+        concurrent_num=3,
+        broker_exclusive_config={
+            # ==================== 必填配置 ====================
+            "watch_path": TEST_DIR.absolute().as_posix(),  # 监控目录路径（必须使用绝对路径的 POSIX 格式）
+            
+            # ==================== 文件匹配配置 ====================
+            "patterns": ["*.txt", "*.json", "*.csv", "*.msg"],  # 匹配的文件模式，['*'] 表示所有文件
+            "ignore_patterns": [],               # 忽略的文件模式，如 ['*.tmp', '*.log']
+            "ignore_directories": True,          # 是否忽略目录事件
+            "case_sensitive": False,             # 文件名匹配是否区分大小写
+            
+            # ==================== 事件类型配置 ====================
+            # event_types 枚举: ['created', 'modified', 'deleted', 'moved', 'existing']
+            # - created: 文件新建
+            # - modified: 文件修改
+            # - deleted: 文件删除
+            # - moved: 文件移动/重命名
+            # - existing: 启动时已存在的文件（原生 watchdog 不支持，funboost 扩展支持）
+            "event_types": [
+                "created",   # 如果只监听 modified，则一次性写入文件只触发1次；同时监听 created+modified 会触发2次
+                "existing",    # 完美解决 funboost 服务重启后，停机期间堆积的文件
+                "modified",
+            ],
+            
+            # ==================== 目录递归配置 ====================
+            "recursive": True,                  # 是否递归监控子目录
+            
+            # ==================== 消费确认配置 ====================
+            # ack_action 枚举: 'delete' | 'archive' | 'none'
+            # - delete: 消费成功后删除文件
+            # - archive: 消费成功后移动到 archive_path 指定的目录
+            # - none: 纯监控模式，不做任何操作
+            "ack_action": "archive",
+            
+            # ==================== 归档目录配置 ====================
+            # 仅 ack_action='archive' 时需要配置
+            # 重要：archive_path 不能是 watch_path 的子目录！
+            "archive_path": ARCHIVE_DIR.absolute().as_posix(),
+            
+            # ==================== 文件内容读取 ====================
+            "read_file_content": True,           # 是否自动读取文件内容（仅小于 1MB 的文件）
+            
+            # ==================== 防抖配置 ====================
+            # debounce_seconds: None | float
+            # - None: 不防抖，每次文件事件都触发消费
+            # - float: 防抖时间（秒），在该时间内对同一文件的多次事件只触发一次消费
+            # 例如：debounce_seconds=2，第0秒创建文件、第1秒修改、第2秒又修改，只会在最后一次修改后2秒触发一次消费
+            "debounce_seconds": 2,               # 2秒防抖，短时间内多次操作同一文件只触发一次
+        },
+        should_check_publish_func_params=False,
+    )
+)
+def process_file(   # 此函数入参固定是这些就可以了。
+    event_type,
+    src_path,
+    dest_path,
+    is_directory,
+    timestamp,
+    file_content,
+):
+    print(locals())
+    """处理文件事件"""
+    print(f"[{event_type}] 处理文件: {src_path}")
+    if file_content:
+        preview = (
+            file_content[:500] + "..." if len(file_content) > 500 else file_content
+        )
+        print(f"  内容预览: {preview}")
+    time.sleep(0.3)
+    return f"处理完成: {Path(src_path).name}"
+
+
+def create_test_files():
+    """创建测试文件，触发文件创建和文件修改事件"""
+    pending_dir = TEST_DIR
+    pending_dir.mkdir(parents=True, exist_ok=True)
+
+    print(f"创建测试文件到: {pending_dir}")
+
+    for i in range(5):
+        file_path = pending_dir / f"test_file_{i}.txt"
+        file_path.write_text(f"这是测试文件 {i}\n内容行 1\n内容行 2", encoding="utf-8")
+        print(f"  创建: {file_path.name}")
+
+    print(f"已创建 5 个测试文件")
+
+
+def manual_push():
+    """
+    watchdog作为broker时候， funboost 允许手动发布消息，
+    但手动发布消息是非必须的，原理是watchdog监听到文件变更后，自动触发消费者运行函数，所以不需要人工调用push方法。
+    """
+    for i in range(3):
+        process_file.push(a=i, b=i * 2)
+
+
+if __name__ == "__main__":
+    process_file.consume()
+    time.sleep(5)
+    create_test_files()
+    manual_push()
+    ctrl_c_recv()
+
+
+
+
+
+```
+
+### 11.10.3 特性深度解析
+
+#### 11.10.3.1 关于 `existing` 事件
+
+这是 Funboost 对 Watchdog 的**重大增强**。
+
+* **原生痛点**：如果你停止了程序，期间有文件上传到了目录，下次启动原生 Watchdog 程序时，这些文件会被忽略。
+* **Funboost 方案**：配置 `existing` 后，Funboost 启动时会扫描目录，将所有既有文件模拟为事件推送到消费队列。这使得它完全具备了**断点续传**的能力，非常适合高可靠性的 ETL 任务。
+
+#### 11.10.3.2 关于 `read_file_content`
+
+开启此选项后，框架会自动处理文件 I/O。你不需要在函数里写 `with open(...)`，也不用担心并发读取时的文件锁问题，框架已处理好并发安全。
+
+#### 11.10.3.3 关于 `debounce_seconds`
+
+防抖配置，创建文件和短时间内连续修改文件，不会造成多次触发消费函数。
+
+---
+
 
 <div> </div>
 `````
@@ -12793,7 +13045,7 @@ kafka消费消息，是小明和小红分别看这本书，小明每看完几页
 所以你可以传递指定这些值 group_id/ auto_offset_reset/ num_partitions/ replication_factor
 
 
-## 4.21 【完全自由定制扩展（方式1）】 使用 register_custom_broker 完全彻底自由灵活自定义扩展和定制修改中间件(消费者和发布者)  
+## 4.21 【funboost完全自由定制扩展（方式1）】 使用 register_custom_broker 完全彻底自由灵活自定义扩展和定制修改中间件(消费者和发布者)  
 
 4.21和4.21b 都可以实现普通用户自由增加新中间件；  
 
@@ -13006,7 +13258,50 @@ celery的扩展就很垃圾了，必须依赖框架自身提前预留暴露了�
 **在文档4b.2c章节,也演示了通过指定 consumer_override_cls 来消费任意格式的消息,用户可以和4.21章节一起阅读**  
 
 
+## 4.21c 不想吃苦？让ai来帮你扩展funboost中间件或者定制运行逻辑
 
+`funboost`用户级别可以完全自由定制扩展的，提供 `register_custom_broker` 和 `override_cls` 两种用户级别自由扩展定制。
+
+如果用户想增加或者修改怎么操作broker中间件或者定制funboost逻辑，并且不想亲自吃苦看4.21章节 和 `funboost/md_for_ai/如何扩展增加新的中间件.md`,那么用户可以让 ai 来高效实现， ai写得扩展比我自己写的还好。
+
+
+
+### 4.21c.2 假设你要使用python内置的list作为 funboost的消息队列：
+
+你让ai来写增加中间件或者定制逻辑的方式就是如下 promote：
+
+你先上传 `funboost_all_docs_and_codes.md` 这个文档给ai，并使用如下提示词
+```
+你帮我实现 python 内置的 list 作为 funboost的消息队列。
+注意：
+1.你要阅读 `funboost_all_docs_and_codes.md`中的4.21章节，`4.21 funboost完全自由定制扩展`
+2.你要阅读 `funboost_all_docs_and_codes.md` 中的 `funboost/md_for_ai/如何扩展增加新的中间件.md`
+3.你要参考已有的funboost扩展代码实现 `funboost/contrib/override_publisher_consumer_cls` 和 `funboost/contrib/register_custom_broker_contrib` 文件夹中的代码。
+4.你要阅读 `funboost/consumers/base_consumer.py`的AbstractConsumer基类逻辑
+5.你要阅读 `funboost/publishers/base_publisher.py`的AbstractPublisher基类逻辑
+```
+
+#### 4.21c.2.2 说个ai使用技巧秘密，网页版ai大模型生成funboost代码 吊打编程 ide中的 ai大模型和claude code
+
+现在的ai编程ide 使用 `rag` 和 `agentic search`。 
+`rag` 幻觉高，推理差。   
+`agentic search` 有时候搜索关键字不准，而且需要连续轮番检索和ai多轮交互，速度太慢了,效率低，还要充会员。 
+
+2026年很多ai大模型已经有1000K上下文了，就是俗称的百万上下文。而 `funboost_all_docs_and_codes.md` 是900k上下文，ai刚好能应付。
+
+
+**荐几个原生 百万上下文的ai：**
+
+- `https://chat.deepseek.com` deepseek 2026年升级的mhc 和engram机制， 果然名不虚传，面对100万上下文，网页版免费无限使用，而且又快又准。速度比qwen的快太多了。
+- `https://aistudio.google.com/` google ai studio 中的gemini pro 很准确，缺点是2026年后开始限制使用次数了。
+  注意不要使用 `https://gemini.google.com/` 官网中的 gemini，这个虽然通用使用gemini pro，幻觉比 google ai studio 中高太多了。
+- `https://chat.qwen.ai/` qwen 2026年后也支持100万上下文了，但是目前体验的qwen3.5plus准确度可以，但回答速度太慢，受不了。还是deepseek强。
+  注意不要使用 `https://www.qianwen.com` 通义官网中的qwen模型，通义官网的qwen实测幻觉率比国际版千问网页高很多。
+  通义官网的ai不好，具体表现在我上传了完整的funboost教程和源码markdown后，他还非要自作聪明的去自动联网搜索funboost在互联网上的内容，因为funboost互联网内容少，所以自动联网反而不好。
+
+**在ai大模型deepseek的网页中生成 funboost 代码截图：**
+
+![alt text](image-5.png)
 
 
 ## 4.23 演示funboost框架是如何代替用户手写调用线程池的  
@@ -15382,7 +15677,7 @@ class CustomKafkaConsumer(KafkaConsumerManuallyCommit):
 
 这种方式实现了**“配置与任务定义 co-located（配置与任务定义 co-located）”**，使得特殊配置清晰可见，且与对应的任务绑定，极大地提高了代码的可读性和可维护性。
 
-## 4b.7 opentelemetry 全链路任务追踪，funboost生产级别的重要战略级功能
+## 4b.7 opentelemetry 全链路任务追踪，funboost生产级别的重要战略级功能 (高级功能)
 
 - **使用方式：**
 使用方式，就是可以直接使用 `OtelBoosterParams`  
@@ -15796,7 +16091,7 @@ funboost/workflow/
 
 
 
-## 4b.9 funboost 支持 prometheus 指标监控
+## 4b.9 funboost 支持 prometheus 指标监控 （高级功能）
 
 **funboost自身也支持指标统计和上报**
 funboost自身内置了 MetricCalculation , 是自己实现的指标统计和上报，并且可以以曲线图的显示在funboost的web界面中。   
@@ -15894,7 +16189,7 @@ from funboost.contrib.override_publisher_consumer_cls.funboost_micro_batch_mixin
 
 @boost(MicroBatchBoosterParams(
     queue_name='test_micro_batch_queue',
-    broker_kind=BrokerEnum.MEM_QUEUE,
+    broker_kind=BrokerEnum.MEMORY_QUEUE,
     user_options={
         'micro_batch_size': 10,        # 每批10条强制触发用户函数
         'micro_batch_timeout': 3.0,    # 如果不足n条，3秒超时强制触发用户函数
@@ -15941,199 +16236,6 @@ if __name__ == '__main__':
 
 
 
-## 4b.11 Watchdog Broker：监听文件系统变更（ETL 利器）
-
-Funboost 不仅支持传统的 MQ（如 RabbitMQ/Kafka），还通过 `Watchdog` 实现了基于**文件系统事件**的消息驱动模式。
-
-这是一个典型的 **Event-Driven（事件驱动）** 模型：
-
-* **生产者**：操作系统（当文件被创建、修改时）。
-* **消息体**：文件的内容或路径信息。
-* **消费者**：Funboost 装饰的函数。
-
-**为什么选择 Funboost + Watchdog？**
-
-1. **处理积压（独家功能）**：原生 Watchdog 无法处理启动前已存在的文件，Funboost 增加了 `existing` 事件，启动时自动消费积压文件，确保数据不丢失。
-2. **零胶水代码**：无需编写复杂的 `Observer`、线程池或轮询逻辑，只需一个装饰器。
-3. **企业级能力**：文件处理函数自动获得 Funboost 的**并发控制、QPS 限制、自动重试、死信队列**等高级功能。
-4. **自动 ACK**：处理完成后自动删除或归档文件。
-5. **防抖**：支持防抖，短时间内多次操作同一文件只触发一次消费。原生watchdog是不支持防抖的。
-
-### 4b.11.1 核心配置说明
-
-使用 `broker_kind=BrokerEnum.WATCHDOG` 时，需通过 `broker_exclusive_config` 传递专有参数：
-
-| 参数名 | 类型 | 说明 |
-| --- | --- | --- |
-| `watch_path` | str | 必填。监控的文件夹路径。 |
-| `patterns` | list | 可选。文件过滤器，如 `['*.json', '*.csv']`。 |
-| `event_types` | list | 监听事件类型。支持 `created`, `modified`, `moved`, `deleted`。**特有支持：`existing` (处理历史存量文件)。** |
-| `read_file_content` | bool | 若为 `True`，框架会自动读取文件内容并传入消费函数的 `file_content` 参数。 |
-| `ack_action` | str | 消费成功后的动作。`delete` (删除源文件) 或 `archive` (归档，需配合 `archive_path`)。 |
-| `debounce_seconds` | float | 防抖时间（秒），在该时间内对同一文件的多次事件只触发一次消费。 |
-
-### 4b.11.2 代码示例
-
-源码参考：`funboost/contrib/register_custom_broker_contrib/watchdog_broker.py`
-使用示例：`test_frame/test_watchdog_broker/test_watchdog_broker.py`
-
-```python
-# -*- coding: utf-8 -*-
-"""
-测试 Watchdog 文件系统监控 Broker
-
-Watchdog Broker 是事件驱动型中间件：
-1. 无需手动发布消息
-2. 文件创建/修改自动触发消费
-3. 适合文件处理管道场景
-4. 证明 funboost 中万物可为broker，funboost具有超高无限的扩展性
-"""
-
-import time
-from pathlib import Path
-
-
-from funboost import boost, BoosterParams, ctrl_c_recv, BrokerEnum
-
-
-# 测试目录
-TEST_DIR = Path(__file__).parent / "watchdog_test_data"
-# 归档目录（必须在监控目录外部）
-ARCHIVE_DIR = Path(__file__).parent / "watchdog_archive"
-
-
-@boost(
-    BoosterParams(
-        queue_name="test_file_processor",
-        broker_kind=BrokerEnum.WATCHDOG,
-        qps=10,
-        concurrent_num=3,
-        broker_exclusive_config={
-            # ==================== 必填配置 ====================
-            "watch_path": TEST_DIR.absolute().as_posix(),  # 监控目录路径（必须使用绝对路径的 POSIX 格式）
-            
-            # ==================== 文件匹配配置 ====================
-            "patterns": ["*.txt", "*.json", "*.csv", "*.msg"],  # 匹配的文件模式，['*'] 表示所有文件
-            "ignore_patterns": [],               # 忽略的文件模式，如 ['*.tmp', '*.log']
-            "ignore_directories": True,          # 是否忽略目录事件
-            "case_sensitive": False,             # 文件名匹配是否区分大小写
-            
-            # ==================== 事件类型配置 ====================
-            # event_types 枚举: ['created', 'modified', 'deleted', 'moved', 'existing']
-            # - created: 文件新建
-            # - modified: 文件修改
-            # - deleted: 文件删除
-            # - moved: 文件移动/重命名
-            # - existing: 启动时已存在的文件（原生 watchdog 不支持，funboost 扩展支持）
-            "event_types": [
-                "created",   # 如果只监听 modified，则一次性写入文件只触发1次；同时监听 created+modified 会触发2次
-                "existing",    # 完美解决 funboost 服务重启后，停机期间堆积的文件
-                "modified",
-            ],
-            
-            # ==================== 目录递归配置 ====================
-            "recursive": True,                  # 是否递归监控子目录
-            
-            # ==================== 消费确认配置 ====================
-            # ack_action 枚举: 'delete' | 'archive' | 'none'
-            # - delete: 消费成功后删除文件
-            # - archive: 消费成功后移动到 archive_path 指定的目录
-            # - none: 纯监控模式，不做任何操作
-            "ack_action": "archive",
-            
-            # ==================== 归档目录配置 ====================
-            # 仅 ack_action='archive' 时需要配置
-            # 重要：archive_path 不能是 watch_path 的子目录！
-            "archive_path": ARCHIVE_DIR.absolute().as_posix(),
-            
-            # ==================== 文件内容读取 ====================
-            "read_file_content": True,           # 是否自动读取文件内容（仅小于 1MB 的文件）
-            
-            # ==================== 防抖配置 ====================
-            # debounce_seconds: None | float
-            # - None: 不防抖，每次文件事件都触发消费
-            # - float: 防抖时间（秒），在该时间内对同一文件的多次事件只触发一次消费
-            # 例如：debounce_seconds=2，第0秒创建文件、第1秒修改、第2秒又修改，只会在最后一次修改后2秒触发一次消费
-            "debounce_seconds": 2,               # 2秒防抖，短时间内多次操作同一文件只触发一次
-        },
-        should_check_publish_func_params=False,
-    )
-)
-def process_file(   # 此函数入参固定是这些就可以了。
-    event_type,
-    src_path,
-    dest_path,
-    is_directory,
-    timestamp,
-    file_content,
-):
-    print(locals())
-    """处理文件事件"""
-    print(f"[{event_type}] 处理文件: {src_path}")
-    if file_content:
-        preview = (
-            file_content[:500] + "..." if len(file_content) > 500 else file_content
-        )
-        print(f"  内容预览: {preview}")
-    time.sleep(0.3)
-    return f"处理完成: {Path(src_path).name}"
-
-
-def create_test_files():
-    """创建测试文件，触发文件创建和文件修改事件"""
-    pending_dir = TEST_DIR
-    pending_dir.mkdir(parents=True, exist_ok=True)
-
-    print(f"创建测试文件到: {pending_dir}")
-
-    for i in range(5):
-        file_path = pending_dir / f"test_file_{i}.txt"
-        file_path.write_text(f"这是测试文件 {i}\n内容行 1\n内容行 2", encoding="utf-8")
-        print(f"  创建: {file_path.name}")
-
-    print(f"已创建 5 个测试文件")
-
-
-def manual_push():
-    """
-    watchdog作为broker时候， funboost 允许手动发布消息，
-    但手动发布消息是非必须的，原理是watchdog监听到文件变更后，自动触发消费者运行函数，所以不需要人工调用push方法。
-    """
-    for i in range(3):
-        process_file.push(a=i, b=i * 2)
-
-
-if __name__ == "__main__":
-    process_file.consume()
-    time.sleep(5)
-    create_test_files()
-    manual_push()
-    ctrl_c_recv()
-
-
-
-
-
-```
-
-### 4b.11.3 特性深度解析
-
-#### 4b.11.3.1 关于 `existing` 事件
-
-这是 Funboost 对 Watchdog 的**重大增强**。
-
-* **原生痛点**：如果你停止了程序，期间有文件上传到了目录，下次启动原生 Watchdog 程序时，这些文件会被忽略。
-* **Funboost 方案**：配置 `existing` 后，Funboost 启动时会扫描目录，将所有既有文件模拟为事件推送到消费队列。这使得它完全具备了**断点续传**的能力，非常适合高可靠性的 ETL 任务。
-
-#### 4b.11.3.2 关于 `read_file_content`
-
-开启此选项后，框架会自动处理文件 I/O。你不需要在函数里写 `with open(...)`，也不用担心并发读取时的文件锁问题，框架已处理好并发安全。
-
-#### 4b.11.3.3 关于 `debounce_seconds`
-
-防抖配置，创建文件和短时间内连续修改文件，不会造成多次触发消费函数。
-
----
 
 ## 4b.12 funboost的周期额度功能
 
@@ -16276,7 +16378,243 @@ if __name__ == '__main__':
 ```
 
 
+## 4b.14 funboost 支持自动熔断，智能自动熔断、半开、恢复 （高级功能）
 
+Funboost 的熔断器的实现遵循了业界顶流熔断器框架的规范：
+
+- **遵循业界通用三态状态机模型**（Closed / Open / Half-Open）
+- **支持两种触发策略**（错误率阈值、连续错误数阈值）
+- **提供完善的配置项和扩展钩子**
+- **额外支持分布式计数**，非常适合构建高可用的分布式系统
+- **配置方式清晰直观**，开发者可以像使用 Hystrix 或 resilience4j 一样轻松驾驭它 
+
+### 4b.14.0 funboost 支持自动熔断管理和手动熔断管理
+
+funboost 支持**自动熔断管理**和**手动熔断管理**两种方式：
+
+#### 4b.14.0.1 手动熔断管理
+
+由开发者人工判断并手动操作暂停/恢复消费，适用于以下场景：
+- 主动发现大规模报错
+- 通过 Prometheus 告警发现异常
+
+**操作方式：**
+
+| 方式 | 操作说明 |
+| :--- | :--- |
+| Redis 标志 | 对 `queue_name` 设置暂停标志， `HSET funboost_pause_flag my_task_queue 1或0` |
+| FaaS 接口 | 调用 `/funboost/pause_consume` 和 `/funboost/resume_consume` |
+| Web 管理界面 | 通过 Funboost Web Manager 网页操作 |
+
+#### 4b.14.0.2 自动熔断管理
+
+通过 `CircuitBreakerConsumerMixin` 实现，**智能自动**进入三种状态：
+- **CLOSED**（正常）
+- **OPEN**（熔断）
+- **HALF_OPEN**（半开试探）
+
+### 4b.14.1 funboost 自动熔断，CircuitBreakerConsumerMixin
+
+**自动熔断降级是属于生产环境服务的高可用的功能。**        
+
+**三态状态机**：`CLOSED`（正常）→ `OPEN`（熔断）→ `HALF_OPEN`（半开试探）→ `CLOSED` 或回退到 `OPEN`。
+
+实现源码在 `funboost/contrib/override_publisher_consumer_cls/circuit_breaker_mixin.py`
+
+使用方式,在装饰器设置 `consumer_override_cls=CircuitBreakerConsumerMixin` ，然后在 `user_options` 中设置合理的值。
+
+**功能说明**：当消费函数失败达到阈值时自动熔断，熔断期间阻塞等待恢复或执行 fallback 降级函数。
+
+---
+
+#### 4b.14.1.1 三态状态机
+
+```
+┌─────────┐   触发条件满足    ┌─────────┐
+│ CLOSED  │ ───────────────→ │  OPEN   │
+│ (正常)  │                  │ (熔断)  │
+└─────────┘                  └────┬────┘
+     ↑                            │
+     │     recovery_timeout 秒    │
+     └────────────────────────────┘
+                                  ↓
+                           ┌─────────────┐
+                           │ HALF_OPEN   │
+                           │ (半开/试探) │
+                           └──────┬──────┘
+                                  │
+           ┌──────────────────────┼──────────────────────┐
+           │                      │                      │
+    连续成功 >=              任意一次失败          超过 half_open_ttl
+    half_open_max_calls           │                      │
+           │                      │                      │
+           ↓                      ↓                      ↓
+      ┌─────────┐           ┌─────────┐           ┌─────────┐
+      │ CLOSED  │           │  OPEN   │           │  OPEN   │
+      └─────────┘           └─────────┘           └─────────┘
+```
+
+**状态流转说明：**
+
+| 流转路径 | 触发条件 |
+| :--- | :--- |
+| `CLOSED` → `OPEN` | 触发策略条件满足（连续失败或错误率超标） |
+| `OPEN` → `HALF_OPEN` | 经过 `recovery_timeout` 秒 |
+| `HALF_OPEN` → `CLOSED` | 连续成功次数 >= `half_open_max_calls` |
+| `HALF_OPEN` → `OPEN` | 任意一次失败 或 超过 `half_open_ttl` |
+
+---
+
+#### 4b.14.1.2 两种触发策略
+
+| 策略 | 说明 | 适用场景 |
+| :--- | :--- | :--- |
+| **`consecutive`**（默认） | 连续失败 >= `failure_threshold` 时触发熔断，任何一次成功重置计数 | 对偶发错误敏感，希望快速熔断 |
+| **`rate`** | 在 `period` 秒滑动窗口内，调用次数 >= `min_calls` 且错误率 >= `errors_rate` 时触发 | 需要基于错误率统计，避免误伤 |
+
+---
+
+#### 4b.14.1.3 两种计数后端
+
+| 后端 | 说明 | 适用场景 |
+| :--- | :--- | :--- |
+| **`local`**（默认） | 单进程内有效，使用 `threading.Lock` 保证线程安全 | 单机部署 |
+| **`redis`** | 多进程/多机器共享熔断状态，同一队列的所有消费者共享计数 | 分布式部署 |
+
+---
+
+#### 4b.14.1.4 两种熔断行为
+
+| 模式 | 说明 | 配置方式 |
+| :--- | :--- | :--- |
+| **阻塞模式**（默认） | 熔断期间阻塞 `_submit_task`，消息留在中间件中等待恢复 | `circuit_breaker_fallback=None` |
+| **Fallback 模式** | 熔断期间用 fallback 函数替代原函数执行 | 指定 `circuit_breaker_fallback` 函数 |
+
+---
+
+#### 4b.14.1.5 user_options的 circuit_breaker_options 参数说明
+
+**策略相关：**
+
+| 参数 | 类型 | 默认值 | 说明 |
+| :--- | :--- | :--- | :--- |
+| `strategy` | str | `'consecutive'` | 触发策略：`'consecutive'` 或 `'rate'` |
+| `counter_backend` | str | `'local'` | 计数后端：`'local'` 或 `'redis'` |
+
+**consecutive 策略参数：**
+
+| 参数 | 类型 | 默认值 | 说明 |
+| :--- | :--- | :--- | :--- |
+| `failure_threshold` | int | `5` | 连续失败次数阈值 |
+
+**rate 策略参数：**
+
+| 参数 | 类型 | 默认值 | 说明 |
+| :--- | :--- | :--- | :--- |
+| `errors_rate` | float | `0.5` | 错误率阈值（0.0~1.0） |
+| `period` | float | `60.0` | 统计窗口秒数 |
+| `min_calls` | int | `5` | 窗口内最少调用数才评估 |
+
+**状态机参数：**
+
+| 参数 | 类型 | 默认值 | 说明 |
+| :--- | :--- | :--- | :--- |
+| `recovery_timeout` | float | `60.0` | 熔断后等待恢复秒数 |
+| `half_open_max_calls` | int | `3` | 半开状态需连续成功次数 |
+| `half_open_ttl` | float / None | `None` | 半开状态超时秒数，超时后重新进入 OPEN |
+
+**其他参数：**
+
+| 参数 | 类型 | 默认值 | 说明 |
+| :--- | :--- | :--- | :--- |
+| `exceptions` | tuple / None | `None` | 要跟踪的异常类型元组，`None` 表示跟踪所有异常 |
+| `circuit_breaker_fallback` | callable / None | `None` | 降级函数，`None` 则为阻塞模式 |
+
+---
+
+#### 4b.14.1.6 钩子方法（子类重写）
+
+| 方法 | 触发时机 | 用途 |
+| :--- | :--- | :--- |
+| `_on_circuit_open(self,info_dict)` | 熔断触发时 | 可发送微信/钉钉/邮件告警 |
+| `_on_circuit_close(self,info_dict)` | 熔断恢复时 | 可发送微信/钉钉/邮件恢复通知 |
+
+---
+
+#### 4b.14.1.7 用法示例
+
+
+```python
+from funboost import boost, BoosterParams, BrokerEnum
+from funboost.contrib.override_publisher_consumer_cls.circuit_breaker_mixin import (
+    CircuitBreakerConsumerMixin,
+    CircuitBreakerBoosterParams,
+)
+
+
+# ========================================
+# 方式1：连续失败策略 + 本地计数（最简用法）
+# ========================================
+@boost(CircuitBreakerBoosterParams(
+    queue_name='my_task',
+    broker_kind=BrokerEnum.REDIS,
+    user_options={
+        'circuit_breaker_options': {
+            'failure_threshold': 5,      # 连续失败5次触发熔断
+            'recovery_timeout': 60,      # 熔断后等待60秒恢复
+        }
+    },
+))
+def my_task(x):
+    return call_external_api(x)
+
+
+# ========================================
+# 方式2：错误率策略 + Redis 分布式计数
+# ========================================
+@boost(BoosterParams(
+    queue_name='my_task_rate',
+    broker_kind=BrokerEnum.REDIS,
+    consumer_override_cls=CircuitBreakerConsumerMixin,
+    user_options={
+        'circuit_breaker_options': {
+            'strategy': 'rate',              # 使用错误率策略
+            'counter_backend': 'redis',      # Redis分布式计数
+            'errors_rate': 0.5,              # 错误率阈值50%
+            'period': 60,                    # 统计窗口60秒
+            'min_calls': 10,                 # 最少调用10次才评估
+            'recovery_timeout': 30,          # 熔断后等待30秒恢复
+            'exceptions': (ConnectionError, TimeoutError),  # 只跟踪这些异常
+        }
+    },
+))
+def my_task_rate(x):
+    return call_external_api(x)
+
+
+# ========================================
+# 方式3：Fallback 降级模式
+# ========================================
+def my_fallback(x):
+    """熔断期间的降级函数"""
+    return {'status': 'degraded', 'x': x}
+
+
+@boost(BoosterParams(
+    queue_name='my_task_fb',
+    broker_kind=BrokerEnum.REDIS,
+    consumer_override_cls=CircuitBreakerConsumerMixin,
+    user_options={
+        'circuit_breaker_options': {
+            'failure_threshold': 3,              # 连续失败3次触发熔断
+            'recovery_timeout': 30,              # 熔断后等待30秒恢复
+            'circuit_breaker_fallback': my_fallback,  # 指定降级函数
+        }
+    },
+))
+def my_task_fb(x):
+    return call_external_api(x)
+```
 
 
 
@@ -18352,6 +18690,138 @@ RedisBrpopLpush
 ```  
 
 
+## 6.29 funboost 推荐用户使用什么并发模式？
+
+在 Funboost 中，并发模式的选择并非一道选择题，而是一套层层递进的“性能方程式”。框架提供了多种模式，但在 99% 的情况下，你只需要遵循以下推荐原则即可。
+
+### 6.29.1 默认推荐：当前进程内 + 多线程模式 (最省心、最稳定、最好用)
+
+**适用场景**：绝大多数的常规后端任务，如 API 请求、爬虫、写数据库、发送邮件等 IO 密集型操作。
+
+**使用方式**：什么都不用改。`@boost` 的 `concurrent_mode` 默认就是 `ConcurrentModeEnum.THREADING`，直接 `task_fun.consume()` 启动即可。
+
+**为什么这是最推荐的模式？**
+因为在这个模式下，支撑并发的底层**不是** Python 官方自带的 `concurrent.futures.ThreadPoolExecutor`，而是 Funboost 作者纯手工打造的神级线程池：**`FlexibleThreadPool`（智能弹性线程池）**。
+
+它吊打官方原生线程池的核心优势在于：
+1.  **自动智能缩容**：官方线程池是“只进不出”的貔貅，无论任务多么稀疏，官方线程池会盲目增加到最大线程数；并且后来长期没啥任务了，线程也一直挂在内存里。而 `FlexibleThreadPool` 引入了 `KeepAliveTime` 机制，在任务稀疏时会自动销毁多余线程，释放系统资源。
+2.  **极度克制的扩张**：哪怕你配置了 `concurrent_num=500`，如果你的任务很稀疏，它就绝对不会去新开不必要的线程。
+3.  **兼容 `async def` 函数**：你可以直接把 `@boost(concurrent_mode=THREADING)` 加在异步函数上！框架会自动在线程池的每个线程里启动临时的 event loop 来运行协程，免去了你手动改写同步包装函数的痛苦（这一点完爆 Celery）。
+
+**一句话总结**：这是兼顾了“极低心智负担”与“极高 IO 吞吐”的王牌模式。
+
+### 6.29.2 高性能推荐：多进程叠加并发模式 (性能炸裂)
+
+**适用场景**：
+1.  **CPU 密集型任务**（如视频转码、图像处理、复杂数学计算），需要突破 Python 的 GIL 锁。
+2.  **超高并发的 IO 任务**，单进程的线程数开到极限依然无法满足吞吐需求。
+
+**使用方式**：
+**不要**去修改 `@boost` 装饰器里的 `concurrent_mode`（依然保持默认的多线程）。而是在启动消费时，使用 **`task_fun.multi_process_consume(n)`** （可简写为 `task_fun.mp_consume(n)`）。
+
+**核心原理**：
+这是 Funboost 的特色“叠加态”并发。例如执行 `task_fun.mp_consume(4)`：
+*   框架会先利用操作系统的多进程（Process）开出 4 个独立的 Worker 进程（完美利用 4 核 CPU）。
+*   在每个进程内部，依然使用 `FlexibleThreadPool` 开启比如 100 个多线程。
+*   总并发能力 = 4 进程 × 100 线程 = 400 个并发单元。
+
+**为什么不直接用纯多进程模式？**
+如果不开线程，纯靠开 400 个进程去应对并发，操作系统的内存会瞬间被撑爆，而且进程切换的开销极大。Funboost 的“少量进程 + 海量线程”模式，是用最低廉的内存代价，榨干机器性能的最佳实践。
+
+#### 6.29.2.2 ⚠️ 极度重要：多进程在 Linux 上建议显式设置 spawn 模式，抛弃默认的 fork 模式
+
+**多进程下，spawn 模式相比 fork 模式，在“环境一致性”和“避免内存污染”上有巨大优势。**
+
+如果你使用了多进程叠加并发，强烈建议在你的启动脚本**最顶端**加上以下代码：
+```python
+import multiprocessing
+multiprocessing.set_start_method('spawn', force=True)
+```
+
+**为什么 Funboost 强烈推崇 `spawn` 而嫌弃 `fork`？**
+
+| 优势 | 核心要点 |
+| :--- | :--- |
+| **环境一致性** | Windows 只有 `spawn`，Linux 默认 `fork`，显式设置 `spawn` 可避免"在我电脑上明明跑得好好的"困境 |
+| **架构先进性** | Funboost "少量进程 + 海量线程"理念，不需要为了启动快而牺牲安全性 |
+| **内存纯粹性** | `spawn` 干净独立，消灭 `MySQL Server has gone away` 等僵尸连接问题 |
+| **开发体验** | 消灭 `@worker_process_init` 等反人类钩子，无需手动重新初始化连接 |
+| **调试友好** | `spawn` 每次启动都是干净的 Python 进程，错误堆栈清晰可溯，不会被父进程"遗传病"干扰 |
+
+**详细说明：**
+
+1. **抹平开发与生产的环境差异**
+   Windows 只有 `spawn` 模式，而 Linux 默认是 `fork`。如果你在 Linux 不显式设置 `spawn`，你的代码在 Windows 开发机和 Linux 生产机上的行为将不一致，极易让新手陷入"在我电脑上明明跑得好好的"的懵逼困境。
+
+2. **拒绝 Celery 的历史包袱**
+   Celery 默认是纯多进程模式，且无法叠加细粒度并发（不能进程套线程），所以它为了启动快而依赖 `fork`。但 Funboost 理念是"少量进程 + 海量线程"，进程启动的极小开销完全可以忽略，根本不需要为了图快去用 `fork`。
+
+3. **保持内存纯粹，消灭僵尸连接**
+   `fork` 是"克隆"父进程的内存（包括父进程已经建立的数据库连接池、线程锁等）。这会导致子进程在查询数据库时发生经典的 `MySQL Server has gone away` 报错或死锁。
+   
+   > 💡 **一句话理解**：用 `spawn` 启动 4 个进程，就等于你在控制台手动敲了 4 次 `python xx.py`。每个进程重新执行一遍初始化代码，互不干扰。
+
+4. **消灭反人类的钩子函数**
+   正因为 Celery 饱受 `fork` 内存污染的折磨，才被迫发明了 `@worker_process_init` 这种极其操蛋的钩子，强迫小白去学习"如何在这个钩子里重新初始化数据库连接"。**在 Funboost + `spawn` 的世界里，这种恶心的问题从物理层面上就被消灭了。**
+
+5. **更好的错误追踪和调试体验**
+   `fork` 的子进程会继承父进程的所有内存状态，包括异常状态、信号处理器等。当子进程出现问题时，你很难定位是父进程继承来的"遗传病"还是子进程自己产生的"新病"。
+   而 `spawn` 是全新的 Python 解释器进程，**每次启动都是干净的 slate**，错误堆栈清晰可溯，调试时不会被父进程的"历史包袱"干扰。
+
+
+### 6.29.3 极客推荐：纯 Asyncio 协程模式 (高手的玩具)
+
+**适用场景**：
+你是一个重度的 `asyncio` 玩家，你的项目已经全面拥抱了异步生态（如使用 FastAPI），并且你在消费函数中必须使用 `aiohttp`、`aiomysql`、`aioredis` 等异步连接池。
+
+**使用方式**：
+必须在 `@boost` 中显式指定：
+```python
+@boost(BoosterParams(
+    queue_name='my_queue', 
+    concurrent_mode=ConcurrentModeEnum.ASYNC,
+    specify_async_loop=my_main_loop  # 强烈建议阅读 6.26 章节，懂这个参数的才是真懂 asyncio
+))
+async def my_task(x):
+    pass
+```
+
+**为什么普通人不推荐用纯 ASYNC 模式？**
+因为 asyncio 在 Python 中是一把“双刃剑”。
+*   一旦你选择了 ASYNC 模式，你的函数里就**绝对不能**出现任何阻塞的同步代码（比如普通的 `requests.get` 或 `time.sleep`），否则整个 Event Loop 都会被卡死，并发瞬间变成串行，引发灭顶之灾。
+*   更要命的是“跨线程使用 Loop”的经典大坑（即抛出 `attached to a different loop` 错误）。如果你不懂得如何把主线程的数据库连接池通过 `specify_async_loop` 传递给 Funboost 子线程的 Loop（详见文档 6.26 章节），你会死得很惨。
+
+**总结**：如果你没经过系统的 asyncio 毒打，老老实实用 6.29.1 的多线程模式就好。
+
+### 6.29.4 特殊场景：单线程串行模式 (Single Thread)
+
+**适用场景**：
+1.  **极度排斥并发冲突的任务**：你的任务绝对不能并发执行，比如按严格顺序更新某一行数据库记录，或者操作某个不支持并发的本地文件/老旧系统。
+2.  **要求“绝对公平”的跨机器负载均衡**：你的服务绝对不能容忍“预先从 Broker 抢一堆消息缓冲在内存里”，必须保证多台机器公平、按需地抢夺消费机会。
+
+**使用方式**：
+```python
+@boost(BoosterParams(
+    queue_name='my_queue', 
+    concurrent_mode=ConcurrentModeEnum.SINGLE_THREAD
+))
+def my_task(x):
+    pass
+```
+
+**⚠️ 深度辨析：`SINGLE_THREAD` 和 `THREADING + concurrent_num=1` 是一回事吗？**
+**绝对不是！这是两个完全不同的物种。**
+
+*   **`THREADING` 模式（即使你设置了 `concurrent_num=1`）**：
+    底层依然会启动 `FlexibleThreadPool`。只要有线程池，就会存在一个内存缓冲队列（`_work_queue`）。这意味着主消费线程会**贪婪地从 Broker（如 Redis）中疯狂拉取几十上百条消息，囤积到自己进程的内存里**，然后再由那 1 个工作线程慢慢消化。
+    **后果**：如果你部署了 A、B 两台机器，A 机器可能瞬间把队列里的 50 条消息全抢到了自己的内存里，导致 B 机器在一旁无所事事（闲死），而 A 机器却要花很久才处理完（忙死），彻底破坏了多机的负载均衡。
+*   **`SINGLE_THREAD` 模式**：
+    框架**没有**线程池缓冲队列！它会极其克制、死板地执行：去 Broker 拉取 **1 条**消息 -> 执行完毕 ->再去 Broker 拉取下 **1 条**消息。
+    **后果**：无论你部署多少台机器，大家全凭手速，做完一个拿一个，绝不超售囤货，实现了**绝对公平的分布式多机负载均衡**。稳如老狗。
+
+### 6.29.5 至于 gevent 和 eventlet 并发模式，直接忽略就好
+
+虽然 funboost 并发模式支持了 `gevent` 和 `eventlet`，但**不推荐**使用，你没有必要研究它们。
 
 
 
@@ -19312,6 +19782,13 @@ funboost发布性能是celery的22倍，消费性能是celery的46倍。
 > **优势说明**：funboost 重试的 `requeue` 模式完爆各种 Python 三方包的 `retry` 装饰器。因为指数退避重试的间隔很大并且会越来越大，不适合在装饰器中简单粗暴地 `sleep`，那样会导致长时间阻塞霸占线程或协程，降低系统吞吐量。所以需要使用重回队列的方式，用 APScheduler 来调度何时再次重试。
 
 删除了 `BoosterParams` 的 `retry_interval` 入参。如果你需要延时重试，请放在 `advanced_retry_config`字典的 `retry_base_interval` 进行配置。
+
+
+## 7.63 2026-03 funboost 增加熔断降级
+
+见文档 `4b.14 funboost 支持熔断降级，智能自动熔断、探测、恢复 （高级功能）`
+
+熔断支持跳转到 `使用降级函数` 和 `暂停拉取消息` 消费两种
 `````
 
 --- **end of file: source/articles/c7.md** (project: funboost_docs) --- 
@@ -26518,6 +26995,8 @@ Entry Points (not imported by other project files):
     │   ├── override_publisher_consumer_cls
     │   │   ├── README.md
     │   │   ├── __init__.py
+    │   │   ├── alert_notifier_mixin.py
+    │   │   ├── circuit_breaker_mixin.py
     │   │   ├── funboost_micro_batch_mixin.py
     │   │   ├── funboost_otel_mixin.py
     │   │   ├── funboost_promethus_mixin.py
@@ -26662,6 +27141,7 @@ Entry Points (not imported by other project files):
     │   ├── monkey_color_log.py
     │   ├── monkey_patches.py
     │   ├── mqtt_util.py
+    │   ├── notify_util.py
     │   ├── paramiko_util.py
     │   ├── rabbitmq_factory.py
     │   ├── redis_manager.py
@@ -26690,7 +27170,7 @@ Entry Points (not imported by other project files):
 ---
 
 
-## funboost (relative dir: `funboost`)  Included Files (total: 249 files)
+## funboost (relative dir: `funboost`)  Included Files (total: 252 files)
 
 
 - `funboost/constant.py`
@@ -26892,6 +27372,10 @@ Entry Points (not imported by other project files):
 - `funboost/contrib/cdc/mysql2mysql.py`
 
 - `funboost/contrib/cdc/__init__.py`
+
+- `funboost/contrib/override_publisher_consumer_cls/alert_notifier_mixin.py`
+
+- `funboost/contrib/override_publisher_consumer_cls/circuit_breaker_mixin.py`
 
 - `funboost/contrib/override_publisher_consumer_cls/funboost_micro_batch_mixin.py`
 
@@ -27146,6 +27630,8 @@ Entry Points (not imported by other project files):
 - `funboost/utils/monkey_patches.py`
 
 - `funboost/utils/mqtt_util.py`
+
+- `funboost/utils/notify_util.py`
 
 - `funboost/utils/paramiko_util.py`
 
@@ -31924,7 +32410,7 @@ class AbstractConsumer(metaclass=abc.ABCMeta, ):
     async def _aio_frame_custom_record_process_info_func(self, current_function_result_status: FunctionResultStatus, kw: dict):
         pass
 
-    def _sync_and_aio_frame_custom_record_process_info_func(self, current_function_result_status: FunctionResultStatus, kw: dict):
+    def _both_sync_and_aio_frame_custom_record_process_info_func(self, current_function_result_status: FunctionResultStatus, kw: dict):
         pass
 
     def user_custom_record_process_info_func(self, current_function_result_status: FunctionResultStatus, ):  # 这个可以继承
@@ -32153,7 +32639,7 @@ class AbstractConsumer(metaclass=abc.ABCMeta, ):
 
             with self._lock_for_count_execute_task_times_every_unit_time:
                 self.metric_calculation.cal(t_start_run_fun, current_function_result_status)
-            self._sync_and_aio_frame_custom_record_process_info_func(current_function_result_status, kw)
+            self._both_sync_and_aio_frame_custom_record_process_info_func(current_function_result_status, kw)
             self._frame_custom_record_process_info_func(current_function_result_status, kw)
             self.user_custom_record_process_info_func(current_function_result_status, )  # 两种方式都可以自定义,记录结果,建议继承方式,不使用boost中指定 user_custom_record_process_info_func
             if self.consumer_params.user_custom_record_process_info_func:
@@ -32320,7 +32806,7 @@ class AbstractConsumer(metaclass=abc.ABCMeta, ):
             async with self._async_lock_for_count_execute_task_times_every_unit_time:
                 self.metric_calculation.cal(t_start_run_fun, current_function_result_status)
 
-            self._sync_and_aio_frame_custom_record_process_info_func(current_function_result_status, kw)
+            self._both_sync_and_aio_frame_custom_record_process_info_func(current_function_result_status, kw)
             await self._aio_frame_custom_record_process_info_func(current_function_result_status, kw)
             await self.aio_user_custom_record_process_info_func(current_function_result_status, )
             if self.consumer_params.user_custom_record_process_info_func:
@@ -33223,7 +33709,7 @@ class DramatiqConsumer(AbstractConsumer):
 `````python
 ﻿# -*- coding: utf-8 -*-
 # @Author  : ydf
-# @Time    : 2023/8/8 0008 13:32
+# @Time    : 2023/8/6 0006 13:32
 
 import abc
 from funboost.consumers.base_consumer import AbstractConsumer
@@ -33464,7 +33950,7 @@ class FastStreamConsumer(EmptyConsumer):
 `````python
 # -*- coding: utf-8 -*-
 # @Author  : ydf
-# @Time    : 2023/8/8 0008 13:32
+# @Time    : 2023/8/6 0006 13:32
 
 import abc
 import threading
@@ -34655,7 +35141,7 @@ class MysqlCdcConsumer(AbstractConsumer):
 `````python
 # -*- coding: utf-8 -*-
 # @Author  : ydf
-# @Time    : 2023/8/8 0008 13:32
+# @Time    : 2023/8/6 0006 13:32
 from multiprocessing import Process
 
 import threading
@@ -34921,7 +35407,7 @@ class PersistQueueConsumer(AbstractConsumer):
 `````python
 # -*- coding: utf-8 -*-
 # @Author  : AI Assistant
-# @Time    : 2026/1/16
+# @Time    : 2026/1/18
 """
 PostgreSQL Consumer - 原生高性能实现
 充分利用 PostgreSQL 独有特性：
@@ -35170,7 +35656,7 @@ class RabbitmqConsumerAmqpStorm(AbstractConsumer):
 `````python
 # -*- coding: utf-8 -*-
 # @Author  : ydf
-# @Time    : 2026/1/14
+# @Time    : 2026/1/11
 """
 使用 amqp 包实现的高性能 RabbitMQ Consumer。
 amqp 是 Celery/Kombu 底层使用的 AMQP 客户端，性能比 pika 更好。
@@ -35806,7 +36292,7 @@ class RedisConsumerAckAble(ConsumerConfirmMixinWithTheHelpOfRedisByHearbeat, Abs
 `````python
 ﻿# -*- coding: utf-8 -*-
 # @Author  : ydf
-# @Time    : 2024/8/8 0008 13:32
+# @Time    : 2024/8/11 0011 13:32
 import json
 import time
 from funboost.consumers.base_consumer import AbstractConsumer
@@ -35994,7 +36480,7 @@ class RedisPriorityConsumer(RedisConsumerAckAble):
 `````python
 ﻿# -*- coding: utf-8 -*-
 # @Author  : ydf
-# @Time    : 2023/8/8 0008 13:32
+# @Time    : 2023/8/6 0006 13:32
 import json
 from funboost.constant import BrokerEnum
 from funboost.consumers.base_consumer import AbstractConsumer
@@ -36607,7 +37093,7 @@ class RocketmqConsumer(AbstractConsumer):
 `````python
 # -*- coding: utf-8 -*-
 # @Author  : ydf
-# @Time    : 2023/8/8 0008 13:32
+# @Time    : 2023/8/6 0006 13:32
 
 import time
 from funboost.assist.rq_helper import RqHelper
@@ -36692,7 +37178,7 @@ class SqlachemyConsumer(AbstractConsumer):
 `````python
 # -*- coding: utf-8 -*-
 # @Author  : ydf
-# @Time    : 2026/1/12
+# @Time    : 2026/1/11
 """
 使用 AWS SQS 作为消息队列中间件的消费者实现。
 使用 boto3 SDK 操作 SQS。
@@ -37498,12 +37984,1337 @@ class MySql2Mysql:
 ---
 
 
+--- **start of file: funboost/contrib/override_publisher_consumer_cls/alert_notifier_mixin.py** (project: funboost) --- 
+
+`````python
+# -*- coding: utf-8 -*-
+# @Author  : AI Assistant
+# @Time    : 2026/3/16
+"""
+告警通知消费者 Mixin (Alert Notifier Consumer Mixin)
+
+功能：当消费函数失败达到阈值时自动发送告警通知，错误恢复后自动发送恢复通知。
+仅做告警，不实现熔断（不阻塞消费、不降级）。
+
+=== 两种触发策略 ===
+
+1. consecutive（连续失败计数，默认）：
+   连续失败 >= failure_threshold 时触发告警，任何一次成功重置计数。
+
+2. rate（错误率滑动窗口）：
+   在 period 秒的滑动窗口内，当调用次数 >= min_calls 且
+   错误率 >= errors_rate 时触发告警。
+
+=== 告警通道 ===
+
+支持四种告警通道（选其一）：
+- dingtalk:  钉钉机器人
+- wechat:    企业微信机器人
+- feishu:    飞书机器人
+- webhook:   自定义 Webhook（POST JSON: {"content": "消息内容"}）
+
+=== 去重与恢复 ===
+
+- alert_interval:  告警去重窗口秒数，同一队列在此时间内不重复告警
+- 错误恢复后（从告警状态变为正常状态）自动发送恢复通知
+
+=== user_options['alert_options'] 参数说明 ===
+
+    strategy:           'consecutive'(连续失败计数) 或 'rate'(错误率滑动窗口)，默认 'consecutive'
+
+    failure_threshold:  连续失败次数阈值（consecutive 策略），默认 5
+    errors_rate:        错误率阈值 0.0~1.0（rate 策略），默认 0.5
+    period:             统计窗口秒数（rate 策略），默认 60.0
+    min_calls:          窗口内最少调用数才评估（rate 策略），默认 5
+
+    alert_app:          告警通道，可选值: 'dingtalk', 'wechat', 'feishu', 'webhook'，默认 'wechat'
+    webhook_url:        对应告警通道的 Webhook 地址（必填）
+
+    alert_interval:     告警去重间隔秒数，同一队列在此时间内不重复发送告警，默认 300（5分钟）
+    exceptions:         要跟踪的异常类型元组（None 跟踪所有），默认 None
+
+=== 用法示例 ===
+
+    from funboost import boost, BoosterParams, BrokerEnum
+    from funboost.contrib.override_publisher_consumer_cls.alert_notifier_mixin import (
+        AlertNotifierConsumerMixin,
+        AlertNotifierBoosterParams,
+    )
+
+    # 方式1：连续失败策略 + 企业微信告警（最简用法）
+    @boost(AlertNotifierBoosterParams(
+        queue_name='my_task',
+        broker_kind=BrokerEnum.REDIS,
+        user_options={
+            'alert_options': {
+                'failure_threshold': 5,
+                'alert_app': 'wechat',
+                'webhook_url': 'https://qyapi.weixin.qq.com/cgi-bin/webhook/send?key=your_key',
+            },
+        },
+    ))
+    def my_task(x):
+        return call_external_api(x)
+
+    # 方式2：错误率策略 + 钉钉告警
+    @boost(BoosterParams(
+        queue_name='my_task_rate',
+        broker_kind=BrokerEnum.REDIS,
+        consumer_override_cls=AlertNotifierConsumerMixin,
+        user_options={
+            'alert_options': {
+                'strategy': 'rate',
+                'errors_rate': 0.5,
+                'period': 60,
+                'min_calls': 10,
+                'alert_app': 'dingtalk',
+                'webhook_url': 'https://oapi.dingtalk.com/robot/send?access_token=your_token',
+                'alert_interval': 600,
+            },
+        },
+    ))
+    def my_task_rate(x):
+        return call_external_api(x)
+
+"""
+
+import collections
+import threading
+import time
+import typing
+import datetime
+
+from funboost.consumers.base_consumer import AbstractConsumer
+from funboost.core.func_params_model import BoosterParams
+from funboost.core.function_result_status_saver import FunctionResultStatus
+from funboost.utils.notify_util import Notifier
+from funboost.concurrent_pool.async_helper import simple_run_in_executor
+
+class AlertState:
+    NORMAL = 'normal'
+    ALERTING = 'alerting'
+
+
+def _parse_exception_names(exceptions) -> typing.Optional[set]:
+    if exceptions is None:
+        return None
+    names = set()
+    for exc in exceptions:
+        if isinstance(exc, str):
+            names.add(exc)
+        elif isinstance(exc, type) and issubclass(exc, BaseException):
+            names.add(exc.__name__)
+        else:
+            names.add(str(exc))
+    return names
+
+
+class AlertTracker:
+    """
+    线程安全的告警状态跟踪器（本地内存）
+
+    支持两种触发策略：
+    - consecutive: 连续失败 >= failure_threshold 时触发告警
+    - rate: 滑动窗口内错误率 >= errors_rate 且调用数 >= min_calls 时触发告警
+
+    成功时重置连续失败计数。当从 ALERTING 状态恢复到 NORMAL 时，通知上层。
+    """
+
+    def __init__(self,
+                 strategy: str = 'consecutive',
+                 failure_threshold: int = 5,
+                 errors_rate: float = 0.5,
+                 period: float = 60.0,
+                 min_calls: int = 5,
+                 ):
+        self.strategy = strategy
+        self.failure_threshold = failure_threshold
+        self.errors_rate = errors_rate
+        self.period = period
+        self.min_calls = min_calls
+
+        self._state = AlertState.NORMAL
+        self._consecutive_failure_count = 0
+        self._total_failure_count = 0
+        self._lock = threading.Lock()
+
+        self._call_records: typing.Deque[typing.Tuple[float, bool]] = collections.deque()
+
+    @property
+    def state(self) -> str:
+        with self._lock:
+            return self._state
+
+    @property
+    def consecutive_failure_count(self) -> int:
+        with self._lock:
+            return self._consecutive_failure_count
+
+    @property
+    def total_failure_count(self) -> int:
+        with self._lock:
+            return self._total_failure_count
+
+    def get_error_rate_info(self) -> dict:
+        with self._lock:
+            self._cleanup_old_records_unlocked()
+            total = len(self._call_records)
+            if total == 0:
+                return {'total': 0, 'failures': 0, 'rate': 0.0}
+            failures = sum(1 for _, success in self._call_records if not success)
+            return {'total': total, 'failures': failures, 'rate': failures / total}
+
+    def record_success(self) -> typing.Tuple[str, str]:
+        """记录成功，返回 (old_state, new_state)"""
+        with self._lock:
+            old_state = self._state
+            self._consecutive_failure_count = 0
+            if self.strategy == 'rate':
+                self._call_records.append((time.time(), True))
+                self._cleanup_old_records_unlocked()
+
+            if old_state == AlertState.ALERTING:
+                if self.strategy == 'consecutive':
+                    self._state = AlertState.NORMAL
+                elif self.strategy == 'rate':
+                    if not self._should_alert_by_rate_unlocked():
+                        self._state = AlertState.NORMAL
+            return old_state, self._state
+
+    def record_failure(self) -> typing.Tuple[str, str]:
+        """记录失败，返回 (old_state, new_state)"""
+        with self._lock:
+            old_state = self._state
+            self._consecutive_failure_count += 1
+            self._total_failure_count += 1
+
+            if self.strategy == 'consecutive':
+                if self._consecutive_failure_count >= self.failure_threshold:
+                    self._state = AlertState.ALERTING
+            elif self.strategy == 'rate':
+                self._call_records.append((time.time(), False))
+                self._cleanup_old_records_unlocked()
+                if self._should_alert_by_rate_unlocked():
+                    self._state = AlertState.ALERTING
+            return old_state, self._state
+
+    def _should_alert_by_rate_unlocked(self) -> bool:
+        total = len(self._call_records)
+        if total < self.min_calls:
+            return False
+        failures = sum(1 for _, success in self._call_records if not success)
+        return (failures / total) >= self.errors_rate
+
+    def _cleanup_old_records_unlocked(self):
+        cutoff = time.time() - self.period
+        while self._call_records and self._call_records[0][0] < cutoff:
+            self._call_records.popleft()
+
+
+class AlertNotifierConsumerMixin(AbstractConsumer):
+    """
+    告警通知消费者 Mixin
+
+    通过 user_options['alert_options'] 配置所有参数，详见模块文档。
+    仅监控并告警，不实现熔断逻辑。
+    """
+
+    def custom_init(self):
+        super().custom_init()
+
+        user_options = self.consumer_params.user_options
+        alert_options = user_options.get('alert_options', {})
+        strategy = alert_options.get('strategy', 'consecutive')
+
+        self._alert_tracker = AlertTracker(
+            strategy=strategy,
+            failure_threshold=alert_options.get('failure_threshold', 5),
+            errors_rate=alert_options.get('errors_rate', 0.5),
+            period=alert_options.get('period', 60.0),
+            min_calls=alert_options.get('min_calls', 5),
+        )
+
+        self._alert_app: str = alert_options.get('alert_app', 'wechat')
+        self._alert_webhook_url = alert_options.get('webhook_url', None)
+
+        notifier_kwargs = {}
+        if self._alert_app == 'dingtalk':
+            notifier_kwargs['dingtalk_webhook'] = self._alert_webhook_url
+        elif self._alert_app == 'wechat':
+            notifier_kwargs['wechat_webhook'] = self._alert_webhook_url
+        elif self._alert_app == 'feishu':
+            notifier_kwargs['feishu_webhook'] = self._alert_webhook_url
+        self._alert_notifier = Notifier(**notifier_kwargs)
+
+        self._alert_interval = alert_options.get('alert_interval', 300)
+        self._last_alert_time = 0.0
+        self._last_recovery_time = 0.0
+        self._alert_time_lock = threading.Lock()
+
+        self._alert_tracked_exception_names = _parse_exception_names(
+            alert_options.get('exceptions', None)
+        )
+
+        self.logger.info(
+            f"AlertNotifier initialized: strategy={strategy}, "
+            f"{'failure_threshold=' + str(alert_options.get('failure_threshold', 5)) if strategy == 'consecutive' else 'errors_rate=' + str(alert_options.get('errors_rate', 0.5)) + ', period=' + str(alert_options.get('period', 60.0)) + 's, min_calls=' + str(alert_options.get('min_calls', 5))}, "
+            f"alert_app={self._alert_app}, alert_interval={self._alert_interval}s, "
+            f"exceptions={self._alert_tracked_exception_names or 'all'}"
+        )
+
+    def _is_alert_tracked_exception(self, function_result_status: FunctionResultStatus) -> bool:
+        if self._alert_tracked_exception_names is None:
+            return True
+        if not function_result_status.exception_type:
+            return True
+        return function_result_status.exception_type in self._alert_tracked_exception_names
+
+    def _should_send_alert(self) -> bool:
+        """检查是否在去重窗口外，可以发送告警"""
+        with self._alert_time_lock:
+            now = time.time()
+            if now - self._last_alert_time < self._alert_interval:
+                return False
+            self._last_alert_time = now
+            return True
+
+    def _should_send_recovery(self) -> bool:
+        """检查是否在去重窗口外，可以发送恢复通知"""
+        with self._alert_time_lock:
+            now = time.time()
+            if now - self._last_recovery_time < self._alert_interval:
+                return False
+            self._last_recovery_time = now
+            return True
+
+    def _format_alert_message(self, info_dict: dict) -> str:
+        now_str = datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S')
+        msg_lines = [
+            "🚨 [告警] 队列任务异常",
+            f"队列名: {info_dict['queue_name']}",
+            f"策略: {info_dict['strategy']}",
+        ]
+        if info_dict['strategy'] == 'consecutive':
+            msg_lines.append(f"连续失败次数: {info_dict['consecutive_failure_count']}")
+        if 'error_rate_info' in info_dict:
+            ri = info_dict['error_rate_info']
+            msg_lines.append(f"错误率: {ri['rate']:.2%} ({ri['failures']}/{ri['total']})")
+        msg_lines.append(f"累计失败次数: {info_dict['total_failure_count']}")
+        msg_lines.append(f"告警时间: {now_str}")
+        return '\n'.join(msg_lines)
+
+    def _format_recovery_message(self, info_dict: dict) -> str:
+        now_str = datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S')
+        msg_lines = [
+            "✅ [恢复] 队列任务已恢复正常",
+            f"队列名: {info_dict['queue_name']}",
+            f"策略: {info_dict['strategy']}",
+            f"恢复时间: {now_str}",
+        ]
+        return '\n'.join(msg_lines)
+
+    def _send_notification(self, message: str):
+        """通过配置的告警通道发送通知"""
+        try:
+            if self._alert_app == 'dingtalk':
+                self._alert_notifier.send_dingtalk(message, add_caller_info=False)
+            elif self._alert_app == 'wechat':
+                self._alert_notifier.send_wechat(message, add_caller_info=False)
+            elif self._alert_app == 'feishu':
+                self._alert_notifier.send_feishu(message, add_caller_info=False)
+            elif self._alert_app == 'webhook':
+                if self._alert_webhook_url:
+                    import requests
+                    import json
+                    requests.post(
+                        self._alert_webhook_url,
+                        headers={'Content-Type': 'application/json'},
+                        data=json.dumps({'content': message}),
+                        timeout=10,
+                    )
+            else:
+                self.logger.warning(f"Unknown alert_app: {self._alert_app}, supported: dingtalk, wechat, feishu, webhook")
+        except Exception as e:
+            self.logger.error(f"Failed to send alert via {self._alert_app}: {type(e).__name__} {e}")
+
+    def _frame_custom_record_process_info_func(
+            self, current_function_result_status: FunctionResultStatus, kw: dict):
+        super()._frame_custom_record_process_info_func(
+            current_function_result_status, kw)
+        
+        """
+        如果任务被 requeue、发到死信队列、或被远程 kill，这些不是真正的业务失败，可以不计入告警计数，否则会导致误告警。
+        """
+        if (current_function_result_status._has_requeue
+                or current_function_result_status._has_to_dlx_queue
+                or current_function_result_status._has_kill_task):
+            return
+
+        if current_function_result_status.success:
+            old_state, new_state = self._alert_tracker.record_success()
+        else:
+            if not self._is_alert_tracked_exception(current_function_result_status):
+                return
+            old_state, new_state = self._alert_tracker.record_failure()
+
+        info_dict = {
+            'queue_name': self.queue_name,
+            'strategy': self._alert_tracker.strategy,
+            'consecutive_failure_count': self._alert_tracker.consecutive_failure_count,
+            'total_failure_count': self._alert_tracker.total_failure_count,
+        }
+        if self._alert_tracker.strategy == 'rate':
+            info_dict['error_rate_info'] = self._alert_tracker.get_error_rate_info()
+
+        # 进入告警状态 → 发送告警
+        if new_state == AlertState.ALERTING:
+            if self._should_send_alert():
+                msg = self._format_alert_message(info_dict)
+                self.logger.warning(
+                    f"AlertNotifier triggered for queue [{self.queue_name}], "
+                    f"consecutive_failures={info_dict['consecutive_failure_count']}, "
+                    f"total_failures={info_dict['total_failure_count']}"
+                )
+                self._send_notification(msg)
+            elif old_state != AlertState.ALERTING:
+                self.logger.warning(
+                    f"AlertNotifier triggered for queue [{self.queue_name}], "
+                    f"but suppressed by alert_interval={self._alert_interval}s"
+                )
+
+        # 从告警状态恢复 → 发送恢复通知
+        if old_state == AlertState.ALERTING and new_state == AlertState.NORMAL:
+            if self._should_send_recovery():
+                msg = self._format_recovery_message(info_dict)
+                self.logger.info(
+                    f"AlertNotifier recovered for queue [{self.queue_name}]"
+                )
+                self._send_notification(msg)
+    
+    async def _aio_frame_custom_record_process_info_func(self, current_function_result_status: FunctionResultStatus, kw: dict):
+        await super()._aio_frame_custom_record_process_info_func(current_function_result_status, kw)
+        await simple_run_in_executor(self._frame_custom_record_process_info_func, current_function_result_status, kw)
+
+
+class AlertNotifierBoosterParams(BoosterParams):
+    """
+    预配置了告警通知的 BoosterParams
+
+    使用示例：
+
+        # 连续失败5次告警 + 企业微信
+        @boost(AlertNotifierBoosterParams(
+            queue_name='my_task',
+            broker_kind=BrokerEnum.REDIS,
+            user_options={
+                'alert_options': {
+                    'failure_threshold': 5,
+                    'alert_app': 'wechat',
+                    'webhook_url': 'https://qyapi.weixin.qq.com/cgi-bin/webhook/send?key=xxx',
+                },
+            },
+        ))
+        def my_task(x):
+            return call_external_api(x)
+
+        # 错误率策略 + 钉钉
+        @boost(AlertNotifierBoosterParams(
+            queue_name='my_task_rate',
+            broker_kind=BrokerEnum.REDIS,
+            user_options={
+                'alert_options': {
+                    'strategy': 'rate',
+                    'errors_rate': 0.5,
+                    'period': 60,
+                    'min_calls': 10,
+                    'alert_app': 'dingtalk',
+                    'webhook_url': 'https://oapi.dingtalk.com/robot/send?access_token=xxx',
+                    'alert_interval': 600,
+                },
+            },
+        ))
+        def my_task_rate(x):
+            return call_external_api(x)
+    """
+    consumer_override_cls: typing.Optional[typing.Type] = AlertNotifierConsumerMixin
+    user_options: dict = {
+        'alert_options': {
+            'strategy': 'consecutive',
+            'failure_threshold': 5,
+            'alert_app': 'wechat',
+            'alert_interval': 300,
+        },
+    }
+
+
+__all__ = [
+    'AlertState',
+    'AlertTracker',
+    'AlertNotifierConsumerMixin',
+    'AlertNotifierBoosterParams',
+]
+
+`````
+
+--- **end of file: funboost/contrib/override_publisher_consumer_cls/alert_notifier_mixin.py** (project: funboost) --- 
+
+---
+
+
+--- **start of file: funboost/contrib/override_publisher_consumer_cls/circuit_breaker_mixin.py** (project: funboost) --- 
+
+`````python
+# -*- coding: utf-8 -*-
+# @Author  : ydf
+# @Time    : 2026/3/8
+"""
+熔断器消费者 Mixin (Circuit Breaker Consumer Mixin)
+
+功能：当消费函数失败达到阈值时自动熔断，熔断期间阻塞等待恢复或执行 fallback 降级函数。
+
+=== 三态状态机 ===
+
+CLOSED（关闭/正常）→ 触发条件满足 → OPEN（打开/熔断）
+OPEN → 经过 recovery_timeout 秒 → HALF_OPEN（半开/试探）
+HALF_OPEN → 连续成功 >= half_open_max_calls → CLOSED
+HALF_OPEN → 任意一次失败 → OPEN
+HALF_OPEN → 超过 half_open_ttl → OPEN（可选）
+
+=== 两种触发策略 ===
+
+1. consecutive（连续失败计数，默认）：
+   连续失败 >= failure_threshold 时触发熔断，任何一次成功重置计数。
+
+2. rate（错误率滑动窗口）：
+   在 period 秒的滑动窗口内，当调用次数 >= min_calls 且
+   错误率 >= errors_rate 时触发熔断。
+
+=== 两种计数后端 ===
+
+1. local（本地内存，默认）：
+   单进程内有效，使用 threading.Lock 保证线程安全。
+
+2. redis（Redis 分布式）：
+   多进程/多机器共享熔断状态，同一队列的所有消费者共享计数。
+
+=== 两种熔断行为 ===
+
+1. 阻塞模式（默认，无 fallback）：
+   熔断期间阻塞 _submit_task，消息留在中间件中等待恢复。
+
+2. Fallback 模式（指定 fallback）：
+   熔断期间用 fallback 函数替代原函数执行。
+
+=== user_options['circuit_breaker_options'] 参数说明 ===
+
+所有熔断器参数放在 user_options 的 'circuit_breaker_options' 字典中，
+避免与其他 mixin 的 user_options 一级 key 冲突（例如 period 可能与 PeriodicQuotaConsumerMixin 冲突）。
+
+    strategy:               'consecutive'(连续失败计数) 或 'rate'(错误率滑动窗口)，默认 'consecutive'
+    counter_backend:        'local'(本地内存) 或 'redis'(Redis 分布式)，默认 'local'
+
+    failure_threshold:      连续失败次数阈值（consecutive 策略），默认 5
+    errors_rate:            错误率阈值 0.0~1.0（rate 策略），默认 0.5
+    period:                 统计窗口秒数（rate 策略），默认 60.0
+    min_calls:              窗口内最少调用数才评估（rate 策略），默认 5
+
+    recovery_timeout:       熔断后等待恢复秒数（= cashews 的 ttl），默认 60.0
+    half_open_max_calls:    半开状态需连续成功次数，默认 3
+    half_open_ttl:          半开状态超时秒数，超时后重新进入 OPEN（None 则不超时），默认 None
+
+    exceptions:             要跟踪的异常类型元组（None 跟踪所有），默认 None
+    fallback:               降级函数（None 则阻塞模式），默认 None
+
+=== 钩子方法（子类重写） ===
+
+    _on_circuit_open(self,info_dict):   熔断触发时调用，可发送微信/钉钉/邮件告警
+    _on_circuit_close(self,info_dict):  熔断恢复时调用，可发送恢复通知
+
+=== 用法示例 ===
+
+    from funboost import boost, BoosterParams, BrokerEnum
+    from funboost.contrib.override_publisher_consumer_cls.circuit_breaker_mixin import (
+        CircuitBreakerConsumerMixin,
+        CircuitBreakerBoosterParams,
+    )
+
+    # 方式1：连续失败策略 + 本地计数（最简用法）
+    @boost(CircuitBreakerBoosterParams(
+        queue_name='my_task',
+        broker_kind=BrokerEnum.REDIS,
+        user_options={
+            'circuit_breaker_options': {
+                'failure_threshold': 5,
+                'recovery_timeout': 60,
+            },
+        },
+    ))
+    def my_task(x):
+        return call_external_api(x)
+
+    # 方式2：错误率策略 + Redis 分布式计数
+    @boost(BoosterParams(
+        queue_name='my_task_rate',
+        broker_kind=BrokerEnum.REDIS,
+        consumer_override_cls=CircuitBreakerConsumerMixin,
+        user_options={
+            'circuit_breaker_options': {
+                'strategy': 'rate',
+                'counter_backend': 'redis',
+                'errors_rate': 0.5,
+                'period': 60,
+                'min_calls': 10,
+                'recovery_timeout': 30,
+                'exceptions': (ConnectionError, TimeoutError),
+            },
+        },
+    ))
+    def my_task_rate(x):
+        return call_external_api(x)
+
+    # 方式3：继承重写钩子，熔断/恢复时发送告警
+    class MyAlertCircuitBreakerMixin(CircuitBreakerConsumerMixin):
+        def _on_circuit_open(self, info_dict):
+            send_dingtalk(f'[告警] 队列 {info_dict["queue_name"]} 已熔断! 失败{info_dict["failure_count"]}次')
+
+        def _on_circuit_close(self, info_dict):
+            send_wechat(f'[恢复] 队列 {info_dict["queue_name"]} 已恢复正常')
+
+    @boost(BoosterParams(
+        queue_name='my_task_alert',
+        broker_kind=BrokerEnum.REDIS,
+        consumer_override_cls=MyAlertCircuitBreakerMixin,
+        user_options={
+            'circuit_breaker_options': {
+                'failure_threshold': 5,
+                'recovery_timeout': 60,
+            },
+        },
+    ))
+    def my_task_alert(x):
+        return call_external_api(x)
+
+    # 方式4：Fallback 降级
+    def my_fallback(x):
+        return {'status': 'degraded', 'x': x}
+
+    @boost(BoosterParams(
+        queue_name='my_task_fb',
+        broker_kind=BrokerEnum.REDIS,
+        consumer_override_cls=CircuitBreakerConsumerMixin,
+        user_options={
+            'circuit_breaker_options': {
+                'failure_threshold': 3,
+                'recovery_timeout': 30,
+                'fallback': my_fallback,
+            },
+        },
+    ))
+    def my_task_fb(x):
+        return call_external_api(x)
+"""
+
+"""
+Funboost 的熔断器实现达到了顶流熔断器框架的水平，它遵循了业界通用的三态状态机模型，支持两种触发策略，
+提供了完善的配置项和扩展钩子，并且额外支持分布式计数，非常适合构建高可用的分布式系统。
+配置方式清晰直观，开发者可以像使用 Hystrix 或 resilience4j 一样轻松驾驭它。
+"""
+
+"""
+funboost 支持自动熔断管理，也支持手动熔断管理
+
+手动熔断管理:
+由你自己人工判断并且手动操作是需要否暂停和恢复消费。
+你主动发现大规模报错 或者通过promethus告警发现 大规模报错后，可以人工暂停某个队列的消费。
+- 就是可以通过对 redis的queue_name 设置 pause 标志，
+- 也可以通过faas接口 /funboost/pause_consume 和 /funboost/resume_consume 来暂停和恢复拉取消息
+- 也可以通过 funboost web manager 网页来设置暂停和恢复
+
+自动熔断管理：
+通过 CircuitBreakerConsumerMixin，智能自动进进入熔断和半开和恢复三种状态。
+"""
+
+
+
+import asyncio
+import collections
+import inspect
+import threading
+import time
+import typing
+import uuid
+
+from funboost.consumers.base_consumer import AbstractConsumer
+from funboost.core.func_params_model import BoosterParams
+from funboost.core.function_result_status_saver import FunctionResultStatus
+from funboost.concurrent_pool.async_helper import simple_run_in_executor
+
+
+class CircuitState:
+    CLOSED = 'closed'
+    OPEN = 'open'
+    HALF_OPEN = 'half_open'
+
+
+def _parse_exception_names(exceptions) -> typing.Optional[set]:
+    """将异常类型元组转换为异常类名字符串集合，None 表示跟踪所有异常"""
+    if exceptions is None:
+        return None
+    names = set()
+    for exc in exceptions:
+        if isinstance(exc, str):
+            names.add(exc)
+        elif isinstance(exc, type) and issubclass(exc, BaseException):
+            names.add(exc.__name__)
+        else:
+            names.add(str(exc))
+    return names
+
+
+# ================================================================
+# 本地内存熔断器
+# ================================================================
+
+class CircuitBreaker:
+    """
+    线程安全的三态熔断器（本地内存计数）
+
+    支持两种触发策略：
+    - consecutive: 连续失败 >= failure_threshold 时熔断
+    - rate: 滑动窗口内错误率 >= errors_rate 且调用数 >= min_calls 时熔断
+
+    HALF_OPEN 状态的逻辑与策略无关：连续成功 >= half_open_max_calls 则 CLOSED，任意失败则 OPEN。
+    """
+
+    def __init__(self,
+                 strategy: str = 'consecutive',
+                 failure_threshold: int = 5,
+                 errors_rate: float = 0.5,
+                 period: float = 60.0,
+                 min_calls: int = 5,
+                 recovery_timeout: float = 60.0,
+                 half_open_max_calls: int = 3,
+                 half_open_ttl: float = None,
+                 ):
+        self.strategy = strategy
+        self.failure_threshold = failure_threshold
+        self.errors_rate = errors_rate
+        self.period = period
+        self.min_calls = min_calls
+        self.recovery_timeout = recovery_timeout
+        self.half_open_max_calls = half_open_max_calls
+        self.half_open_ttl = half_open_ttl
+
+        self._state = CircuitState.CLOSED
+        self._failure_count = 0
+        self._half_open_success_count = 0
+        self._last_open_time = 0.0
+        self._last_half_open_time = 0.0
+        self._lock = threading.Lock()
+
+        # rate 策略的滑动窗口：(timestamp, is_success)
+        self._call_records: typing.Deque[typing.Tuple[float, bool]] = collections.deque()
+
+    @property
+    def state(self) -> str:
+        with self._lock:
+            return self._get_state_unlocked()
+
+    def _get_state_unlocked(self) -> str:
+        now = time.time()
+        if self._state == CircuitState.OPEN:
+            if now - self._last_open_time >= self.recovery_timeout:
+                self._state = CircuitState.HALF_OPEN
+                self._half_open_success_count = 0
+                self._last_half_open_time = now
+        elif self._state == CircuitState.HALF_OPEN and self.half_open_ttl is not None:
+            if now - self._last_half_open_time >= self.half_open_ttl:
+                self._state = CircuitState.OPEN
+                self._last_open_time = now
+        return self._state
+
+    @property
+    def failure_count(self) -> int:
+        with self._lock:
+            return self._failure_count
+
+    def time_until_half_open(self) -> float:
+        with self._lock:
+            if self._state != CircuitState.OPEN:
+                return 0.0
+            remaining = self.recovery_timeout - (time.time() - self._last_open_time)
+            return max(0.0, remaining)
+
+    def get_error_rate_info(self) -> dict:
+        """获取当前滑动窗口的错误率信息（仅 rate 策略有意义）"""
+        with self._lock:
+            self._cleanup_old_records_unlocked()
+            total = len(self._call_records)
+            if total == 0:
+                return {'total': 0, 'failures': 0, 'rate': 0.0}
+            failures = sum(1 for _, success in self._call_records if not success)
+            return {'total': total, 'failures': failures, 'rate': failures / total}
+
+    def record_success(self) -> str:
+        with self._lock:
+            state = self._get_state_unlocked()
+            if state == CircuitState.CLOSED:
+                if self.strategy == 'consecutive':
+                    self._failure_count = 0
+                elif self.strategy == 'rate':
+                    self._call_records.append((time.time(), True))
+                    self._cleanup_old_records_unlocked()
+            elif state == CircuitState.HALF_OPEN:
+                self._half_open_success_count += 1
+                if self._half_open_success_count >= self.half_open_max_calls:
+                    self._state = CircuitState.CLOSED
+                    self._failure_count = 0
+                    self._half_open_success_count = 0
+                    self._call_records.clear()
+            return self._state
+
+    def record_failure(self) -> str:
+        with self._lock:
+            state = self._get_state_unlocked()
+            if state == CircuitState.CLOSED:
+                if self.strategy == 'consecutive':
+                    self._failure_count += 1
+                    if self._failure_count >= self.failure_threshold:
+                        self._transition_to_open_unlocked()
+                elif self.strategy == 'rate':
+                    self._call_records.append((time.time(), False))
+                    self._cleanup_old_records_unlocked()
+                    self._failure_count += 1
+                    if self._should_open_by_rate_unlocked():
+                        self._transition_to_open_unlocked()
+            elif state == CircuitState.HALF_OPEN:
+                self._transition_to_open_unlocked()
+                self._half_open_success_count = 0
+            return self._state
+
+    def _transition_to_open_unlocked(self):
+        self._state = CircuitState.OPEN
+        self._last_open_time = time.time()
+
+    def _should_open_by_rate_unlocked(self) -> bool:
+        total = len(self._call_records)
+        if total < self.min_calls:
+            return False
+        failures = sum(1 for _, success in self._call_records if not success)
+        return (failures / total) >= self.errors_rate
+
+    def _cleanup_old_records_unlocked(self):
+        cutoff = time.time() - self.period
+        while self._call_records and self._call_records[0][0] < cutoff:
+            self._call_records.popleft()
+
+
+# ================================================================
+# Redis 分布式熔断器
+# ================================================================
+
+class RedisCircuitBreaker:
+    """
+    Redis 分布式三态熔断器
+
+    多进程/多机器共享熔断状态，同一 queue_name 的所有消费者共享计数。
+    使用 Redis hash 存储状态，sorted set 存储滑动窗口调用记录。
+
+    注意：Redis 操作不使用 Lua 脚本，在极高并发下存在微小的竞态窗口，
+    但对于熔断器来说这些竞态是良性的（最多延迟 1-2 次调用触发/恢复）。
+    """
+
+    HASH_KEY_PREFIX = 'funboost:circuit_breaker:'
+    CALLS_KEY_SUFFIX = ':calls'
+
+    def __init__(self,
+                 queue_name: str,
+                 strategy: str = 'consecutive',
+                 failure_threshold: int = 5,
+                 errors_rate: float = 0.5,
+                 period: float = 60.0,
+                 min_calls: int = 5,
+                 recovery_timeout: float = 60.0,
+                 half_open_max_calls: int = 3,
+                 half_open_ttl: float = None,
+                 ):
+        self.queue_name = queue_name
+        self.strategy = strategy
+        self.failure_threshold = failure_threshold
+        self.errors_rate = errors_rate
+        self.period = period
+        self.min_calls = min_calls
+        self.recovery_timeout = recovery_timeout
+        self.half_open_max_calls = half_open_max_calls
+        self.half_open_ttl = half_open_ttl
+
+        from funboost.utils.redis_manager import RedisMixin
+        self._redis = RedisMixin().redis_db_frame
+
+        self._hash_key = f'{self.HASH_KEY_PREFIX}{queue_name}'
+        self._calls_key = f'{self._hash_key}{self.CALLS_KEY_SUFFIX}'
+
+        self._init_redis_state()
+
+    def _hash_ttl_seconds(self) -> int:
+        """hash key 的最大 TTL：熔断恢复后一段时间没有流量则自动清理"""
+        return int(self.recovery_timeout * 10 + self.period * 2 + 3600)
+
+    def _init_redis_state(self):
+        defaults = {
+            'state': CircuitState.CLOSED,
+            'failure_count': '0',
+            'half_open_success_count': '0',
+            'last_open_time': '0',
+            'last_half_open_time': '0',
+        }
+        for field, value in defaults.items():
+            self._redis.hsetnx(self._hash_key, field, value)
+        # 设置兜底 TTL，防止进程异常退出后 key 永久残留
+        self._redis.expire(self._hash_key, self._hash_ttl_seconds())
+
+    def _get_hash_fields(self) -> dict:
+        data = self._redis.hgetall(self._hash_key)
+        # hgetall 返回 {bytes: bytes}，需要先 decode
+        decoded = {
+            k.decode() if isinstance(k, bytes) else k: v.decode() if isinstance(v, bytes) else v
+            for k, v in data.items()
+        }
+        return {
+            'state': decoded.get('state', CircuitState.CLOSED),
+            'failure_count': int(decoded.get('failure_count', '0')),
+            'half_open_success_count': int(decoded.get('half_open_success_count', '0')),
+            'last_open_time': float(decoded.get('last_open_time', '0')),
+            'last_half_open_time': float(decoded.get('last_half_open_time', '0')),
+        }
+
+    @property
+    def state(self) -> str:
+        fields = self._get_hash_fields()
+        now = time.time()
+        current_state = fields['state']
+
+        if current_state == CircuitState.OPEN:
+            if now - fields['last_open_time'] >= self.recovery_timeout:
+                self._redis.hset(self._hash_key, mapping={
+                    'state': CircuitState.HALF_OPEN,
+                    'half_open_success_count': '0',
+                    'last_half_open_time': str(now),
+                })
+                return CircuitState.HALF_OPEN
+        elif current_state == CircuitState.HALF_OPEN and self.half_open_ttl is not None:
+            if now - fields['last_half_open_time'] >= self.half_open_ttl:
+                self._redis.hset(self._hash_key, mapping={
+                    'state': CircuitState.OPEN,
+                    'last_open_time': str(now),
+                })
+                return CircuitState.OPEN
+        return current_state
+
+    @property
+    def failure_count(self) -> int:
+        val = self._redis.hget(self._hash_key, 'failure_count')
+        if val is None:
+            return 0
+        return int(val.decode() if isinstance(val, bytes) else val)
+
+    def time_until_half_open(self) -> float:
+        fields = self._get_hash_fields()
+        if fields['state'] != CircuitState.OPEN:
+            return 0.0
+        remaining = self.recovery_timeout - (time.time() - fields['last_open_time'])
+        return max(0.0, remaining)
+
+    @staticmethod
+    def _is_failure_member(m) -> bool:
+        """判断 sorted set 成员是否为失败记录（兼容 bytes/str）"""
+        if isinstance(m, bytes):
+            return m.endswith(b':0')
+        return str(m).endswith(':0')
+
+    def get_error_rate_info(self) -> dict:
+        self._cleanup_old_calls()
+        members = self._redis.zrangebyscore(self._calls_key, time.time() - self.period, '+inf')
+        total = len(members)
+        if total == 0:
+            return {'total': 0, 'failures': 0, 'rate': 0.0}
+        failures = sum(1 for m in members if self._is_failure_member(m))
+        return {'total': total, 'failures': failures, 'rate': failures / total}
+
+    def record_success(self) -> str:
+        current_state = self.state
+
+        if current_state == CircuitState.CLOSED:
+            if self.strategy == 'consecutive':
+                self._redis.hset(self._hash_key, 'failure_count', '0')
+            elif self.strategy == 'rate':
+                self._redis.zadd(self._calls_key, {f'{uuid.uuid4().hex}:1': time.time()})
+                self._cleanup_old_calls()
+
+        elif current_state == CircuitState.HALF_OPEN:
+            new_count = self._redis.hincrby(self._hash_key, 'half_open_success_count', 1)
+            if new_count >= self.half_open_max_calls:
+                self._redis.hset(self._hash_key, mapping={
+                    'state': CircuitState.CLOSED,
+                    'failure_count': '0',
+                    'half_open_success_count': '0',
+                })
+                self._redis.expire(self._hash_key, self._hash_ttl_seconds())
+                self._redis.delete(self._calls_key)
+                return CircuitState.CLOSED
+
+        return self.state
+
+    def record_failure(self) -> str:
+        current_state = self.state
+
+        if current_state == CircuitState.CLOSED:
+            if self.strategy == 'consecutive':
+                new_count = self._redis.hincrby(self._hash_key, 'failure_count', 1)
+                if new_count >= self.failure_threshold:
+                    self._transition_to_open()
+            elif self.strategy == 'rate':
+                self._redis.zadd(self._calls_key, {f'{uuid.uuid4().hex}:0': time.time()})
+                self._redis.hincrby(self._hash_key, 'failure_count', 1)
+                self._cleanup_old_calls()
+                if self._should_open_by_rate():
+                    self._transition_to_open()
+
+        elif current_state == CircuitState.HALF_OPEN:
+            self._transition_to_open()
+            self._redis.hset(self._hash_key, 'half_open_success_count', '0')
+
+        return self.state
+
+    def _transition_to_open(self):
+        now = time.time()
+        self._redis.hset(self._hash_key, mapping={
+            'state': CircuitState.OPEN,
+            'last_open_time': str(now),
+        })
+        self._redis.expire(self._hash_key, self._hash_ttl_seconds())
+        # 进入 OPEN 后清理 sorted set 中已过期的旧记录，释放内存
+        self._cleanup_old_calls()
+
+    def _should_open_by_rate(self) -> bool:
+        members = self._redis.zrangebyscore(
+            self._calls_key, time.time() - self.period, '+inf'
+        )
+        total = len(members)
+        if total < self.min_calls:
+            return False
+        failures = sum(1 for m in members if self._is_failure_member(m))
+        return (failures / total) >= self.errors_rate
+
+    def _cleanup_old_calls(self):
+        cutoff = time.time() - self.period
+        self._redis.zremrangebyscore(self._calls_key, '-inf', cutoff)
+        # sorted set 的 TTL = period 的 2 倍兜底，防止极端情况下无人清理导致内存泄漏
+        self._redis.expire(self._calls_key, int(self.period * 2) + 60)
+
+
+# ================================================================
+# CircuitBreakerConsumerMixin
+# ================================================================
+
+class CircuitBreakerConsumerMixin(AbstractConsumer):
+    """
+    熔断器消费者 Mixin
+
+    通过 user_options['circuit_breaker_options'] 配置所有参数，详见模块文档。
+    """
+
+    def custom_init(self):
+        super().custom_init()
+
+        user_options = self.consumer_params.user_options
+        cb_options = user_options['circuit_breaker_options']
+        strategy = cb_options.get('strategy', 'consecutive')
+        counter_backend = cb_options.get('counter_backend', 'local')
+
+        common_kwargs = dict(
+            strategy=strategy,
+            failure_threshold=cb_options.get('failure_threshold', 5),
+            errors_rate=cb_options.get('errors_rate', 0.5),
+            period=cb_options.get('period', 60.0),
+            min_calls=cb_options.get('min_calls', 5),
+            recovery_timeout=cb_options.get('recovery_timeout', 60.0),
+            half_open_max_calls=cb_options.get('half_open_max_calls', 3),
+            half_open_ttl=cb_options.get('half_open_ttl', None),
+        )
+
+        if counter_backend == 'redis':
+            self._circuit_breaker = RedisCircuitBreaker(
+                queue_name=self.queue_name, **common_kwargs
+            )
+        else:
+            self._circuit_breaker = CircuitBreaker(**common_kwargs)
+
+        self._circuit_breaker_fallback = cb_options.get('fallback', None)
+        self._tracked_exception_names = _parse_exception_names(
+            cb_options.get('exceptions', None)
+        )
+
+        self.logger.info(
+            f"CircuitBreaker initialized: strategy={strategy}, backend={counter_backend}, "
+            f"{'failure_threshold=' + str(common_kwargs['failure_threshold']) if strategy == 'consecutive' else 'errors_rate=' + str(common_kwargs['errors_rate']) + ', period=' + str(common_kwargs['period']) + 's, min_calls=' + str(common_kwargs['min_calls'])}, "
+            f"recovery_timeout={common_kwargs['recovery_timeout']}s, "
+            f"half_open_max_calls={common_kwargs['half_open_max_calls']}, "
+            f"half_open_ttl={common_kwargs['half_open_ttl']}, "
+            f"exceptions={self._tracked_exception_names or 'all'}, "
+            f"fallback={'yes' if self._circuit_breaker_fallback else 'no'}"
+        )
+
+    def _on_circuit_open(self, info_dict: dict):
+        """
+        熔断触发时的钩子，子类可重写此方法来发送告警（微信/钉钉/邮件等）。
+
+        info_dict 包含:
+            old_state:       变化前状态
+            new_state:       变化后状态 (固定为 'open')
+            queue_name:      队列名
+            failure_count:   累计失败次数
+            strategy:        当前策略 ('consecutive' 或 'rate')
+            error_rate_info: 错误率详情 (仅 rate 策略, 含 total/failures/rate)
+
+        用法示例::
+
+            class MyCircuitBreakerMixin(CircuitBreakerConsumerMixin):
+                def _on_circuit_open(self, info_dict):
+                    send_dingtalk(f'队列 {info_dict["queue_name"]} 已熔断!')
+        """
+        pass
+
+    def _on_circuit_close(self, info_dict: dict):
+        """
+        熔断恢复时的钩子，子类可重写此方法来发送恢复通知。
+
+        info_dict 内容同 _on_circuit_open，new_state 固定为 'closed'。
+
+        用法示例::
+
+            class MyCircuitBreakerMixin(CircuitBreakerConsumerMixin):
+                def _on_circuit_close(self, info_dict):
+                    send_wechat(f'队列 {info_dict["queue_name"]} 已恢复正常')
+        """
+        pass
+
+    def _submit_task(self, kw):
+        if not self._circuit_breaker_fallback:
+            while self._circuit_breaker.state == CircuitState.OPEN:
+                remaining = self._circuit_breaker.time_until_half_open()
+                sleep_secs = min(remaining, 5.0) if remaining > 0 else 0.1
+                self.logger.warning(
+                    f"CircuitBreaker OPEN for queue [{self.queue_name}], "
+                    f"waiting {remaining:.1f}s for recovery"
+                )
+                time.sleep(sleep_secs)
+        super()._submit_task(kw)
+
+    _CB_FALLBACK_FLAG = '__funboost_cb_fallback__'
+
+    # noinspection PyProtectedMember
+    def _run_consuming_function_with_confirm_and_retry(self, kw: dict, current_retry_times,
+                                                       function_result_status: FunctionResultStatus):
+        if self._circuit_breaker_fallback and self._circuit_breaker.state == CircuitState.OPEN:
+            kw[self._CB_FALLBACK_FLAG] = True
+            function_only_params = kw['function_only_params'] if self._do_not_delete_extra_from_msg is False else kw['body']
+            try:
+                result = self._circuit_breaker_fallback(
+                    **self._convert_real_function_only_params_by_conusuming_function_kind(
+                        function_only_params, kw['body']['extra']
+                    )
+                )
+                function_result_status.result = result
+                function_result_status.success = True
+                self.logger.debug(
+                    f"CircuitBreaker fallback executed for [{self.consuming_function.__name__}], "
+                    f"params={function_only_params}"
+                )
+            except BaseException as e:
+                function_result_status.exception = f'{e.__class__.__name__}    {str(e)}'
+                function_result_status.exception_msg = str(e)
+                function_result_status.exception_type = e.__class__.__name__
+                function_result_status.result = FunctionResultStatus.FUNC_RUN_ERROR
+                self.logger.error(f"CircuitBreaker fallback error: {type(e)} {e}")
+            return function_result_status
+
+        kw.pop(self._CB_FALLBACK_FLAG, None)
+        return super()._run_consuming_function_with_confirm_and_retry(kw, current_retry_times, function_result_status)
+
+    # noinspection PyProtectedMember
+    async def _async_run_consuming_function_with_confirm_and_retry(self, kw: dict, current_retry_times,
+                                                                   function_result_status: FunctionResultStatus):
+        if self._circuit_breaker_fallback and self._circuit_breaker.state == CircuitState.OPEN:
+            kw[self._CB_FALLBACK_FLAG] = True
+            function_only_params = kw['function_only_params'] if self._do_not_delete_extra_from_msg is False else kw['body']
+            try:
+                result = self._circuit_breaker_fallback(
+                    **self._convert_real_function_only_params_by_conusuming_function_kind(
+                        function_only_params, kw['body']['extra']
+                    )
+                )
+                if asyncio.iscoroutine(result) or inspect.isawaitable(result):
+                    result = await result
+                function_result_status.result = result
+                function_result_status.success = True
+                self.logger.debug(
+                    f"CircuitBreaker fallback executed for [{self.consuming_function.__name__}], "
+                    f"params={function_only_params}"
+                )
+            except BaseException as e:
+                function_result_status.exception = f'{e.__class__.__name__}    {str(e)}'
+                function_result_status.exception_msg = str(e)
+                function_result_status.exception_type = e.__class__.__name__
+                function_result_status.result = FunctionResultStatus.FUNC_RUN_ERROR
+                self.logger.error(f"CircuitBreaker fallback error: {type(e)} {e}")
+            return function_result_status
+
+        kw.pop(self._CB_FALLBACK_FLAG, None)
+        return await super()._async_run_consuming_function_with_confirm_and_retry(kw, current_retry_times, function_result_status)
+
+    def _is_tracked_exception(self, function_result_status: FunctionResultStatus) -> bool:
+        """判断该失败是否属于需要被熔断器跟踪的异常类型"""
+        if self._tracked_exception_names is None:
+            return True
+        if not function_result_status.exception_type:
+            return True
+        return function_result_status.exception_type in self._tracked_exception_names
+
+    def _frame_custom_record_process_info_func(self, current_function_result_status: FunctionResultStatus, kw: dict):
+        """
+        任务执行完成后（含重试耗尽），根据最终结果更新熔断器状态。
+        - fallback 执行的成功不计入恢复统计
+        - 不在 exceptions 列表中的异常不计入熔断器
+        """
+        super()._frame_custom_record_process_info_func(current_function_result_status, kw)
+
+        if (current_function_result_status._has_requeue
+                or current_function_result_status._has_to_dlx_queue
+                or current_function_result_status._has_kill_task):
+            return
+
+        if kw.get(self._CB_FALLBACK_FLAG):
+            return
+
+        old_state = self._circuit_breaker.state
+        if current_function_result_status.success:
+            new_state = self._circuit_breaker.record_success()
+        else:
+            if not self._is_tracked_exception(current_function_result_status):
+                return
+            new_state = self._circuit_breaker.record_failure()
+
+        if old_state != new_state:
+            info_dict = {
+                'old_state': old_state,
+                'new_state': new_state,
+                'queue_name': self.queue_name,
+                'failure_count': self._circuit_breaker.failure_count,
+                'strategy': self._circuit_breaker.strategy,
+            }
+            if self._circuit_breaker.strategy == 'rate':
+                info_dict['error_rate_info'] = self._circuit_breaker.get_error_rate_info()
+
+            extra_info = ''
+            if 'error_rate_info' in info_dict:
+                ri = info_dict['error_rate_info']
+                extra_info = f", error_rate={ri['rate']:.2%} ({ri['failures']}/{ri['total']})"
+            self.logger.warning(
+                f"CircuitBreaker state changed: {old_state} -> {new_state} "
+                f"for queue [{self.queue_name}], "
+                f"failure_count={info_dict['failure_count']}"
+                f"{extra_info}"
+            )
+
+            try:
+                if new_state == CircuitState.OPEN:
+                    self._on_circuit_open(info_dict)
+                elif new_state == CircuitState.CLOSED:
+                    self._on_circuit_close(info_dict)
+            except Exception as e:
+                self.logger.error(f"circuit breaker hook error: {type(e).__name__} {e}")
+
+    async def _aio_frame_custom_record_process_info_func(self, current_function_result_status: FunctionResultStatus, kw: dict):
+        await super()._aio_frame_custom_record_process_info_func(current_function_result_status, kw)
+        await simple_run_in_executor(self._frame_custom_record_process_info_func, current_function_result_status, kw)
+
+
+# ================================================================
+# 预配置 BoosterParams
+# ================================================================
+
+class CircuitBreakerBoosterParams(BoosterParams):
+    """
+    预配置了熔断器的 BoosterParams
+
+    使用示例：
+
+        # 连续失败策略（默认）
+        @boost(CircuitBreakerBoosterParams(
+            queue_name='my_task',
+            broker_kind=BrokerEnum.REDIS,
+            user_options={
+                'circuit_breaker_options': {
+                    'failure_threshold': 5,
+                    'recovery_timeout': 60,
+                },
+            },
+        ))
+        def my_task(x):
+            return call_external_api(x)
+
+        # 错误率策略 + Redis 分布式
+        @boost(CircuitBreakerBoosterParams(
+            queue_name='my_task',
+            broker_kind=BrokerEnum.REDIS,
+            user_options={
+                'circuit_breaker_options': {
+                    'strategy': 'rate',
+                    'counter_backend': 'redis',
+                    'errors_rate': 0.5,
+                    'period': 60,
+                    'min_calls': 10,
+                    'recovery_timeout': 30,
+                },
+            },
+        ))
+        def my_task(x):
+            return call_external_api(x)
+    """
+    consumer_override_cls: typing.Optional[typing.Type] = CircuitBreakerConsumerMixin
+    user_options: dict = {
+        'circuit_breaker_options': {
+            'strategy': 'consecutive',
+            'counter_backend': 'local',
+            'failure_threshold': 5,
+            'recovery_timeout': 60.0,
+            'half_open_max_calls': 3,
+        },
+    }
+
+
+__all__ = [
+    'CircuitState',
+    'CircuitBreaker',
+    'RedisCircuitBreaker',
+    'CircuitBreakerConsumerMixin',
+    'CircuitBreakerBoosterParams',
+]
+
+`````
+
+--- **end of file: funboost/contrib/override_publisher_consumer_cls/circuit_breaker_mixin.py** (project: funboost) --- 
+
+---
+
+
 --- **start of file: funboost/contrib/override_publisher_consumer_cls/funboost_micro_batch_mixin.py** (project: funboost) --- 
 
 `````python
 # -*- coding: utf-8 -*-
 # @Author  : AI Assistant
-# @Time    : 2026/1/16
+# @Time    : 2026/1/18
 """
 微批消费者 Mixin (Micro-Batch Consumer Mixin)
 
@@ -37613,9 +39424,15 @@ class MicroBatchConsumerMixin(AbstractConsumer):
         self._print_message_get_from_broker(kw['body'])
         
         # 暂停消费检查
-        if self._judge_is_daylight():
+        # if self._judge_is_daylight():
+        #     self._requeue(kw)
+        #     time.sleep(self.time_interval_for_check_do_not_run_time)
+        #     return
+        
+        self._judge_is_allow_run_by_cron()
+        if self._last_judge_is_allow_run_by_cron_result is False:
             self._requeue(kw)
-            time.sleep(self.time_interval_for_check_do_not_run_time)
+            time.sleep(self._time_interval_for_check_allow_run_by_cron)
             return
         
         # 提取函数参数
@@ -38137,6 +39954,7 @@ class PrometheusPublisherMixin(AbstractPublisher):
         发布消息后的钩子方法，记录 Prometheus 发布指标
         """
         PUBLISH_TOTAL.labels(queue=self.queue_name).inc()
+        super()._after_publish(msg, msg_function_kw, task_id)
 
 
 # ============================================================
@@ -38152,15 +39970,16 @@ class PrometheusConsumerMixin(AbstractConsumer):
     - 任务执行耗时
     - 重试次数
     
-    通过框架提供的 _sync_and_aio_frame_custom_record_process_info_func 钩子方法实现，
+    通过框架提供的 _both_sync_and_aio_frame_custom_record_process_info_func 钩子方法实现，
     同步和异步任务都会调用此方法，无需分别实现。
     """
     
-    def _sync_and_aio_frame_custom_record_process_info_func(self, current_function_result_status: FunctionResultStatus, kw: dict):
+    def _both_sync_and_aio_frame_custom_record_process_info_func(self, current_function_result_status: FunctionResultStatus, kw: dict):
         """
         框架回调方法，同步和异步任务执行后都会调用此方法采集 Prometheus 指标
         """
         self._record_prometheus_metrics(current_function_result_status)
+        super()._both_sync_and_aio_frame_custom_record_process_info_func(current_function_result_status, kw)
     
     def _record_prometheus_metrics(self, function_result_status: FunctionResultStatus):
         """
@@ -38676,7 +40495,7 @@ def print_trace_tree() -> None:
 `````python
 # -*- coding: utf-8 -*-
 # @Author  : AI Assistant
-# @Time    : 2026/1/30
+# @Time    : 2026/2/1
 """
 周期配额控频消费者 Mixin (Periodic Quota Rate Limiter Consumer Mixin)
 
@@ -39118,7 +40937,7 @@ Watchdog 文件系统监控 Broker - 事件驱动型消息队列
     - 类似 MYSQL_CDC，是一种事件驱动的 broker
     - 适用场景：文件处理管道、日志监控、热更新、文件同步，文件变更事件驱动消费。
 
-使用方式：（教程4b.11 有具体完整例子）
+使用方式：（教程11.10章节 有具体完整例子）
 
     
     @boost(BoosterParams(
@@ -39188,6 +41007,7 @@ class WatchdogPublisher(AbstractPublisher):
     """
     
     def custom_init(self):
+        super().custom_init()
         watch_path = self.publisher_params.broker_exclusive_config['watch_path']
         self._queue_dir = Path(watch_path)
         self._queue_dir.mkdir(parents=True, exist_ok=True)
@@ -39364,6 +41184,7 @@ class WatchdogConsumer(AbstractConsumer):
     BROKER_KIND = None  # 会被框架自动设置
 
     def custom_init(self):
+        super().custom_init()
         # 从 broker_exclusive_config 获取配置
         config = self.consumer_params.broker_exclusive_config
         
@@ -39660,7 +41481,7 @@ register_custom_broker(BROKER_KIND_WATCHDOG, WatchdogPublisher, WatchdogConsumer
 `````python
 # -*- coding: utf-8 -*-
 # @Author  : AI Assistant
-# @Time    : 2026/1/26
+# @Time    : 2026/1/25
 """
 WebSocket Broker - 基于 WebSocket 的消息队列
 
@@ -39720,6 +41541,7 @@ class WebSocketPublisher(AbstractPublisher):
     """
     
     def custom_init(self):
+        super().custom_init()
         config = self.publisher_params.broker_exclusive_config
         self._ws_url = config['ws_url']
         self._reconnect_interval = config['reconnect_interval']
@@ -39800,6 +41622,7 @@ class WebSocketConsumer(AbstractConsumer):
     _server_lock = threading.Lock()
     
     def _before_start_consuming_message_hook(self):
+        super()._before_start_consuming_message_hook()
         config = self.consumer_params.broker_exclusive_config
         self._ws_url = config['ws_url']
         self._reconnect_interval = config['reconnect_interval']
@@ -43412,7 +45235,16 @@ if __name__ == '__main__':
     #
     # print(TaskOptions().get_str_dict())
 
-    print(BoosterParams(queue_name='3213', specify_concurrent_pool=FlexibleThreadPool(100)).json_pre())
+    print(BoosterParams(queue_name='3213', 
+                         function_result_status_persistance_conf= {
+        "is_save_status": False,
+        "is_save_result": False,
+        "expire_seconds": 604800,
+        "is_use_bulk_insert": False,
+        "table_name": "3213"
+    },
+                        
+                        specify_concurrent_pool=FlexibleThreadPool(100)).json_pre())
     # print(PublisherParams.schema_json())  # 注释掉，因为 PublisherParams 包含 Callable 类型字段，无法生成 JSON Schema
 
 `````
@@ -50718,14 +52550,14 @@ tags: []
 
 **funboost 扩展新的broker中间件，可以分为3种方式**
 
-- 第一种方式是，静态扩展中间件。因为我是funboost作者，所以我可以在funboost框架的文件夹源码中直接增加写死代码。（这种只适合我本人，用户不能在funboost文件夹中写代码，而且只有最核心必须的中间件代码才推荐使用这种方式）
+- 静态扩展中间件。因为我是funboost作者，所以我可以在funboost框架的文件夹源码中直接增加写死代码。（这种只适合我本人，用户不能在funboost文件夹中写代码，而且只有最核心必须的中间件代码才推荐使用这种方式）
 
-- 第二种方式是，动态扩展中间件，按照教程 `funboost_all_docs.md` 4.21章节,``4.21 【完全自由定制扩展（方式1）】 使用 `register_custom_broker` 完全彻底自由灵活自定义扩展和定制修改中间件(消费者和发布者)``
+- 动态扩展中间件方式一，按照教程 `funboost_all_docs.md` 4.21章节,``4.21 【完全自由定制扩展（方式1）】 使用 `register_custom_broker` 完全彻底自由灵活自定义扩展和定制修改中间件(消费者和发布者)``
 
-- 第三种方式是，动态扩展中间件，按照教程 `funboost_all_docs.md` 4.21b章节,``4.21b 【完全自由定制扩展(方式2)】,使用 `consumer_override_cls` 和 `publisher_override_cls` 来自定义消费者 发布者。``
+- 动态扩展中间件方式一，动态扩展中间件，按照教程 `funboost_all_docs.md` 4.21b章节,``4.21b 【完全自由定制扩展(方式2)】,使用 `consumer_override_cls` 和 `publisher_override_cls` 来自定义消费者 发布者。``
 
 
-# 1. 介绍 第一种方式，静态扩展中间件
+# 1. 介绍 静态扩展中间件
 
 静态扩展中间件，就是需要直接在funboost/consumers 和 funboost/publishers 中增加代码文件来写代码
 
@@ -50749,36 +52581,83 @@ tags: []
 ### 静态扩展时候，任然可以参考文档的 funboost_all_docs_and_codes.md 中教程的 4.21 章节，知道要继承重写父类哪些方法。  
 4.21 是动态扩展broker，ai在增加中间件时候，不必动态，直接把代码写死在funboost项目中就可以了
 
-
 当动态扩展中间件时候，不要修改以上文件。
 
 
-# 2. `register_custom_broker` 动态扩展中间件
+# 2. 动态扩展中间件方式一： `register_custom_broker` 
+
+动态新增中间件，就是不在 funboost/consumers 和 funboost/publishers 中写代码
 
 register_custom_broker，这种更适合扩展全新的不存在中间件
 
-动态新增中间件，就是不在 funboost/consumers 和 funboost/publishers 中写代码
+用户新增的`YourPublisher`和`YourConsumer`类可以继承 `AbstractPublisher` 和 `AbstractConsumer` 或者  `EmptyPublisher` 和 `EmptyConsumer`。
 
 ai可以参考文档 `funboost_all_docs_and_codes.md` 中教程的 4.21 章节
 ai可以参考 `funboost/contrib/register_custom_broker_contrib` 目录下的代码，这些是动态扩展新的中间件。
 
 
 
-# 3. `consumer_override_cls` 和 `publisher_override_cls` 动态扩展中间件
+# 3. 动态扩展中间件方式二： `consumer_override_cls` 和 `publisher_override_cls` 
 
-这种虽然也可以扩展全新的中间件，但更倾向于覆盖修改父类逻辑，定制用户自己的逻辑，将逻辑混入到各种broker中。
+`override_cls` 扩展方式更倾向于覆盖修改父类逻辑，定制用户自己的逻辑，将逻辑混入到各种broker中。
+
+用户新增的`YourPublisherMixin`和`YourConsumerMixin`类可以继承 `AbstractPublisher` 和 `AbstractConsumer` 或者  `EmptyPublisher` 和 `EmptyConsumer`。
+
+用户新增的`YourPublisherMixin`和`YourConsumerMixin`类也可以不继承任何父类，因为是mixin混入，而且mixin类从根本原理上不应该继承父类。  
+为什么`funboost/contrib/override_publisher_consumer_cls` 目录下的Mixin类代码继承了父类呢？主要是方便写代码时候代码补全实例属性和方法名，`funboost的`AbstractConsumer`和`AbstractPublisher` 有丰富的实例属性和方法，如果mixin类不继承父类，funboost代码运行毫无问题，只是不方便你写代码时候ide代码自动补全提示，你的键盘容易敲错单词字母。
+
+
 
 ai可以参考文档 `funboost_all_docs_and_codes.md` 中教程的 4.21b 章节
 
 ai可以参考 `funboost/contrib/override_publisher_consumer_cls` 目录下的代码，这些是覆盖父类定制逻辑。
 
 
+
 ----------------
+
+# 4. `register_custom_broker` 和 `override_cls` 理论上都能实现新增broker和定制运行逻辑
+
+## 4.1 register_custom_broker 为什么也可以定制运行逻辑？
+register_custom_broker采用经典继承，重写 AbstractPublisher 或者 AbstractPublisher的某个具体的子类的方法，  
+推荐重写和操作消息队列有关的方法，例如 `_publish_impl`,   
+
+但是为什么register_custom_broker也能定制运行逻辑，因为你完全可以重写 _submit_task _run 等通用的函数运行控制方法， 
+没禁止你不能重写控制函数运行的这些方法。
+
+## 4.2 override_cls 为什么也可以新增全新中间件？
+
+override_cls采用mixin混入，框架自动将新的中间件类混入到父类中，用户可以在新的中间件类中重写父类的方法，实现定制逻辑，
+并且mixin类的方法作为mro查找顺序的最高优先级。
+
+@boost除了要指定`consumer_override_cls` 和 `publisher_override_cls` ，你还需要指定 `broker_kind=BrokerEnum.EMPTY` 即可。
+```python
+    @boost(BoosterParams(
+        queue_name='my_task',
+        consumer_override_cls=YourConsumerMixin,
+        publisher_override_cls=YourPublisherMixin,
+        broker_kind=BrokerEnum.EMPTY,
+    ))
+    def my_task(x):
+        return x * 2
+   
+```
+
 
 
 # publisher 和 consumer 如何写
 
-## Publisher 继承 AbstractPublisher，需要实现的方法：
+## ai要遵循的规则
+```
+注意：
+1.你要阅读 `funboost_all_docs_and_codes.md`中的4.21章节，`4.21 funboost完全自由定制扩展`
+2.你要阅读 `funboost_all_docs_and_codes.md` 中的 `funboost/md_for_ai/如何扩展增加新的中间件.md`
+3.你要参考已有的funboost扩展代码实现 `funboost/contrib/override_publisher_consumer_cls` 和 `funboost/contrib/register_custom_broker_contrib` 文件夹中的代码。
+4.你要阅读 `funboost/consumers/base_consumer.py`的AbstractConsumer基类逻辑
+5.你要阅读 `funboost/publishers/base_publisher.py`的AbstractPublisher基类逻辑
+```
+
+## Publisher 继承 AbstractPublisher ，需要实现的方法：
 
 - `custom_init()` - 可选，自定义初始化
 - `_publish_impl(msg: str)` - **必须实现**，发布消息的核心逻辑
@@ -50793,6 +52672,54 @@ ai可以参考 `funboost/contrib/override_publisher_consumer_cls` 目录下的�
 - `_dispatch_task()` - **必须实现**，从中间件取出消息，循环调用 `self._submit_task(kw)`
 - `_confirm_consume(kw)` - **必须实现**，确认消费（ack）
 - `_requeue(kw)` - **必须实现**，消息重入队
+- 如果涉及到函数控制修改的，确保要兼容 _run 和 _async_run 同步和异步两个方法
+
+## 重写父类方法时，不要忘了调用 super().xx()
+
+### 规则
+
+- 重写 AbstractPublisher / AbstractConsumer 的同名方法时，**必须调用 super().xx()**
+
+- 即使父类方法是 `pass` 的空方法，为了未来扩展，也必须调用。
+  例如虽然 `AbstractConsumer` 没有具体实现 `_both_sync_and_aio_frame_custom_record_process_info_func` 方法（只是 pass），
+  但 `PrometheusConsumerMixin` 和 `CircuitBreakerConsumerMixin` 都重写了这个方法，
+  用户可能需要组合多个 mixin，例如 `class MyCombinedMixin(CircuitBreakerConsumerMixin,PrometheusConsumerMixin)`，
+  正是因为两者都调用了 `super()._both_sync_and_aio_frame_custom_record_process_info_func()`，MRO 链才不会断，两个 mixin 的逻辑才都能执行。
+
+- 以下两种情况**可以不调用** super()：
+  1. 父类方法抛出了 `raise NotImplementedError`（纯抽象方法），例如 `_publish_impl`、`_dispatch_task`、`_confirm_consume`、`_requeue` 等
+  2. 确实需要完全替换父类逻辑，不能让父类代码执行（如 `MicroBatchConsumerMixin` 完全重写 `_submit_task`）
+
+### super() 的调用位置
+
+- **初始化类方法**（`custom_init`、`_before_start_consuming_message_hook`）：先调 `super()`，再执行自己的初始化
+- **前置拦截类方法**（`_submit_task` 加配额检查、熔断阻塞）：先执行自己的逻辑，再调 `super()`
+- **后置记录类方法**（`_after_publish`、`_both_sync_and_aio_frame_custom_record_process_info_func`）：先调或后调 `super()` 均可，因为父类目前是 `pass`
+- **前后都有自己逻辑的方法**（如 `_run`、`_async_run` 加链路追踪）：在自己的逻辑中间调 `super()`，例如 `AutoOtelConsumerMixin._run` 先开启 span，然后在 span 激活状态下调 `super()._run(kw)`，捕获异常后记录到 span，`super()` 夹在自己逻辑的中间
+
+### 正确示例 vs 错误示例
+
+```python
+# 正确 —— 初始化时先调 super()
+def custom_init(self):
+    super().custom_init()
+    self._my_config = self.consumer_params.user_options.get('my_key', 10)
+
+# 正确 —— 前置拦截后调 super()
+def _submit_task(self, kw):
+    self._check_something()       # 自己的前置逻辑
+    super()._submit_task(kw)      # 再走父类流程
+
+# 正确 —— 包裹父类调用
+def _run(self, kw: dict):
+    with some_context():
+        return super()._run(kw)   # 在上下文中调父类
+
+# 错误 —— 忘记调用 super()
+def custom_init(self):
+    self._my_config = self.consumer_params.user_options.get('my_key', 10)
+    # 缺少 super().custom_init()，父类未来的初始化逻辑会被跳过
+```
 
 ##  consumer的 _submit_task(kw) 方法的kw 字典必须包含的字段：
 
@@ -50806,6 +52733,29 @@ kw = {
 }
 self._submit_task(kw)
 ```
+
+## ai使用 override_cls 扩展mixin类的时候，最好是将新增的多个配置入参放在 user_options字典的 某个key中
+
+例如 CircuitBreakerConsumerMixin 的熔断器配置，可以放在 user_options字典的 'circuit_breaker_options' 这个key中。
+因为可以防止 user_options 字典中其他key和熔断器配置key冲突。
+
+
+## ai扩展mixin类，如果需要使用框架提供的记录结果的钩子函数，请使用以下方法
+
+- `_both_sync_and_aio_frame_custom_record_process_info_func` 
+  同步和异步都会调用，如果是纯cpu计算，里面不涉及到io可以用这个。
+- `_frame_custom_record_process_info_func`  
+  里面涉及到io操作，不能用 `_both_sync_and_aio_frame_custom_record_process_info_func`，要重写这个。
+- `_aio_frame_custom_record_process_info_func`
+  里面涉及到io操作，不能用 `_both_sync_and_aio_frame_custom_record_process_info_func`，要重写这个。
+  为了避免代码和同步的 `_frame_custom_record_process_info_func` 重复，所以可以快速的用 `simple_run_in_executor` 将异步逻辑转换成同步逻辑。
+  ```python
+  await super()._aio_frame_custom_record_process_info_func(current_function_result_status, kw)
+  await simple_run_in_executor(self._frame_custom_record_process_info_func, current_function_result_status, kw)
+  ```
+
+
+
 
 ## broker特有独有配置访问规范：
 
@@ -51523,7 +53473,7 @@ class DramatiqPublisher(AbstractPublisher, ):
 `````python
 # -*- coding: utf-8 -*-
 # @Author  : ydf
-# @Time    : 2023/8/8 0008 12:12
+# @Time    : 2023/8/6 0006 12:12
 
 import abc
 from funboost.publishers.base_publisher import AbstractPublisher
@@ -51667,7 +53617,7 @@ class FastestMemQueuePublisher(AbstractPublisher):
 `````python
 # -*- coding: utf-8 -*-
 # @Author  : ydf
-# @Time    : 2023/8/8 0008 12:12
+# @Time    : 2023/8/6 0006 12:12
 
 import abc
 import asyncio
@@ -52545,7 +54495,7 @@ class MysqlCdcPublisher(AbstractPublisher):
 `````python
 # -*- coding: utf-8 -*-
 # @Author  : ydf
-# @Time    : 2023/8/8 0008 12:12
+# @Time    : 2023/8/6 0006 12:12
 import copy
 import json
 import time
@@ -52802,7 +54752,7 @@ class PersistQueuePublisher(AbstractPublisher):
 `````python
 # -*- coding: utf-8 -*-
 # @Author  : AI Assistant
-# @Time    : 2026/1/16
+# @Time    : 2026/1/18
 """
 PostgreSQL Publisher - 原生高性能实现
 利用 PostgreSQL 的 RETURNING 和 NOTIFY 特性
@@ -53005,7 +54955,7 @@ class RabbitmqPublisherUsingAmqpStorm(AbstractPublisher):
 `````python
 # -*- coding: utf-8 -*-
 # @Author  : ydf
-# @Time    : 2026/1/14
+# @Time    : 2026/1/11
 """
 使用 amqp 包实现的高性能 RabbitMQ Publisher。
 amqp 是 Celery/Kombu 底层使用的 AMQP 客户端，性能比 pika 更好。
@@ -53510,7 +55460,7 @@ class RedisPriorityPublisher(FlushRedisQueueMixin,AbstractPublisher, RedisMixin,
 `````python
 # -*- coding: utf-8 -*-
 # @Author  : ydf
-# @Time    : 2023/8/8 0008 12:12
+# @Time    : 2023/8/6 0006 12:12
 from funboost.publishers.base_publisher import AbstractPublisher
 from funboost.publishers.redis_queue_flush_mixin import FlushRedisQueueMixin
 from funboost.utils.redis_manager import RedisMixin
@@ -54003,7 +55953,7 @@ class SqlachemyQueuePublisher(AbstractPublisher):
 `````python
 # -*- coding: utf-8 -*-
 # @Author  : ydf
-# @Time    : 2026/1/12
+# @Time    : 2026/1/11
 """
 使用 AWS SQS 作为消息队列中间件的发布者实现。
 使用 boto3 SDK 操作 SQS。
@@ -54746,7 +56696,7 @@ if __name__ == '__main__':
 `````python
 # -*- coding: utf-8 -*-
 # @Author  : AI Assistant
-# @Time    : 2026/1/16
+# @Time    : 2026/1/18
 """
 原生 PostgreSQL 消息队列实现
 充分利用 PostgreSQL 相比 MySQL 的独特优势：
@@ -58031,6 +59981,188 @@ if __name__ == '__main__':
 `````
 
 --- **end of file: funboost/utils/mqtt_util.py** (project: funboost) --- 
+
+---
+
+
+--- **start of file: funboost/utils/notify_util.py** (project: funboost) --- 
+
+`````python
+import requests
+import json
+import inspect
+import logging
+from typing import Optional
+
+logger = logging.getLogger(__name__)
+
+class Notifier:
+    """
+    企业消息推送工具，支持钉钉、企业微信、飞书机器人。
+    """
+
+    def __init__(self,
+                 dingtalk_webhook: Optional[str] = None,
+                 wechat_webhook: Optional[str] = None,
+                 feishu_webhook: Optional[str] = None):
+        """
+        初始化通知器，可配置各平台的默认 Webhook。
+
+        :param dingtalk_webhook: 钉钉机器人的 Webhook 地址
+        :param wechat_webhook:  企业微信机器人的 Webhook 地址
+        :param feishu_webhook:  飞书机器人的 Webhook 地址
+        """
+        self.dingtalk_webhook = dingtalk_webhook
+        self.wechat_webhook = wechat_webhook
+        self.feishu_webhook = feishu_webhook
+
+    def _get_caller_info(self) -> str:
+        """获取调用者的文件路径和行号"""
+        try:
+            # 获取调用栈，跳过当前方法和发送方法
+            frame = inspect.currentframe()
+            caller_frame = frame.f_back.f_back
+            
+            # 获取文件路径和行号
+            filename = caller_frame.f_code.co_filename
+            lineno = caller_frame.f_lineno
+            
+            # 简化文件路径，只显示最后两层目录
+            parts = filename.split('/')
+            if len(parts) >= 2:
+                short_path = '/'.join(parts[-2:])
+            else:
+                short_path = filename
+            
+            return f"{short_path}:{lineno}"
+        except Exception:
+            return "unknown:0"
+
+    def send_dingtalk(self, message: str, webhook: Optional[str] = None, add_caller_info: bool = True) -> bool:
+        """
+        发送钉钉文本消息。
+
+        :param message: 消息内容
+        :param webhook: 可选，覆盖实例化时的默认 Webhook
+        :param add_caller_info: 是否自动添加调用者信息（文件路径和行号），默认 True
+        :return: 是否发送成功
+        """
+        url = webhook or self.dingtalk_webhook
+        if not url:
+            raise ValueError("钉钉 Webhook 未配置")
+
+        if add_caller_info:
+            caller_info = self._get_caller_info()
+            message = f"{message}\n\n📍发送位置: {caller_info}"
+
+        logger.warning(f"发送钉钉消息: {message} ")
+
+        payload = {
+            "msgtype": "text",
+            "text": {
+                "content": message
+            }
+        }
+        return self._post(url, payload)
+
+    def send_wechat(self, message: str, webhook: Optional[str] = None, add_caller_info: bool = True) -> bool:
+        """
+        发送企业微信文本消息。
+
+        :param message: 消息内容
+        :param webhook: 可选，覆盖实例化时的默认 Webhook
+        :param add_caller_info: 是否自动添加调用者信息（文件路径和行号），默认 True
+        :return: 是否发送成功
+        """
+        url = webhook or self.wechat_webhook
+        if not url:
+            raise ValueError("企业微信 Webhook 未配置")
+
+        if add_caller_info:
+            caller_info = self._get_caller_info()
+            message = f"{message}\n\n📍发送位置: {caller_info}"
+
+        logger.warning(f"发送企业微信消息: {message}")
+
+        payload = {
+            "msgtype": "text",
+            "text": {
+                "content": message
+            }
+        }
+        return self._post(url, payload)
+
+    def send_feishu(self, message: str, webhook: Optional[str] = None, add_caller_info: bool = True) -> bool:
+        """
+        发送飞书文本消息。
+
+        :param message: 消息内容
+        :param webhook: 可选，覆盖实例化时的默认 Webhook
+        :param add_caller_info: 是否自动添加调用者信息（文件路径和行号），默认 True
+        :return: 是否发送成功
+        """
+        url = webhook or self.feishu_webhook
+        if not url:
+            raise ValueError("飞书 Webhook 未配置")
+
+        if add_caller_info:
+            caller_info = self._get_caller_info()
+            message = f"{message}\n\n📍发送位置: {caller_info}"
+
+        logger.warning(f"发送飞书消息: {message} ")
+
+        payload = {
+            "msg_type": "text",
+            "content": {
+                "text": message
+            }
+        }
+        return self._post(url, payload)
+
+    def _post(self, url: str, payload: dict) -> bool:
+        """内部方法：发送 POST 请求并检查响应"""
+        try:
+            headers = {'Content-Type': 'application/json'}
+            resp = requests.post(url, headers=headers, data=json.dumps(payload), timeout=10)
+            resp.raise_for_status()
+            result = resp.json()
+            # 不同平台的返回格式略有差异，通常 errcode/errcode/code 为 0 表示成功
+            if result.get('errcode') == 0 or result.get('code') == 0:
+                return True
+            # 飞书成功时没有 errcode 字段，而是 StatusCode 0
+            if result.get('StatusCode') == 0:
+                return True
+            # 打印错误信息便于调试
+            print(f"发送失败: {result}")
+            return False
+        except Exception as e:
+            print(f"请求异常: {e}")
+            return False
+
+
+# ========== 使用示例 ==========
+if __name__ == '__main__':
+    # 1. 初始化时配置默认 Webhook
+    notifier = Notifier(
+        dingtalk_webhook='https://oapi.dingtalk.com/robot/send?access_token=your_token',
+        wechat_webhook='https://qyapi.weixin.qq.com/cgi-bin/webhook/send?key=your_key',
+        feishu_webhook='https://open.feishu.cn/open-apis/bot/v2/hook/your_webhook'
+    )
+
+    # 2. 发送消息（使用默认配置，自动添加调用者信息）
+    # notifier.send_dingtalk("钉钉消息测试")
+    notifier.send_wechat("企业微信消息测试")
+    # notifier.send_feishu("飞书消息测试")
+
+    # 3. 也可以临时指定不同 Webhook 覆盖默认值
+    # notifier.send_dingtalk("临时消息", webhook="https://另一个钉钉机器人")
+
+    # 4. 可以关闭自动添加调用者信息
+    # notifier.send_wechat("不显示位置的消息", add_caller_info=False)
+
+`````
+
+--- **end of file: funboost/utils/notify_util.py** (project: funboost) --- 
 
 ---
 
